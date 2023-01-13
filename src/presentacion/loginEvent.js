@@ -1,32 +1,18 @@
-import { useState } from 'react'
-import validacion from './validacion'
-
+import {useForm} from 'react-hook-form'
+import { INGRESE_USUARIO ,INGRESE_CONTRASEÑA } from '../cross-cutting/constant';
 const LoginEvent = (initialData) => {
 
-    const [form,setForm] = useState(initialData)
-    const [errors, setErrors] = useState({})
+    const { register, handleSubmit, formState:{errors}} = useForm ({defaultValues:initialData});
 
-    const  onChange = (event) =>{
-
-        const {name, value} = event.target
-        setForm({...form, [name]:value})
+    const mensajes ={
+        usuario: INGRESE_USUARIO,
+        contraseña: INGRESE_CONTRASEÑA
     }
-
-    const handleBlur = (event) =>{
-        onChange(event);
-        setErrors(validacion(form));
+    const onSubmit = (data) => {
+        console.log(data);
     }
-
-    const handleSubmit = (event) =>{
-        
-        event.preventDefault()
-        
-        console.log("Enviando formulario")
-    }
-
     
-
-  return { form, errors, handleBlur,onChange, handleSubmit}
+  return { mensajes, register,errors, handleSubmit,onSubmit }
 }
 
 export default LoginEvent
