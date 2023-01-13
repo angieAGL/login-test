@@ -1,0 +1,7 @@
+:root{
+    --color-boton: rgba(112, 198, 27, 0.887);
+}
+#boton{
+    background-color: var(--color-boton);
+    
+}
