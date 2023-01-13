@@ -1,3 +1,7 @@
+:root{
+    --color-error: #bf1650;
+}
+
 .wrapper{
     background-color: rgb(225, 225, 225);
     display: flex;
@@ -15,9 +19,6 @@
     background: rgb(255, 255, 255);
 }
 
-.error{
-    width: 100%;
-margin-top: .25rem;
-font-size: .875em;
-color: var(--bs-danger-text);
-}
+.error {
+    border: 2px solid var(--color-error) ;
+  }
