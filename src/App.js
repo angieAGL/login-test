@@ -1,9 +1,7 @@
-import { Login } from './ui/components/Login';
+import { LoginView } from "./ui/components/autenticacion/LoginView";
 
 function App() {
-  return (
-   <Login/>
-  );
+  return <LoginView />;
 }
 
 export default App;
