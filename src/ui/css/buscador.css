@@ -1,0 +1,25 @@
+@import url("variables.css");
+@import url("textos.css");
+
+
+.buscar_id {
+  box-sizing: border-box;
+  height: var(--height-buscador);
+  border: var(--border-buscador);
+}
+
+.buscar_nombre {
+  box-sizing: border-box;
+  width: 327px;
+  height: var(--height-buscador);
+  border: var(--border-buscador);
+  margin-right: 13px;
+}
+
+.buscar_estado {
+  box-sizing: border-box;
+  width: 201px;
+  height: var(--height-buscador);
+  border: var(--border-buscador);
+  margin-right: 56px;
+}

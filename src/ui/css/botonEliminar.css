@@ -1,0 +1,7 @@
+@import url("variables.css");
+
+.eliminar{
+    background-color: transparent;
+    color: var(--color-principal);
+    margin: 10px;
+}

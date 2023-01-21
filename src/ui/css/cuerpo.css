@@ -1,0 +1,15 @@
+@import url("variables.css");
+@import url("textos.css");
+
+
+.cuerpo {
+  background-color: white;
+
+  text-align: center;
+  color: var(--color-text);
+
+}
+
+.cuerpo tr:hover {
+  background: #d6f5f3;
+}
