@@ -1,6 +1,4 @@
-:root{
-    --color-error: #bf1650;
-}
+@import url("variables.css");
 
 .wrapper{
     background-color: rgb(225, 225, 225);

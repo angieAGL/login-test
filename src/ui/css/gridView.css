@@ -1,0 +1,7 @@
+@import url("textos.css");
+
+.grid {
+  background: rgba(132, 132, 132, 0.05);
+  border-radius: 25px 25px 0px 0px;
+  height: 100vh;
+}

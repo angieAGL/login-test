@@ -1,7 +1,29 @@
-:root{
-    --color-boton: rgba(112, 198, 27, 0.887);
+@import url("variables.css");
+
+.btn {
+  background-color: var(--color-principal);
+  color: white;
 }
-#boton{
-    background-color: var(--color-boton);
-    
+
+.btn_paginacion {
+  background-color: white;
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+  margin: 5px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #f1f1f1;
+  border-radius: 8px;
+}
+
+.actual,
+.actual:disabled {
+  background-color: var(--color-principal);
+  color: white;
+  opacity: unset;
 }

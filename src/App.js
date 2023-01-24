@@ -1,7 +1,10 @@
-import { LoginView } from "./ui/components/autenticacion/LoginView";
+//import LoginView  from "./ui/components/autenticacion/LoginView";
+import DemoGridView from "./ui/components/mantenimiento/demo/DemoGridView";
+
 
 function App() {
-  return <LoginView />;
+  
+  return  <DemoGridView buscarCabecera={true} buscarSingle={true}  />;
 }
 
 export default App;

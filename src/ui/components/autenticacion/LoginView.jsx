@@ -1,9 +1,9 @@
 import React from "react";
 import "../../css/login.css";
-import { Boton } from "../common/Boton";
+import { Boton } from "../common/grids/botones/Boton";
 import LoginValidation from "./LoginValidation";
 
-export const LoginView = () => {
+const LoginView = () => {
   const {
     handleSubmit,
     onSubmit,
@@ -54,3 +54,5 @@ export const LoginView = () => {
     </div>
   );
 };
+
+export default LoginView;
