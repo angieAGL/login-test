@@ -1,22 +1,15 @@
-import React from "react";
-import "../../../../css/buscador.css";
+import React from 'react'
 
-const BuscadorPorCabecera = ({ column }) => {
-  const { filterValue, setFilter } = column;
+const BuscadorPorCabecera = ({column}) => {
 
-  const filtar = (e) => {
-    setFilter(e.target.value);
-  };
+  const { filterValue, setFilter} = column
 
   return (
     <div className="col-auto">
-      <input
-        className="form-control form-control-sm mt-3 buscar"
-        value={filterValue || ""}
-        onChange={filtar}
-      />
-    </div>
-  );
-};
+      <input class="form-control form-control-sm" value={filterValue || ''} onChange={ (e)=> setFilter(e.target.value)} />
+      </div>
+    
+  )
+}
 
-export default BuscadorPorCabecera;
+export default BuscadorPorCabecera

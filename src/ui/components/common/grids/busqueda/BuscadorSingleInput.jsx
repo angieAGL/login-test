@@ -10,9 +10,9 @@ const BuscadorSingleInput = (tabla) => {
   } = tabla;
   const [value, setValue] = useState(globalFilter);
 
-  const onFilterChange = useAsyncDebounce((value) => {
+  const onFilterChange = useAsyncDebounce((value) =>{
     setGlobalFilter(value || undefined);
-  }, 200);
+  },200);
 
   const buscar = () => {
     onFilterChange(value);
@@ -32,7 +32,7 @@ const BuscadorSingleInput = (tabla) => {
       <div className="row gap-2  text-center">
         <div className="col">
           <input
-            className="form-control buscar"
+            className="form-control buscar_id"
             value={value || ""}
             onChange={handleInputChange}
             placeholder="Ingrese el dato para buscar"
@@ -44,7 +44,24 @@ const BuscadorSingleInput = (tabla) => {
           <BotonBuscador text={"Limpiar"} onClick={reset}></BotonBuscador>
         </div>
       </div>
-    </div>
+
+        {/*<input
+        className="buscar_nombre"
+        size={40}
+        value={value || ""}
+        onChange={handleInputChange}
+        placeholder="Nombre"
+      />
+      <input
+        className="buscar_estado"
+        size={40}
+        value={value || ""}
+        onChange={handleInputChange}
+        placeholder="Estado"
+  />*/}
+
+      </div>
+
   );
 };
 

@@ -3,12 +3,9 @@ import { BotonEditar } from "../../common/grids/botones/BotonEditar";
 import { BotonEliminar } from "../../common/grids/botones/BotonEliminar";
 import CellActivo from "../../common/grids/CellActivo";
 import BuscadorPorCabecera from "../../common/grids/busqueda/BuscadorPorCabecera";
-import BuscadorPorSeleccion from "../../common/grids/busqueda/BuscadorPorSeleccion";
-import BuscadorPorFecha from "../../common/grids/busqueda/BuscadorPorFecha";
-import BotonReset from "../../common/grids/botones/BotonReset";
-import FormatoFecha from "../../common/grids/FormatoFecha";
 
 const ColumnaGrid = () => {
+
   const columns = useMemo(
     () => [
       {
@@ -20,50 +17,49 @@ const ColumnaGrid = () => {
         Header: "Nombre",
         accessor: "nombre",
         Filter: BuscadorPorCabecera,
+
       },
       {
         Header: "Apellido",
         accessor: "apellido",
         Filter: BuscadorPorCabecera,
+
       },
       {
         Header: "Email",
         accessor: "email",
         Filter: BuscadorPorCabecera,
+
       },
       {
         Header: "Genero",
         accessor: "genero",
-        Filter: BuscadorPorSeleccion,
-        filter: "includes",
+        Filter: BuscadorPorCabecera,
+
       },
       {
         Header: "Numeros",
         accessor: "numeros",
         Filter: BuscadorPorCabecera,
+
       },
       {
         Header: "Fecha",
         accessor: "fecha",
-        Filter: BuscadorPorFecha,
-        /*Cell: ({ row }) => FormatoFecha(row.values.fecha),*/
-      },
-      {
-        Header: "FechaFormato",
-        accessor: "fechaFormato",
-        Cell: ({ row }) => FormatoFecha(row.values.fecha),
-        Filter: BuscadorPorFecha,
+        Filter: BuscadorPorCabecera,
+
       },
       {
         Header: "Activo",
         accessor: "activo",
-        Filter: BuscadorPorSeleccion,
+        Filter: BuscadorPorCabecera,
         Cell: ({ row }) => <CellActivo valor={row.values.activo} />,
+        
       },
       {
         Header: "Accion",
         accessor: "accion",
-        Filter: BotonReset,
+        disableFilters: true,
         Cell: ({ row }) => (
           <div>
             <BotonEditar
