@@ -1,7 +1,7 @@
 import React from "react";
 import "../../../css/cabecera.css";
 
-const Cabecera = (tabla) => {
+const Cabecera = (tabla, buscarCabecera) => {
   const { headerGroups } = tabla;
   //let tipoBuscador=true;
 
@@ -21,7 +21,11 @@ const Cabecera = (tabla) => {
                     // Pintamos el título de nuestra columna (propiedad "Header")
                     column.render("Header")
                   }
-                  <div>{column.canFilter ? column.render('Filter') : null}</div>
+                  {buscarCabecera ? (
+                    <div>
+                      {column.canFilter ? column.render("Filter") : null}
+                    </div>
+                  ) : null}
                 </th>
               ))
             }
