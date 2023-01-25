@@ -5,3 +5,6 @@ export const MENSAJE_LONGITUD_MINIMO_USUARIO =
   "La logitud minima del usuario es";
 export const LONGITUD_MINIMO_USUARIO = 3;
 export const TAMAÑO_PAGINAS = 10;
+export const ACTIVO = "Si";
+export const INACTIVO = "No";
+export const FORMATO_FECHA = "DD-MM-YYYY";
