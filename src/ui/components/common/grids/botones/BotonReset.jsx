@@ -6,7 +6,7 @@ const BotonReset = (tabla) => {
   return (
     <Boton
       text={"Reset"}
-      class_name={"mt-2"}
+      class_name={"mt-2 "}
       onClick={() => setAllFilters([])}
     />
   );

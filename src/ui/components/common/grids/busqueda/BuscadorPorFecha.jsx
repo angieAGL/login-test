@@ -1,5 +1,4 @@
 import React from "react";
-import dayjs from "dayjs";
 const BuscadorPorFecha = ({ column }) => {
   const { filterValue, setFilter } = column;
 
