@@ -14,8 +14,9 @@ import Cabecera from "../../common/grids/Cabecera";
 import Cuerpo from "../../common/grids/Cuerpo";
 import BuscadorSingleInput from "../../common/grids/busqueda/BuscadorSingleInput";
 import BuscadorPorCabecera from "../../common/grids/busqueda/BuscadorPorCabecera";
+import BuscadorMultiplesInput from "../../common/grids/busqueda/BuscadorMultiplesInput";
 
-const DemoGridView = ({ buscarSingle, buscarCabecera }) => {
+const DemoGridView = ({ buscarSingle, buscarCabecera, buscarMultiple }) => {
   const columns = ColumnaGrid();
   const data = FilasGrid();
 
@@ -35,6 +36,7 @@ const DemoGridView = ({ buscarSingle, buscarCabecera }) => {
   );
 
   const { getTableProps } = tabla;
+
   return (
     <div className="container-fluid grid">
       <h1 className="titulo">Mantenimiento </h1>
@@ -44,6 +46,7 @@ const DemoGridView = ({ buscarSingle, buscarCabecera }) => {
           className="table table-hover table-borderless "
           {...getTableProps()}
         >
+          {BuscadorMultiplesInput(tabla, buscarMultiple)}
           {Cabecera(tabla, buscarCabecera)}
           {Cuerpo(tabla)}
         </table>

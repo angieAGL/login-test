@@ -62,11 +62,11 @@ const ColumnaGrid = () => {
           <div>
             <BotonEditar
               href="#"
-              onClick={() => alert(`${row.values.numeros}`)}
+              onClick={() => alert(`${row.values.numero}`)}
             />
             <BotonEliminar
               href="#"
-              onClick={() => alert(`${row.values.numeros}`)}
+              onClick={() => alert(`${row.values.numero}`)}
             />
           </div>
         ),

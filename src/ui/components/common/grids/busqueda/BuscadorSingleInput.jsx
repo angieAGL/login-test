@@ -28,11 +28,11 @@ const BuscadorSingleInput = (tabla) => {
   };
 
   return (
-    <div className="d-grid mb-3 ">
+    <div className="d-grid">
       <div className="row gap-2  text-center">
         <div className="col">
           <input
-            className="form-control buscar_id"
+            className="form-control buscar_texto"
             value={value || ""}
             onChange={handleInputChange}
             placeholder="Ingrese el dato para buscar"

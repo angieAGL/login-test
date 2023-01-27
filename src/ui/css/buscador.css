@@ -1,13 +1,26 @@
 @import url("variables.css");
 @import url("textos.css");
 
-.buscar {
-  box-sizing: border-box;
-  height: var(--height-buscador);
-  border: var(--border-buscador);
+.buscar_texto {
+  font-family: var(--fuente-text);
+  font-style: normal;
+  font-weight: 400;
+  font-size: var(--texto-buscar-size);
+  line-height: 17px;
 }
+
+.buscar_texto_btn {
+  font-family: var(--fuente-text);
+  font-style: normal;
+  font-weight: 600;
+  font-size: var(--texto-buscar-size);
+  line-height: 17px;
+  align-items: center;
+  text-align: center;
+}
+
 .buscarSeleccion {
-  font-size: 16px;
+  font-size: var(--texto-buscar-size);
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
 }

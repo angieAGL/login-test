@@ -3,7 +3,6 @@
 .titulo {
   width: 184px;
   height: 37px;
-
   font-family: var(--fuente-text);
   font-style: normal;
   font-weight: 700;
@@ -13,14 +12,6 @@
   align-items: center;
 
   color: var(--color-text);
-}
-
-.buscar_texto {
-  font-family: var(--fuente-text);
-  font-style: normal;
-  font-weight: 400;
-  font-size: var(--texto-size);
-  line-height: 15px;
 }
 
 .cuerpo_texto {
@@ -35,16 +26,6 @@
   font-family: var(--fuente-text);
   font-style: normal;
   font-weight: 600;
-  font-size: 14px;
+  font-size: var(--texto-size);
   line-height: 17px;
-}
-
-.btn_buscar_texto {
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 17px;
-  align-items: center;
-  text-align: center;
 }

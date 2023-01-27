@@ -1,10 +1,10 @@
-import React from 'react'
-import { Boton } from './Boton'
+import React from "react";
+import { Boton } from "./Boton";
 
-const BotonBuscador = ({text,onClick}) => {
-  return (
-    <Boton text={text} class_name={"me-2 btn_buscar_texto "} onClick={onClick}></Boton>
-  )
-}
+const BotonBuscador = ({ text, onClick, class_name }) => {
+  const className = `me-2 buscar_texto_btn ${class_name}`;
 
-export default BotonBuscador
+  return <Boton text={text} class_name={className} onClick={onClick}></Boton>;
+};
+
+export default BotonBuscador;
