@@ -28,7 +28,7 @@ const BuscadorSingleInput = (tabla) => {
   };
 
   return (
-    <div className="d-grid mb-3 ">
+    <div className="d-grid">
       <div className="row gap-2  text-center">
         <div className="col">
           <input

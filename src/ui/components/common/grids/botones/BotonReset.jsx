@@ -1,12 +1,12 @@
 import React from "react";
-import { Boton } from "./Boton";
+import BotonBuscador from "./BotonBuscador";
 
 const BotonReset = (tabla) => {
   const { setAllFilters } = tabla;
   return (
-    <Boton
+    <BotonBuscador
       text={"Reset"}
-      class_name={"mt-2 "}
+      class_name={"mt-3 mx-auto form-control"}
       onClick={() => setAllFilters([])}
     />
   );

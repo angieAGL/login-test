@@ -1,14 +1,10 @@
 import React from "react";
 import { Boton } from "./Boton";
 
-const BotonBuscador = ({ text, onClick }) => {
-  return (
-    <Boton
-      text={text}
-      class_name={"me-2 buscar_texto_btn "}
-      onClick={onClick}
-    ></Boton>
-  );
+const BotonBuscador = ({ text, onClick, class_name }) => {
+  const className = `me-2 buscar_texto_btn ${class_name}`;
+
+  return <Boton text={text} class_name={className} onClick={onClick}></Boton>;
 };
 
 export default BotonBuscador;

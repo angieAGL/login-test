@@ -35,51 +35,18 @@ const DemoGridView = ({ buscarSingle, buscarCabecera, buscarMultiple }) => {
     usePagination
   );
 
-  const { getTableProps, headerGroups } = tabla;
+  const { getTableProps } = tabla;
 
   return (
     <div className="container-fluid grid">
       <h1 className="titulo">Mantenimiento </h1>
       {buscarSingle ? BuscadorSingleInput(tabla) : null}
-      {/*buscarMultiple ? BuscadorMultiplesInput(tabla) : null*/}
-
-      {
-        <div className="table-responsive">
-          <table className="table  table-borderless ">
-            <thead>
-              {
-                // Recorremos las columnas que previamente definimos
-                headerGroups.map((headerGroup) => (
-                  // Añadimos las propiedades al conjunto de columnas
-                  <tr>
-                    {
-                      // Recorremos cada columna del conjunto para acceder a su información
-                      headerGroup.headers.map((column) => (
-                        // Añadimos las propiedades a cada celda de la cabecera
-                        <th>
-                          {buscarCabecera ? (
-                            <div>
-                              {column.canFilter
-                                ? column.render("Filter")
-                                : null}
-                            </div>
-                          ) : null}
-                        </th>
-                      ))
-                    }
-                  </tr>
-                ))
-              }
-            </thead>
-          </table>
-        </div>
-      }
-
       <div className="table-responsive">
         <table
           className="table table-hover table-borderless "
           {...getTableProps()}
         >
+          {BuscadorMultiplesInput(tabla, buscarMultiple)}
           {Cabecera(tabla, buscarCabecera)}
           {Cuerpo(tabla)}
         </table>
