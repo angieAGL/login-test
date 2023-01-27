@@ -5,7 +5,7 @@ const BuscadorPorCabecera = ({ column }) => {
   const { filterValue, setFilter } = column;
 
   return (
-    <div className="prueba">
+    <div className="col-auto">
       <input
         className="form-control form-control-sm mt-3 buscar_texto"
         value={filterValue || ""}
