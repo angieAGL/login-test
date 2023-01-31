@@ -3,7 +3,7 @@ import { useAsyncDebounce } from "react-table";
 import "../../../../css/buscador.css";
 import BotonBuscador from "../botones/BotonBuscador";
 
-const BuscadorSingleInput = (tabla) => {
+const BuscadorSingleInput = (tabla:any) => {
   const {
     setGlobalFilter,
     state: { globalFilter },
@@ -22,7 +22,7 @@ const BuscadorSingleInput = (tabla) => {
     setValue("");
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e:any) => {
     setValue(e.target.value);
     console.log(e.target.value);
   };
@@ -44,21 +44,6 @@ const BuscadorSingleInput = (tabla) => {
           <BotonBuscador text={"Limpiar"} onClick={reset}></BotonBuscador>
         </div>
       </div>
-
-      {/*<input
-        className="buscar_nombre"
-        size={40}
-        value={value || ""}
-        onChange={handleInputChange}
-        placeholder="Nombre"
-      />
-      <input
-        className="buscar_estado"
-        size={40}
-        value={value || ""}
-        onChange={handleInputChange}
-        placeholder="Estado"
-  />*/}
     </div>
   );
 };

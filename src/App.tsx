@@ -1,4 +1,5 @@
-//import LoginView  from "./ui/components/autenticacion/LoginView";
+import React from "react";
+//import LoginView from "./ui/components/autenticacion/LoginView";
 import DemoGridView from "./ui/components/mantenimiento/demo/DemoGridView";
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
       buscarSingle={true}
       buscarMultiple={true}
     />
+    /*<LoginView></LoginView>*/
   );
 }
 

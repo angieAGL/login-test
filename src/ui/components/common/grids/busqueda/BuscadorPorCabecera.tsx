@@ -1,7 +1,7 @@
 import React from "react";
 import "../../../../css/buscador.css";
 
-const BuscadorPorCabecera = ({ column }) => {
+const BuscadorPorCabecera = ({ column }:any) => {
   const { filterValue, setFilter } = column;
 
   return (

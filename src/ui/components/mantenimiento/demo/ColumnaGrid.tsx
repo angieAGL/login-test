@@ -8,7 +8,7 @@ import BuscadorPorFecha from "../../common/grids/busqueda/BuscadorPorFecha";
 import BotonReset from "../../common/grids/botones/BotonReset";
 import FormatoFecha from "../../common/FormatoFecha";
 
-const ColumnaGrid = () => {
+const ColumnaGrid : any= () => {
   const columns = useMemo(
     () => [
       {
@@ -46,19 +46,19 @@ const ColumnaGrid = () => {
         Header: "Fecha",
         accessor: "fecha",
         Filter: BuscadorPorFecha,
-        Cell: ({ row }) => FormatoFecha(row.values.fecha),
+        Cell: ({ row }:any) => FormatoFecha(row.values.fecha),
       },
       {
         Header: "Activo",
         accessor: "activo",
         Filter: BuscadorPorSeleccion,
-        Cell: ({ row }) => <CellActivo valor={row.values.activo} />,
+        Cell: ({ row }:any) => <CellActivo valor={row.values.activo} />,
       },
       {
         Header: "Accion",
         accessor: "accion",
         Filter: BotonReset,
-        Cell: ({ row }) => (
+        Cell: ({ row }:any) => (
           <div>
             <BotonEditar
               href="#"

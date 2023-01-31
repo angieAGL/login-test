@@ -8,7 +8,7 @@ import {
 import "../../../css/paginacion.css";
 import { Boton } from "./botones/Boton";
 
-const Paginacion = (tabla) => {
+const Paginacion = (tabla:any) => {
   const {
     canPreviousPage,
     canNextPage,

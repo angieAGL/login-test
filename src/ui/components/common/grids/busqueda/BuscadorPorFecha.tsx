@@ -1,8 +1,8 @@
 import React from "react";
-const BuscadorPorFecha = ({ column }) => {
+const BuscadorPorFecha = ({ column }:any) => {
   const { filterValue, setFilter } = column;
 
-  const filtrar = (e) => {
+  const filtrar = (e:any) => {
     setFilter(e.target.value);
   };
 

@@ -16,7 +16,7 @@ import BuscadorSingleInput from "../../common/grids/busqueda/BuscadorSingleInput
 import BuscadorPorCabecera from "../../common/grids/busqueda/BuscadorPorCabecera";
 import BuscadorMultiplesInput from "../../common/grids/busqueda/BuscadorMultiplesInput";
 
-const DemoGridView = ({ buscarSingle, buscarCabecera, buscarMultiple }) => {
+const DemoGridView = ({ buscarSingle, buscarCabecera, buscarMultiple }:any) => {
   const columns = ColumnaGrid();
   const data = FilasGrid();
 
@@ -24,10 +24,10 @@ const DemoGridView = ({ buscarSingle, buscarCabecera, buscarMultiple }) => {
     {
       columns,
       data,
-      defaultColumn: { Filter: BuscadorPorCabecera },
+      //defaultColumn: { Filter: BuscadorPorCabecera },
       initialState: {
-        pageSize: TAMAÑO_PAGINAS,
-        pageIndex: 0,
+        //pageSize: TAMAÑO_PAGINAS,
+        //pageIndex: 0,
       },
     },
     useFilters,
