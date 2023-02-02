@@ -16,7 +16,13 @@ import BuscadorSingleInput from "../../common/grids/busqueda/BuscadorSingleInput
 import BuscadorPorCabecera from "../../common/grids/busqueda/BuscadorPorCabecera";
 import BuscadorMultiplesInput from "../../common/grids/busqueda/BuscadorMultiplesInput";
 
-const DemoGridView = ({ buscarSingle, buscarCabecera, buscarMultiple }:any) => {
+type Buscadores ={
+  buscarSingle:boolean, 
+  buscarCabecera:boolean, 
+  buscarMultiple:boolean
+}
+
+const DemoGridView = ({ buscarSingle, buscarCabecera, buscarMultiple }:Buscadores) => {
   const columns = ColumnaGrid();
   const data = FilasGrid();
 
@@ -24,18 +30,18 @@ const DemoGridView = ({ buscarSingle, buscarCabecera, buscarMultiple }:any) => {
     {
       columns,
       data,
-      //defaultColumn: { Filter: BuscadorPorCabecera },
+      defaultColumn:{Filter: BuscadorPorCabecera } as object,
       initialState: {
-        //pageSize: TAMAÑO_PAGINAS,
-        //pageIndex: 0,
-      },
+        pageSize: TAMAÑO_PAGINAS,
+        pageIndex: 0,
+      }as object ,
     },
     useFilters,
     useGlobalFilter,
     usePagination
   );
 
-  const { getTableProps } = tabla;
+  const { getTableProps,headerGroups } = tabla;
 
   return (
     <div className="container-fluid grid">
@@ -47,7 +53,7 @@ const DemoGridView = ({ buscarSingle, buscarCabecera, buscarMultiple }:any) => {
           {...getTableProps()}
         >
           {BuscadorMultiplesInput(tabla, buscarMultiple)}
-          {Cabecera(tabla, buscarCabecera)}
+          {Cabecera(headerGroups, buscarCabecera)}
           {Cuerpo(tabla)}
         </table>
       </div>

@@ -7,9 +7,23 @@ import BuscadorPorSeleccion from "../../common/grids/busqueda/BuscadorPorSelecci
 import BuscadorPorFecha from "../../common/grids/busqueda/BuscadorPorFecha";
 import BotonReset from "../../common/grids/botones/BotonReset";
 import FormatoFecha from "../../common/FormatoFecha";
+import { Column } from "react-table";
+import React from "react";
 
-const ColumnaGrid : any= () => {
-  const columns = useMemo(
+
+type Data ={
+  id:number,
+  nombre:string,
+  apellido:string,
+  email:string,
+  genero:string,
+  numero: number,
+  fecha:string,
+  activo:boolean,
+  accion?: React.ReactNode
+}
+const ColumnaGrid = () => {
+  const columns =  useMemo<Column<Data>[]>(
     () => [
       {
         Header: "ID",
@@ -46,13 +60,13 @@ const ColumnaGrid : any= () => {
         Header: "Fecha",
         accessor: "fecha",
         Filter: BuscadorPorFecha,
-        Cell: ({ row }:any) => FormatoFecha(row.values.fecha),
+        //Cell: ({row} :any) => FormatoFecha(row.values.fecha),
       },
       {
         Header: "Activo",
         accessor: "activo",
         Filter: BuscadorPorSeleccion,
-        Cell: ({ row }:any) => <CellActivo valor={row.values.activo} />,
+        Cell: ({ row }:any) => CellActivo(row.values.activo) ,
       },
       {
         Header: "Accion",

@@ -2,7 +2,7 @@ import React from "react";
 const BuscadorPorFecha = ({ column }:any) => {
   const { filterValue, setFilter } = column;
 
-  const filtrar = (e:any) => {
+  const filtrar = (e:React.ChangeEvent<HTMLInputElement>) => {
     setFilter(e.target.value);
   };
 

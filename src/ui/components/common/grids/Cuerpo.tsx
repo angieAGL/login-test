@@ -2,13 +2,14 @@ import React from "react";
 import "../../../css/cuerpo.css";
 
 const Cuerpo = (tabla:any) => {
-  const { getTableBodyProps, prepareRow, page } = tabla;
+  const { getTableBodyProps, prepareRow, page} = tabla;
   return (
     <tbody className="cuerpo cuerpo_texto" {...getTableBodyProps()}>
       {
         // Recorremos las filas
         page.map((row:any) => {
           // Llamamos a la función que prepara la fila previo renderizado
+          console.log(row)
           prepareRow(row);
           return (
             // Añadimos las propiedades a la fila
