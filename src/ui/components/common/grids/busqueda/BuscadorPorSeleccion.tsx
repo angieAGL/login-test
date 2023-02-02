@@ -24,11 +24,11 @@ const BuscadorPorSeleccion = ({ column }:any) => {
       }}
     >
       <option value="">All</option>
-      {options.map((option, i):any => (
-        /*<option key={i} value:any={option}>
+      {options.map((option:any, i:number) => (
+        <option key={i} value={option}>
           {typeof option == "boolean" ? (option ? ACTIVO : INACTIVO) : option}
-        </option>*/
-        "hola"
+        </option>
+        
       ))};
     </select>
   );

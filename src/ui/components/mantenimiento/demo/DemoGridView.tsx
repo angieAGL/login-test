@@ -4,6 +4,7 @@ import {
   useGlobalFilter,
   usePagination,
   useFilters,
+  
 } from "react-table";
 import ColumnaGrid from "./ColumnaGrid";
 import FilasGrid from "./FilasGrid";
@@ -41,7 +42,9 @@ const DemoGridView = ({ buscarSingle, buscarCabecera, buscarMultiple }:Buscadore
     usePagination
   );
 
-  const { getTableProps,headerGroups } = tabla;
+  const { getTableProps} = tabla;
+  
+;
 
   return (
     <div className="container-fluid grid">
@@ -53,7 +56,7 @@ const DemoGridView = ({ buscarSingle, buscarCabecera, buscarMultiple }:Buscadore
           {...getTableProps()}
         >
           {BuscadorMultiplesInput(tabla, buscarMultiple)}
-          {Cabecera(headerGroups, buscarCabecera)}
+          {Cabecera(tabla, buscarCabecera)}
           {Cuerpo(tabla)}
         </table>
       </div>

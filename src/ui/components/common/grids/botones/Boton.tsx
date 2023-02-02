@@ -1,7 +1,7 @@
 import React from "react";
 import "../../../../css/boton.css";
 
-type Boton={
+type IBoton={
   text: any,
   class_name: string,
   onChange?: (event: React.ChangeEvent<HTMLButtonElement>)=>void,
@@ -10,8 +10,8 @@ type Boton={
 
 }
 
-export const Boton = (
-{ text, class_name, onChange, onClick}: Boton
+const Boton = (
+{ text, class_name, onChange, onClick}: IBoton
 ) => {
   const className = `btn ${class_name}`;
 
@@ -27,3 +27,4 @@ export const Boton = (
     </button>
   );
 };
+export default Boton;

@@ -1,8 +1,10 @@
 import React from "react";
 import "../../../css/cuerpo.css";
 
-const Cuerpo = (tabla:any) => {
+
+const Cuerpo = (tabla: any) => {
   const { getTableBodyProps, prepareRow, page} = tabla;
+  
   return (
     <tbody className="cuerpo cuerpo_texto" {...getTableBodyProps()}>
       {

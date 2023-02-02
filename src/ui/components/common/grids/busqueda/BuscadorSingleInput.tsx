@@ -22,7 +22,7 @@ const BuscadorSingleInput = (tabla:any) => {
     setValue("");
   };
 
-  const handleInputChange = (e:any) => {
+  const handleInputChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
     console.log(e.target.value);
   };

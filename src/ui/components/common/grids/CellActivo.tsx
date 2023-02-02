@@ -1,4 +1,3 @@
-import React from "react";
 import "../../../css/cellActivo.css";
 
 const CellActivo = ( valor :boolean) => {

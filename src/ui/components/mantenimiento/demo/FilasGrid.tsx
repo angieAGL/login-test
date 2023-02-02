@@ -9,10 +9,9 @@ type Data ={
   numero: number,
   fecha:string,
   activo:boolean,
-  accion?: React.ReactNode
 }
 const FilasGrid = () => {
-  const rows = useMemo<Data[]>(() => DATASET, []);
+  const rows: Array<Data> = useMemo(() => DATASET, []);
   return rows;
 };
 

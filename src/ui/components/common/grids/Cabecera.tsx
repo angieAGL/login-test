@@ -1,21 +1,11 @@
 import React from "react";
-import { HeaderGroup } from "react-table";
+import {  TableInstance } from "react-table";
 import "../../../css/cabecera.css";
-type Data ={
-  id:number,
-  nombre:string,
-  apellido:string,
-  email:string,
-  genero:string,
-  numero: number,
-  fecha:string,
-  activo:boolean,
-  accion?: React.ReactNode
-}
 
-//const Cabecera = (tabla: TableInstance, buscarCabecera:boolean) => {
-const Cabecera = (headerGroups:Array<HeaderGroup< Data>>, buscarCabecera:boolean) => {
-  //const {headerGroups} = tabla
+
+const Cabecera = (tabla: TableInstance, buscarCabecera:boolean) => {
+//const Cabecera = (headerGroups:Array<HeaderGroup< Data>>, buscarCabecera:boolean) => {
+  const {headerGroups} = tabla
 
   return (
     <thead className="cabecera cabecera_texto">
