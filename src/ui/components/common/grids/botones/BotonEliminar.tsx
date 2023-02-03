@@ -1,13 +1,9 @@
 import React from 'react';
 import {  FaTrashAlt } from "react-icons/fa";
 import "../../../../css/botonEliminar.css";
+import {BotonAccion} from "../Interfaces/BotonesInterface";
 
-type IBotonAccion={
-  href:string, 
-  onClick:(event: React.MouseEvent<HTMLAnchorElement>)=>void
-}
-
-export const BotonEliminar = ({href, onClick}:IBotonAccion) => {
+export const BotonEliminar = ({href, onClick}:BotonAccion) => {
   
   return (
     <a className="eliminar" href={href} onClick={onClick} ><FaTrashAlt/></a>    

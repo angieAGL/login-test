@@ -1,13 +1,9 @@
 import React from 'react';
 import {FaPen} from "react-icons/fa";
 import "../../../../css/botonEditar.css";
+import {BotonAccion} from "../Interfaces/BotonesInterface";
 
-type IBotonAccion={
-  href:string, 
-  onClick:(event: React.MouseEvent<HTMLAnchorElement>)=>void
-}
-
-export const BotonEditar = ({href, onClick}:IBotonAccion) => {
+export const BotonEditar = ({href, onClick}:BotonAccion) => {
   
   return (
     <a className="editar" href={href} onClick={onClick} ><FaPen/></a>    

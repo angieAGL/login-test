@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa";
 import "../../../css/paginacion.css";
 import  Boton  from "./botones/Boton";
+//import { TableInstance } from "../../common/grids/Interfaces/ReactTableConfig";
 
 const Paginacion = (tabla:any) => {
   const {
@@ -19,7 +20,6 @@ const Paginacion = (tabla:any) => {
     previousPage,
     state: { pageIndex },
   } = tabla;
-
   return (
     <div className="paginacion">
       <Boton

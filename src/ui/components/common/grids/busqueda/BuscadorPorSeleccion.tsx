@@ -1,5 +1,6 @@
 import React from "react";
 import { useMemo } from "react";
+import { Row } from "react-table";
 import { ACTIVO, INACTIVO } from "../../../../../cross-cutting/constant";
 import "../../../../css/buscador.css";
 
@@ -8,7 +9,7 @@ const BuscadorPorSeleccion = ({ column }:any) => {
 
   const options = useMemo(() => {
     const options = new Set();
-    preFilteredRows.forEach((row:any) => {
+    preFilteredRows.forEach((row:Row) => {
       options.add(row.values[id]);
     });
     return [...options.values()];

@@ -1,17 +1,9 @@
 import React from "react";
 import "../../../../css/boton.css";
-
-type IBoton={
-  text: any,
-  class_name: string,
-  onChange?: (event: React.ChangeEvent<HTMLButtonElement>)=>void,
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>)=>Event
-  disabled?: any,
-
-}
+import {BotonInterface} from "../Interfaces/BotonesInterface";
 
 const Boton = (
-{ text, class_name, onChange, onClick}: IBoton
+{ text, class_name, onChange, onClick}: BotonInterface
 ) => {
   const className = `btn ${class_name}`;
 

@@ -4,7 +4,6 @@ import {
   useGlobalFilter,
   usePagination,
   useFilters,
-  
 } from "react-table";
 import ColumnaGrid from "./ColumnaGrid";
 import FilasGrid from "./FilasGrid";
@@ -16,35 +15,34 @@ import Cuerpo from "../../common/grids/Cuerpo";
 import BuscadorSingleInput from "../../common/grids/busqueda/BuscadorSingleInput";
 import BuscadorPorCabecera from "../../common/grids/busqueda/BuscadorPorCabecera";
 import BuscadorMultiplesInput from "../../common/grids/busqueda/BuscadorMultiplesInput";
+import { TableInstance } from "../../common/grids/Interfaces/ReactTableConfig";
+import {OpcionesBuscar} from "../../common/grids/Interfaces/OpcionesBuscarInterface";
 
-type Buscadores ={
-  buscarSingle:boolean, 
-  buscarCabecera:boolean, 
-  buscarMultiple:boolean
-}
 
-const DemoGridView = ({ buscarSingle, buscarCabecera, buscarMultiple }:Buscadores) => {
+const DemoGridView = ({
+  buscarSingle,
+  buscarCabecera,
+  buscarMultiple,
+}: OpcionesBuscar) => {
   const columns = ColumnaGrid();
   const data = FilasGrid();
 
-  const tabla = useTable(
+  const tabla: TableInstance = useTable(
     {
       columns,
       data,
-      defaultColumn:{Filter: BuscadorPorCabecera } as object,
+      defaultColumn: { Filter: BuscadorPorCabecera } as object,
       initialState: {
         pageSize: TAMAÑO_PAGINAS,
         pageIndex: 0,
-      }as object ,
+      } as object,
     },
     useFilters,
     useGlobalFilter,
     usePagination
   );
 
-  const { getTableProps} = tabla;
-  
-;
+  console.log(tabla);
 
   return (
     <div className="container-fluid grid">
@@ -53,7 +51,7 @@ const DemoGridView = ({ buscarSingle, buscarCabecera, buscarMultiple }:Buscadore
       <div className="table-responsive">
         <table
           className="table table-hover table-borderless "
-          {...getTableProps()}
+        
         >
           {BuscadorMultiplesInput(tabla, buscarMultiple)}
           {Cabecera(tabla, buscarCabecera)}

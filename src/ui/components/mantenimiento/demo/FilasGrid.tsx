@@ -1,17 +1,9 @@
 import { useMemo } from "react";
 import DATASET from "./DATASET.json";
-type Data ={
-  id:number,
-  nombre:string,
-  apellido:string,
-  email:string,
-  genero:string,
-  numero: number,
-  fecha:string,
-  activo:boolean,
-}
+import {DatosInterfaces} from "../../common/grids/Interfaces/DatosInterface"
+
 const FilasGrid = () => {
-  const rows: Array<Data> = useMemo(() => DATASET, []);
+  const rows: Array<DatosInterfaces> = useMemo(() => DATASET, []);
   return rows;
 };
 

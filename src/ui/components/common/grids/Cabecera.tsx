@@ -1,6 +1,7 @@
 import React from "react";
 import {  TableInstance } from "react-table";
 import "../../../css/cabecera.css";
+//import { TableInstance } from "../../common/grids/Interfaces/ReactTableConfig";
 
 
 const Cabecera = (tabla: TableInstance, buscarCabecera:boolean) => {
