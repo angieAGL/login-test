@@ -1,14 +1,15 @@
 import React from "react";
 import { useMemo } from "react";
+import { Row } from "react-table";
 import { ACTIVO, INACTIVO } from "../../../../../cross-cutting/constant";
 import "../../../../css/buscador.css";
 
-const BuscadorPorSeleccion = ({ column }) => {
+const BuscadorPorSeleccion = ({ column }:any) => {
   const { filterValue, setFilter, preFilteredRows, id } = column;
 
   const options = useMemo(() => {
     const options = new Set();
-    preFilteredRows.forEach((row) => {
+    preFilteredRows.forEach((row:Row) => {
       options.add(row.values[id]);
     });
     return [...options.values()];
@@ -24,11 +25,12 @@ const BuscadorPorSeleccion = ({ column }) => {
       }}
     >
       <option value="">All</option>
-      {options.map((option, i) => (
+      {options.map((option:any, i:number) => (
         <option key={i} value={option}>
           {typeof option == "boolean" ? (option ? ACTIVO : INACTIVO) : option}
         </option>
-      ))}
+        
+      ))};
     </select>
   );
 };

@@ -6,9 +6,9 @@ import {
   FaAngleRight,
 } from "react-icons/fa";
 import "../../../css/paginacion.css";
-import { Boton } from "./botones/Boton";
+import  Boton  from "./botones/Boton";
 
-const Paginacion = (tabla) => {
+const Paginacion = (tabla:any) => {
   const {
     canPreviousPage,
     canNextPage,
@@ -19,7 +19,6 @@ const Paginacion = (tabla) => {
     previousPage,
     state: { pageIndex },
   } = tabla;
-
   return (
     <div className="paginacion">
       <Boton

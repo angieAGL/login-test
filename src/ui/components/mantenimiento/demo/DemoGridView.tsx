@@ -15,27 +15,32 @@ import Cuerpo from "../../common/grids/Cuerpo";
 import BuscadorSingleInput from "../../common/grids/busqueda/BuscadorSingleInput";
 import BuscadorPorCabecera from "../../common/grids/busqueda/BuscadorPorCabecera";
 import BuscadorMultiplesInput from "../../common/grids/busqueda/BuscadorMultiplesInput";
+import {OpcionesBuscar} from "../../common/grids/Interfaces/OpcionesBuscarInterface";
 
-const DemoGridView = ({ buscarSingle, buscarCabecera, buscarMultiple }) => {
+
+const DemoGridView = ({
+  buscarSingle,
+  buscarCabecera,
+  buscarMultiple,
+}: OpcionesBuscar) => {
   const columns = ColumnaGrid();
   const data = FilasGrid();
 
-  const tabla = useTable(
+  const tabla:any = useTable(
     {
       columns,
       data,
-      defaultColumn: { Filter: BuscadorPorCabecera },
+      defaultColumn: { Filter: BuscadorPorCabecera } as object,
       initialState: {
         pageSize: TAMAÑO_PAGINAS,
         pageIndex: 0,
-      },
+      } as object,
     },
     useFilters,
     useGlobalFilter,
     usePagination
-  );
+  ) ;
 
-  const { getTableProps } = tabla;
 
   return (
     <div className="container-fluid grid">
@@ -44,7 +49,7 @@ const DemoGridView = ({ buscarSingle, buscarCabecera, buscarMultiple }) => {
       <div className="table-responsive">
         <table
           className="table table-hover table-borderless "
-          {...getTableProps()}
+        
         >
           {BuscadorMultiplesInput(tabla, buscarMultiple)}
           {Cabecera(tabla, buscarCabecera)}

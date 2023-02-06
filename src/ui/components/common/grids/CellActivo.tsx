@@ -1,7 +1,6 @@
-import React from "react";
 import "../../../css/cellActivo.css";
 
-const CellActivo = ({ valor }) => {
+const CellActivo = ( valor :boolean) => {
   return valor ? (
     <div className="activo">Sí</div>
   ) : (

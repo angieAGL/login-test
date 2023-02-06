@@ -1,20 +1,20 @@
 import React from "react";
+import {  HeaderGroup} from "react-table";
 import "../../../css/cabecera.css";
 
-const Cabecera = (tabla, buscarCabecera) => {
-  const { headerGroups } = tabla;
-  //let tipoBuscador=true;
+const Cabecera = (tabla: any, buscarCabecera:boolean) => {
+  const {headerGroups} = tabla
 
   return (
     <thead className="cabecera cabecera_texto">
       {
         // Recorremos las columnas que previamente definimos
-        headerGroups.map((headerGroup) => (
+        headerGroups.map((headerGroup:HeaderGroup) => (
           // Añadimos las propiedades al conjunto de columnas
           <tr {...headerGroup.getHeaderGroupProps()}>
             {
               // Recorremos cada columna del conjunto para acceder a su información
-              headerGroup.headers.map((column) => (
+              headerGroup.headers.map((column:any) => (
                 // Añadimos las propiedades a cada celda de la cabecera
                 <th {...column.getHeaderProps()}>
                   {

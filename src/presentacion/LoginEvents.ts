@@ -1,5 +1,5 @@
 const LoginEvents = () => {
-  const onSubmit = (data) => {
+  const onSubmit = (data:any) => {
     console.log(data);
   };
 

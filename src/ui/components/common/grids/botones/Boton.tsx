@@ -1,26 +1,22 @@
 import React from "react";
 import "../../../../css/boton.css";
-export const Boton = ({
-  text,
-  class_name,
-  onClick,
-  style,
-  disabled,
-  onChange,
-}) => {
+import {BotonInterface} from "../Interfaces/BotonesInterface";
+
+const Boton = (
+{ text, class_name, onChange, onClick}: BotonInterface
+) => {
   const className = `btn ${class_name}`;
 
   return (
     <button
-      style={style}
       type="submit"
-      onClick={onClick}
       id="boton"
       className={className}
-      disabled={disabled}
       onChange={onChange}
+      onClick={onClick}
     >
       {text}
     </button>
   );
 };
+export default Boton;
