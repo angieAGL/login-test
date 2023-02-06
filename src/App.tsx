@@ -4,13 +4,14 @@ import DemoGridView from "./ui/components/mantenimiento/demo/DemoGridView";
 
 function App() {
   return (
-    
+    <div>
     <DemoGridView
-      buscarCabecera={true}
+    buscarCabecera={true}
       buscarSingle={true}
       buscarMultiple={true}
     />
-    /*<LoginView></LoginView>*/
+    {/*<LoginView></LoginView>*/}
+    </div>
   );
 }
 

@@ -15,7 +15,6 @@ import Cuerpo from "../../common/grids/Cuerpo";
 import BuscadorSingleInput from "../../common/grids/busqueda/BuscadorSingleInput";
 import BuscadorPorCabecera from "../../common/grids/busqueda/BuscadorPorCabecera";
 import BuscadorMultiplesInput from "../../common/grids/busqueda/BuscadorMultiplesInput";
-import { TableInstance } from "../../common/grids/Interfaces/ReactTableConfig";
 import {OpcionesBuscar} from "../../common/grids/Interfaces/OpcionesBuscarInterface";
 
 
@@ -27,7 +26,7 @@ const DemoGridView = ({
   const columns = ColumnaGrid();
   const data = FilasGrid();
 
-  const tabla: TableInstance = useTable(
+  const tabla:any = useTable(
     {
       columns,
       data,
@@ -40,9 +39,8 @@ const DemoGridView = ({
     useFilters,
     useGlobalFilter,
     usePagination
-  );
+  ) ;
 
-  console.log(tabla);
 
   return (
     <div className="container-fluid grid">

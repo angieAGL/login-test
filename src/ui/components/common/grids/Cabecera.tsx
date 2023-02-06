@@ -1,18 +1,15 @@
 import React from "react";
-import {  TableInstance } from "react-table";
+import {  HeaderGroup} from "react-table";
 import "../../../css/cabecera.css";
-//import { TableInstance } from "../../common/grids/Interfaces/ReactTableConfig";
 
-
-const Cabecera = (tabla: TableInstance, buscarCabecera:boolean) => {
-//const Cabecera = (headerGroups:Array<HeaderGroup< Data>>, buscarCabecera:boolean) => {
+const Cabecera = (tabla: any, buscarCabecera:boolean) => {
   const {headerGroups} = tabla
 
   return (
     <thead className="cabecera cabecera_texto">
       {
         // Recorremos las columnas que previamente definimos
-        headerGroups.map((headerGroup) => (
+        headerGroups.map((headerGroup:HeaderGroup) => (
           // Añadimos las propiedades al conjunto de columnas
           <tr {...headerGroup.getHeaderGroupProps()}>
             {

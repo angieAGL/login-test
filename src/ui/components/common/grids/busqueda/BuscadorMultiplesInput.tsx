@@ -1,11 +1,11 @@
 import React from "react";
-import { TableInstance } from "react-table";
+import { HeaderGroup } from "react-table";
 
-const BuscadorMultiplesInput = (tabla: TableInstance, buscarMultiple:boolean) => {
+const BuscadorMultiplesInput = (tabla: any, buscarMultiple:boolean) => {
   const { headerGroups } = tabla;
   return (
     <thead className=" cabecera_texto">
-      {headerGroups.map((headerGroup) =>
+      {headerGroups.map((headerGroup:HeaderGroup) =>
         headerGroup.headers.map((column:any) => (
           <th>
             {buscarMultiple ? (
