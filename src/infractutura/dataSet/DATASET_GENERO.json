@@ -1,0 +1,26 @@
+[{
+    "id":1,
+    "genero": "Female"
+},
+{
+    "id":2,
+    "genero": "Male"
+},{
+    "id":3,
+    "genero": "Genderfluid"
+},{
+    "id":4,
+    "genero": "Bigender"
+},{
+    "id":5,
+    "genero": "Polygender"
+},{
+    "id":6,
+    "genero": "Genderqueer"
+},{
+    "id":7,
+    "genero": "Agender"
+},{
+    "id":8,
+    "genero": "Non-binary"
+}]

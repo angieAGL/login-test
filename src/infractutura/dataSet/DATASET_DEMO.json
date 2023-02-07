@@ -1,4 +1,4 @@
-[{"id":1,"nombre":"Trixy","apellido":"Hulstrom","email":"thulstrom0@angelfire.com","genero":"Female","numero":647,"fecha":"2022-04-14","activo":false},
+[{"id":1,"nombre":"Trixy","apellido":"Hulstrom","email":"thulstrom0@angelfire.com", "id_genero":1,"genero":"Female","numero":647,"fecha":"2022-04-14","activo":false},
 {"id":2,"nombre":"Holly","apellido":"Blackston","email":"hblackston1@house.gov","genero":"Female","numero":25,"fecha":"2022-04-12","activo":true},
 {"id":3,"nombre":"Dorothee","apellido":"Mulliss","email":"dmulliss2@hhs.gov","genero":"Female","numero":630,"fecha":"2022-12-12","activo":false},
 {"id":4,"nombre":"Hinze","apellido":"Ramelet","email":"hramelet3@huffingtonpost.com","genero":"Male","numero":710,"fecha":"2022-09-15","activo":true},
