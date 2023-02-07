@@ -1,9 +1,9 @@
 import { useMemo } from "react";
 import DATASET_DEMO from "../../../../infractutura/dataSet/DATASET_DEMO.json";
-import { DatosInterfaces } from "../../common/grids/Interfaces/DatosInterface";
+import { Demo } from "../../../../dominio/Demo";
 
 const FilasGrid = () => {
-  const rows: Array<DatosInterfaces> = useMemo(() => DATASET_DEMO, []);
+  const rows: Array<Demo> = useMemo(() => DATASET_DEMO, []);
   return rows;
 };
 

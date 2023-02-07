@@ -6,7 +6,6 @@ export const listar_genero = () => {
   for (var i in listado_json) {
     genero_map.set(listado_json[i].id, listado_json[i].genero);
   }
-  console.log(genero_map);
 
   return genero_map;
 };

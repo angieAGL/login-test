@@ -16,11 +16,6 @@ import BuscadorSingleInput from "../../common/grids/busqueda/BuscadorSingleInput
 import BuscadorPorCabecera from "../../common/grids/busqueda/BuscadorPorCabecera";
 import BuscadorMultiplesInput from "../../common/grids/busqueda/BuscadorMultiplesInput";
 import { OpcionesBuscar } from "../../common/grids/Interfaces/OpcionesBuscarInterface";
-import { listarDemo } from "../../../../infractutura//repositorios/DemoRepository";
-import {
-  listar_genero,
-  listar_activo,
-} from "../../../../infractutura//repositorios/TipoRepository";
 
 const DemoGridView = ({
   buscarSingle,
@@ -29,10 +24,6 @@ const DemoGridView = ({
 }: OpcionesBuscar) => {
   const columns = ColumnaGrid();
   const data = FilasGrid();
-
-  console.log(listarDemo());
-  console.log(listar_genero());
-  console.log(listar_activo());
   const tabla: any = useTable(
     {
       columns,
