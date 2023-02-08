@@ -12,7 +12,7 @@ import { Column } from "react-table";
 
 const ColumnaGrid = (
   listaGenero: Map<number, string>,
-  listaActivo: Map<number, boolean>
+  listaActivo: Map<boolean, string>
 ) => {
   const columns: Array<Column> = useMemo(
     () => [
@@ -38,10 +38,9 @@ const ColumnaGrid = (
       },
       {
         Header: "Genero",
-        accessor: "genero",
+        accessor: "id_genero",
         lista: listaGenero,
         Filter: BuscadorPorSeleccion,
-        filter: "includes",
       },
       {
         Header: "Numeros",

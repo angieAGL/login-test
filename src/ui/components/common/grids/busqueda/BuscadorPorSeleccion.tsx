@@ -1,28 +1,26 @@
 import React from "react";
-import { ACTIVO, INACTIVO } from "../../../../../cross-cutting/constant";
-
 import "../../../../css/buscador.css";
 
 const BuscadorPorSeleccion = ({ column }: any) => {
   const { filterValue, setFilter, lista } = column;
   const options: any = [];
 
-  lista.forEach((value: any, key: number) => {
+  lista.forEach((value: string, key: any) => {
     options.push(
-      <option key={key} value={value}>
-        {typeof value == "boolean" ? (value ? ACTIVO : INACTIVO) : value}
+      <option key={key} value={key}>
+        {value}
       </option>
     );
   }); // UI for Multi-Select box
   return (
     <select
       className="form-select form-select-sm mt-3 buscarSeleccion"
-      value={filterValue || "All"}
+      value={filterValue || "Todo"}
       onChange={(e) => {
         setFilter(e.target.value);
       }}
     >
-      <option value="">All</option>
+      <option value="">Todo</option>
       {options};
     </select>
   );
