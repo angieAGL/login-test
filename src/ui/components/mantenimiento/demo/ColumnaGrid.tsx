@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useMemo } from "react";
 import { BotonEditar } from "../../common/grids/botones/BotonEditar";
 import { BotonEliminar } from "../../common/grids/botones/BotonEliminar";
@@ -9,8 +10,11 @@ import BotonReset from "../../common/grids/botones/BotonReset";
 import FormatoFecha from "../../common/FormatoFecha";
 import { Column } from "react-table";
 
-const ColumnaGrid = () => {
-  const columns: Array<Column> =  useMemo(
+const ColumnaGrid = (
+  listaGenero: Map<number, string>,
+  listaActivo: Map<number, boolean>
+) => {
+  const columns: Array<Column> = useMemo(
     () => [
       {
         Header: "ID",
@@ -35,6 +39,7 @@ const ColumnaGrid = () => {
       {
         Header: "Genero",
         accessor: "genero",
+        lista: listaGenero,
         Filter: BuscadorPorSeleccion,
         filter: "includes",
       },
@@ -47,13 +52,14 @@ const ColumnaGrid = () => {
         Header: "Fecha",
         accessor: "fecha",
         Filter: BuscadorPorFecha,
-        Cell: ({row}) => FormatoFecha(row.values.fecha) ,
+        Cell: ({ row }) => FormatoFecha(row.values.fecha),
       },
       {
         Header: "Activo",
         accessor: "activo",
+        lista: listaActivo,
         Filter: BuscadorPorSeleccion,
-        Cell: ({ row }) => CellActivo(row.values.activo) ,
+        Cell: ({ row }) => CellActivo(row.values.activo),
       },
       {
         Header: "Accion",
@@ -75,6 +81,7 @@ const ColumnaGrid = () => {
     ],
     []
   );
+
   return columns;
 };
 
