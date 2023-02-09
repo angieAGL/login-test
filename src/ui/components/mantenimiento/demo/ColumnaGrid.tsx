@@ -46,7 +46,6 @@ const ColumnaGrid = (
       {
         Header: "Genero",
         accessor: "genero",
-        //Filter: BuscadorPorSeleccion,
       },
       {
         Header: "Numeros",

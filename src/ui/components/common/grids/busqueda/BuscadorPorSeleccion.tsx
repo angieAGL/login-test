@@ -1,4 +1,3 @@
-import React from "react";
 import "../../../../css/buscador.css";
 
 const BuscadorPorSeleccion = ({ column }: any) => {
@@ -11,7 +10,7 @@ const BuscadorPorSeleccion = ({ column }: any) => {
         {value}
       </option>
     );
-  }); // UI for Multi-Select box
+  });
   return (
     <select
       className="form-select form-select-sm mt-3 buscarSeleccion"
