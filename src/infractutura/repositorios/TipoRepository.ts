@@ -13,10 +13,10 @@ export class TipoRepository implements ITipoRepository {
     return genero_map;
   }
 
-  listarActivo(): Map<number, string> {
-    let activo_map: Map<number, string> = new Map();
-    activo_map.set(0, "No");
-    activo_map.set(1, "Si");
+  listarActivo(): Map<boolean, string> {
+    let activo_map: Map<boolean, string> = new Map();
+    activo_map.set(false, "No");
+    activo_map.set(true, "Si");
 
     return activo_map;
   }

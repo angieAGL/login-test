@@ -1,8 +1,8 @@
 import "../../../css/cellActivo.css";
 
-const CellActivo = ( valor :boolean) => {
+const CellActivo = (valor: boolean) => {
   return valor ? (
-    <div className="activo">Sí</div>
+    <div className="activo">Si</div>
   ) : (
     <div className="inactivo">No</div>
   );

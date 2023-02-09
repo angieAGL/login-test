@@ -1,36 +1,26 @@
-import React from "react";
-import { useMemo } from "react";
-import { Row } from "react-table";
-import { ACTIVO, INACTIVO } from "../../../../../cross-cutting/constant";
 import "../../../../css/buscador.css";
 
-const BuscadorPorSeleccion = ({ column }:any) => {
-  const { filterValue, setFilter, preFilteredRows, id } = column;
+const BuscadorPorSeleccion = ({ column }: any) => {
+  const { filterValue, setFilter, lista } = column;
+  const options: any = [];
 
-  const options = useMemo(() => {
-    const options = new Set();
-    preFilteredRows.forEach((row:Row) => {
-      options.add(row.values[id]);
-    });
-    return [...options.values()];
-  }, [id, preFilteredRows]);
-
-  // UI for Multi-Select box
+  lista.forEach((value: string, key: any) => {
+    options.push(
+      <option key={key} value={key}>
+        {value}
+      </option>
+    );
+  });
   return (
     <select
       className="form-select form-select-sm mt-3 buscarSeleccion"
-      value={filterValue || "All"}
+      value={filterValue || "Todo"}
       onChange={(e) => {
         setFilter(e.target.value);
       }}
     >
-      <option value="">All</option>
-      {options.map((option:any, i:number) => (
-        <option key={i} value={option}>
-          {typeof option == "boolean" ? (option ? ACTIVO : INACTIVO) : option}
-        </option>
-        
-      ))};
+      <option value="">Todo</option>
+      {options};
     </select>
   );
 };

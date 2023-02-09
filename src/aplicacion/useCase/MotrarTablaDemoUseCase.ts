@@ -1,6 +1,7 @@
 import { Demo } from "../../dominio/Demo";
 import { ITipoRepository } from "../interfaces/ITipoRepository";
 import { IDemoRepository } from "../interfaces/IDemoRepository";
+import { MostarTablaDemoResponse } from "../../dominio/MostarTablaDemoResponse";
 
 export class MostrarTablaDemoUseCase {
   private _demoRepository: IDemoRepository;
@@ -14,17 +15,18 @@ export class MostrarTablaDemoUseCase {
     this._tipoRepository = tipoRepository;
   }
 
-  mostrarTablaDemo(): object {
+  mostrarTablaDemo(): MostarTablaDemoResponse {
     const lista_demo: Demo[] = this._demoRepository.listarDemo();
 
     const map_genero: Map<number, string> = this._tipoRepository.listarGenero();
-    const map_activo: Map<number, string> = this._tipoRepository.listarActivo();
+    const map_activo: Map<boolean, string> =
+      this._tipoRepository.listarActivo();
     const tablaDemo = {
-      demo: lista_demo,
-      genero: map_genero,
-      activo: map_activo,
+      listaDemo: lista_demo,
+      listaGenero: map_genero,
+      listaActivo: map_activo,
     };
 
-    return { tablaDemo };
+    return tablaDemo;
   }
 }
