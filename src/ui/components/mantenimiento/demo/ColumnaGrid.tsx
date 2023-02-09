@@ -41,6 +41,12 @@ const ColumnaGrid = (
         accessor: "id_genero",
         lista: listaGenero,
         Filter: BuscadorPorSeleccion,
+        Cell: ({ row }) => row.values.genero,
+      },
+      {
+        Header: "Genero",
+        accessor: "genero",
+        //Filter: BuscadorPorSeleccion,
       },
       {
         Header: "Numeros",

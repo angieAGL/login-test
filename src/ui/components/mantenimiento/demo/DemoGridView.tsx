@@ -34,12 +34,14 @@ const DemoGridView = ({
       initialState: {
         pageSize: TAMAÑO_PAGINAS,
         pageIndex: 0,
+        hiddenColumns: ["genero"],
       } as object,
     },
     useFilters,
     useGlobalFilter,
     usePagination
   );
+
   const { getTableProps } = tabla;
   return (
     <div className="container-fluid grid">
