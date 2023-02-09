@@ -1,7 +1,7 @@
 import { Demo } from "../../dominio/Demo";
 import { ITipoRepository } from "../interfaces/ITipoRepository";
 import { IDemoRepository } from "../interfaces/IDemoRepository";
-import { TablaDemo } from "../../dominio/TablaDemo";
+import { MostarTablaDemoResponse } from "../../dominio/MostarTablaDemoResponse";
 
 export class MostrarTablaDemoUseCase {
   private _demoRepository: IDemoRepository;
@@ -15,7 +15,7 @@ export class MostrarTablaDemoUseCase {
     this._tipoRepository = tipoRepository;
   }
 
-  mostrarTablaDemo(): TablaDemo {
+  mostrarTablaDemo(): MostarTablaDemoResponse {
     const lista_demo: Demo[] = this._demoRepository.listarDemo();
 
     const map_genero: Map<number, string> = this._tipoRepository.listarGenero();
