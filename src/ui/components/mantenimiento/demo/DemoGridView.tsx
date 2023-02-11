@@ -16,13 +16,20 @@ import BuscadorPorCabecera from "../../common/grids/busqueda/BuscadorPorCabecera
 import BuscadorMultiplesInput from "../../common/grids/busqueda/BuscadorMultiplesInput";
 import { OpcionesBuscar } from "../../common/grids/Interfaces/OpcionesBuscarInterface";
 import { onLoad } from "../../../../presentacion/DemoEvents";
+import { useInfraestructureRepository } from "../../common/base/Dependencies";
 
 const DemoGridView = ({
   buscarSingle,
   buscarCabecera,
   buscarMultiple,
 }: OpcionesBuscar) => {
-  const { listaDemo, listaGenero, listaActivo } = onLoad();
+  const { demoRepository, tipoRepository } = useInfraestructureRepository();
+
+  const { listaDemo, listaGenero, listaActivo } = onLoad(
+    demoRepository,
+    tipoRepository
+  );
+
   const columns = ColumnaGrid(listaGenero, listaActivo);
   const data = FilasGrid(listaDemo);
   const tabla: any = useTable(

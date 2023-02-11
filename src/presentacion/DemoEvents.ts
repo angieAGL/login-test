@@ -1,12 +1,12 @@
+import { IDemoRepository } from "../aplicacion/interfaces/IDemoRepository";
+import { ITipoRepository } from "../aplicacion/interfaces/ITipoRepository";
 import { MostrarTablaDemoUseCase } from "../aplicacion/useCase/MotrarTablaDemoUseCase";
-import { DemoRepository } from "../infractutura/repositorios/DemoRepository";
-import { TipoRepository } from "../infractutura/repositorios/TipoRepository";
 
-export const onLoad = () => {
-  const tabla = new MostrarTablaDemoUseCase(
-    new DemoRepository(),
-    new TipoRepository()
-  );
+export const onLoad = (
+  demoRepository: IDemoRepository,
+  tipoRepository: ITipoRepository
+) => {
+  const tabla = new MostrarTablaDemoUseCase(demoRepository, tipoRepository);
 
   return tabla.mostrarTablaDemo();
 };
