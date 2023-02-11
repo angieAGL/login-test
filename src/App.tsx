@@ -1,17 +1,19 @@
-import React from "react";
-//import LoginView from "./ui/components/autenticacion/LoginView";
+import { InfraestructureProvider } from "./dependency-injection/InfraestructureInjector";
 import DemoGridView from "./ui/components/mantenimiento/demo/DemoGridView";
 
 function App() {
   return (
-    <div>
-    <DemoGridView
-    buscarCabecera={true}
-      buscarSingle={true}
-      buscarMultiple={true}
-    />
-    {/*<LoginView></LoginView>*/}
-    </div>
+    // <>
+    //   <DemoGridView />
+    //   {/*<LoginView></LoginView>*/}
+    // </>
+    <InfraestructureProvider>
+      <DemoGridView
+        buscarCabecera={true}
+        buscarSingle={true}
+        buscarMultiple={true}
+      />
+    </InfraestructureProvider>
   );
 }
 
