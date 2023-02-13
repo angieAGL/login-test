@@ -1,7 +1,7 @@
-import { Demo } from "../../dominio/Demo";
+import { Demo } from "../../dominio/entidad/Demo";
 import { ITipoRepository } from "../interfaces/ITipoRepository";
 import { IDemoRepository } from "../interfaces/IDemoRepository";
-import { MostarTablaDemoResponse } from "../../dominio/MostarTablaDemoResponse";
+import { MostarTablaDemoResponse } from "../../dominio/response/MostarTablaDemoResponse";
 
 export class MostrarTablaDemoUseCase {
   private _demoRepository: IDemoRepository;

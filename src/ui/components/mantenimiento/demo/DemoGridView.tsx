@@ -8,14 +8,14 @@ import ColumnaGrid from "./ColumnaGrid";
 import FilasGrid from "./FilasGrid";
 import "../../../css/gridView.css";
 import Paginacion from "../../common/grids/Paginacion";
-import { TAMAÑO_PAGINAS } from "../../../../cross-cutting/constant";
+import { TAMAÑO_PAGINAS } from "../../../../cross-cutting/Constant";
 import Cabecera from "../../common/grids/Cabecera";
 import Cuerpo from "../../common/grids/Cuerpo";
 import BuscadorSingleInput from "../../common/grids/busqueda/BuscadorSingleInput";
 import BuscadorPorCabecera from "../../common/grids/busqueda/BuscadorPorCabecera";
 import BuscadorMultiplesInput from "../../common/grids/busqueda/BuscadorMultiplesInput";
 import { OpcionesBuscar } from "../../common/grids/Interfaces/OpcionesBuscarInterface";
-import { onLoad } from "../../../../presentacion/DemoEvents";
+import { DemoEvents } from "../../../../presentacion/DemoEvents";
 import { useInfraestructureRepository } from "../../common/base/Dependencies";
 
 const DemoGridView = ({
@@ -24,11 +24,9 @@ const DemoGridView = ({
   buscarMultiple,
 }: OpcionesBuscar) => {
   const { demoRepository, tipoRepository } = useInfraestructureRepository();
+  const demoEvento = new DemoEvents(demoRepository, tipoRepository);
 
-  const { listaDemo, listaGenero, listaActivo } = onLoad(
-    demoRepository,
-    tipoRepository
-  );
+  const { listaDemo, listaGenero, listaActivo } = demoEvento.onLoad();
 
   const columns = ColumnaGrid(listaGenero, listaActivo);
   const data = FilasGrid(listaDemo);
