@@ -1,5 +1,5 @@
 import { Demo } from "../../dominio/entidades/Demo";
-import DATASET_DEMO from "../datas-set/DATASET_DEMO.json";
+import DATASET_DEMO from "../data-sets/DATASET_DEMO.json";
 import { IDemoRepository } from "../../aplicacion/interfaces/IDemoRepository";
 
 export class DemoRepository implements IDemoRepository {

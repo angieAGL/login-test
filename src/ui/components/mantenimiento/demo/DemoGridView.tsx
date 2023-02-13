@@ -11,9 +11,9 @@ import Paginacion from "../../common/grids/Paginacion";
 import { TAMAÑO_PAGINAS } from "../../../../cross-cutting/Constants";
 import Cabecera from "../../common/grids/Cabecera";
 import Cuerpo from "../../common/grids/Cuerpo";
-import BuscadorSingleInput from "../../common/grids/busquedas/BuscadorSingleInput";
-import BuscadorPorCabecera from "../../common/grids/busquedas/BuscadorPorCabecera";
-import BuscadorMultiplesInput from "../../common/grids/busquedas/BuscadorMultiplesInput";
+import BuscadorSingleInput from "../../common/grids/buscadores/BuscadorSingleInput";
+import BuscadorPorCabecera from "../../common/grids/buscadores/BuscadorPorCabecera";
+import BuscadorMultiplesInput from "../../common/grids/buscadores/BuscadorMultiplesInput";
 import { DemoEvents } from "../../../../presentacion/DemoEvents";
 import { useInfraestructureRepository } from "../../common/base/Dependencies";
 
