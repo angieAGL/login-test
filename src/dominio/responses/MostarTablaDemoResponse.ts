@@ -1,4 +1,4 @@
-import { Demo } from "./Demo";
+import { Demo } from "../entidades/Demo";
 
 export type MostarTablaDemoResponse = {
   listaDemo: Demo[];

@@ -8,27 +8,20 @@ import ColumnaGrid from "./ColumnaGrid";
 import FilasGrid from "./FilasGrid";
 import "../../../css/gridView.css";
 import Paginacion from "../../common/grids/Paginacion";
-import { TAMAÑO_PAGINAS } from "../../../../cross-cutting/constant";
+import { TAMAÑO_PAGINAS } from "../../../../cross-cutting/Constants";
 import Cabecera from "../../common/grids/Cabecera";
 import Cuerpo from "../../common/grids/Cuerpo";
-import BuscadorSingleInput from "../../common/grids/busqueda/BuscadorSingleInput";
-import BuscadorPorCabecera from "../../common/grids/busqueda/BuscadorPorCabecera";
-import BuscadorMultiplesInput from "../../common/grids/busqueda/BuscadorMultiplesInput";
-import { OpcionesBuscar } from "../../common/grids/Interfaces/OpcionesBuscarInterface";
-import { onLoad } from "../../../../presentacion/DemoEvents";
+import BuscadorSingleInput from "../../common/grids/buscadores/BuscadorSingleInput";
+import BuscadorPorCabecera from "../../common/grids/buscadores/BuscadorPorCabecera";
+import BuscadorMultiplesInput from "../../common/grids/buscadores/BuscadorMultiplesInput";
+import { DemoEvents } from "../../../../presentacion/DemoEvents";
 import { useInfraestructureRepository } from "../../common/base/Dependencies";
 
-const DemoGridView = ({
-  buscarSingle,
-  buscarCabecera,
-  buscarMultiple,
-}: OpcionesBuscar) => {
+const DemoGridView = () => {
   const { demoRepository, tipoRepository } = useInfraestructureRepository();
+  const demoEvento = new DemoEvents(demoRepository, tipoRepository);
 
-  const { listaDemo, listaGenero, listaActivo } = onLoad(
-    demoRepository,
-    tipoRepository
-  );
+  const { listaDemo, listaGenero, listaActivo } = demoEvento.onLoad();
 
   const columns = ColumnaGrid(listaGenero, listaActivo);
   const data = FilasGrid(listaDemo);
@@ -52,14 +45,14 @@ const DemoGridView = ({
   return (
     <div className="container-fluid grid">
       <h1 className="titulo">Mantenimiento </h1>
-      {buscarSingle ? BuscadorSingleInput(tabla) : null}
+      {BuscadorSingleInput(tabla)}
       <div className="table-responsive">
         <table
           className="table table-hover table-borderless "
           {...getTableProps()}
         >
-          {BuscadorMultiplesInput(tabla, buscarMultiple)}
-          {Cabecera(tabla, buscarCabecera)}
+          {BuscadorMultiplesInput(tabla)}
+          {Cabecera(tabla)}
           {Cuerpo(tabla)}
         </table>
       </div>

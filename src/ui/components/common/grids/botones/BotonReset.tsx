@@ -1,7 +1,6 @@
-import React from "react";
 import BotonBuscador from "./BotonBuscador";
 
-const BotonReset = (tabla:any) => {
+const BotonReset = (tabla: any) => {
   const { setAllFilters } = tabla;
   return (
     <BotonBuscador

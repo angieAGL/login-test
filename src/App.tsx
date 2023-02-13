@@ -8,11 +8,7 @@ function App() {
     //   {/*<LoginView></LoginView>*/}
     // </>
     <InfraestructureProvider>
-      <DemoGridView
-        buscarCabecera={true}
-        buscarSingle={true}
-        buscarMultiple={true}
-      />
+      <DemoGridView />
     </InfraestructureProvider>
   );
 }
