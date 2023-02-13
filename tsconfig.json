@@ -107,6 +107,7 @@
   },
   "include": [
     "./src/*",
-    "./.eslintrc.js"
+    "./.eslintrc.js",
+    "./.env"
   ]
 }

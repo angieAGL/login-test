@@ -1,8 +1,7 @@
-import React from "react";
 import { Cell, Row } from "react-table";
 import "../../../css/cuerpo.css";
 
-const Cuerpo = (tabla:any) => {
+const Cuerpo = (tabla: any) => {
   const { getTableBodyProps, prepareRow, page } = tabla;
 
   return (

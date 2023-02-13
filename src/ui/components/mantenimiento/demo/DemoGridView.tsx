@@ -14,15 +14,10 @@ import Cuerpo from "../../common/grids/Cuerpo";
 import BuscadorSingleInput from "../../common/grids/busqueda/BuscadorSingleInput";
 import BuscadorPorCabecera from "../../common/grids/busqueda/BuscadorPorCabecera";
 import BuscadorMultiplesInput from "../../common/grids/busqueda/BuscadorMultiplesInput";
-import { OpcionesBuscar } from "../../common/grids/Interfaces/OpcionesBuscarInterface";
 import { DemoEvents } from "../../../../presentacion/DemoEvents";
 import { useInfraestructureRepository } from "../../common/base/Dependencies";
 
-const DemoGridView = ({
-  buscarSingle,
-  buscarCabecera,
-  buscarMultiple,
-}: OpcionesBuscar) => {
+const DemoGridView = () => {
   const { demoRepository, tipoRepository } = useInfraestructureRepository();
   const demoEvento = new DemoEvents(demoRepository, tipoRepository);
 
@@ -50,14 +45,16 @@ const DemoGridView = ({
   return (
     <div className="container-fluid grid">
       <h1 className="titulo">Mantenimiento </h1>
-      {buscarSingle ? BuscadorSingleInput(tabla) : null}
+      {process.env.REACT_APP_BUSCAR_SINGLE === "true"
+        ? BuscadorSingleInput(tabla)
+        : null}
       <div className="table-responsive">
         <table
           className="table table-hover table-borderless "
           {...getTableProps()}
         >
-          {BuscadorMultiplesInput(tabla, buscarMultiple)}
-          {Cabecera(tabla, buscarCabecera)}
+          {BuscadorMultiplesInput(tabla)}
+          {Cabecera(tabla)}
           {Cuerpo(tabla)}
         </table>
       </div>
