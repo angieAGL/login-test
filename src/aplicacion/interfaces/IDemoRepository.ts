@@ -1,4 +1,4 @@
-import { Demo } from "../../dominio/entidad/Demo";
+import { Demo } from "../../dominio/entidades/Demo";
 
 export interface IDemoRepository {
   listarDemo(): Demo[];

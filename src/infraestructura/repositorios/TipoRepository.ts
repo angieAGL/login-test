@@ -1,4 +1,4 @@
-import DATASET_GENERO from "../data-set/DATASET_GENERO.json";
+import DATASET_GENERO from "../datas-set/DATASET_GENERO.json";
 import { ITipoRepository } from "../../aplicacion/interfaces/ITipoRepository";
 
 export class TipoRepository implements ITipoRepository {

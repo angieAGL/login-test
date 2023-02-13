@@ -1,6 +1,6 @@
 import { IDemoRepository } from "../aplicacion/interfaces/IDemoRepository";
 import { ITipoRepository } from "../aplicacion/interfaces/ITipoRepository";
-import { MostrarTablaDemoUseCase } from "../aplicacion/use-case/MotrarTablaDemoUseCase";
+import { MostrarTablaDemoUseCase } from "../aplicacion/use-cases/MotrarTablaDemoUseCase";
 
 export class DemoEvents {
   private _demoRepository: IDemoRepository;
@@ -15,11 +15,11 @@ export class DemoEvents {
   }
 
   onLoad() {
-    const tabla = new MostrarTablaDemoUseCase(
+    const mostrarTabla = new MostrarTablaDemoUseCase(
       this._demoRepository,
       this._tipoRepository
     );
 
-    return tabla.mostrarTablaDemo();
+    return mostrarTabla.mostrarTablaDemo();
   }
 }

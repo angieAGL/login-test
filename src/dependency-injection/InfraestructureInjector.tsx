@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { IDemoRepository } from "../aplicacion/interfaces/IDemoRepository";
 import { ITipoRepository } from "../aplicacion/interfaces/ITipoRepository";
-import { DemoRepository } from "../infractutura/repositorios/DemoRepository";
-import { TipoRepository } from "../infractutura/repositorios/TipoRepository";
+import { DemoRepository } from "../infraestructura/repositorios/DemoRepository";
+import { TipoRepository } from "../infraestructura/repositorios/TipoRepository";
 
 export class Infraestructure {
   demoRepository: IDemoRepository;

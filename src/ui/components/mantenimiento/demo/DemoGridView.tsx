@@ -8,12 +8,12 @@ import ColumnaGrid from "./ColumnaGrid";
 import FilasGrid from "./FilasGrid";
 import "../../../css/gridView.css";
 import Paginacion from "../../common/grids/Paginacion";
-import { TAMAÑO_PAGINAS } from "../../../../cross-cutting/Constant";
+import { TAMAÑO_PAGINAS } from "../../../../cross-cutting/Constants";
 import Cabecera from "../../common/grids/Cabecera";
 import Cuerpo from "../../common/grids/Cuerpo";
-import BuscadorSingleInput from "../../common/grids/busqueda/BuscadorSingleInput";
-import BuscadorPorCabecera from "../../common/grids/busqueda/BuscadorPorCabecera";
-import BuscadorMultiplesInput from "../../common/grids/busqueda/BuscadorMultiplesInput";
+import BuscadorSingleInput from "../../common/grids/busquedas/BuscadorSingleInput";
+import BuscadorPorCabecera from "../../common/grids/busquedas/BuscadorPorCabecera";
+import BuscadorMultiplesInput from "../../common/grids/busquedas/BuscadorMultiplesInput";
 import { DemoEvents } from "../../../../presentacion/DemoEvents";
 import { useInfraestructureRepository } from "../../common/base/Dependencies";
 
@@ -45,9 +45,7 @@ const DemoGridView = () => {
   return (
     <div className="container-fluid grid">
       <h1 className="titulo">Mantenimiento </h1>
-      {process.env.REACT_APP_BUSCAR_SINGLE === "true"
-        ? BuscadorSingleInput(tabla)
-        : null}
+      {BuscadorSingleInput(tabla)}
       <div className="table-responsive">
         <table
           className="table table-hover table-borderless "
