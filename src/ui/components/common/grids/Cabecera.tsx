@@ -20,7 +20,7 @@ const Cabecera = (tabla: any) => {
                     // Pintamos el título de nuestra columna (propiedad "Header")
                     column.render("Header")
                   }
-                  {process.env.REACT_APP_BUSCAR_CABECERA ? (
+                  {process.env.REACT_APP_BUSCAR_CABECERA === "true" ? (
                     <div>
                       {column.canFilter ? column.render("Filter") : null}
                     </div>

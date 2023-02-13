@@ -7,7 +7,7 @@ const BuscadorMultiplesInput = (tabla: any) => {
       {headerGroups.map((headerGroup: HeaderGroup) =>
         headerGroup.headers.map((column: any) => (
           <th>
-            {process.env.REACT_APP_BUSCAR_MULTIPLE ? (
+            {process.env.REACT_APP_BUSCAR_MULTIPLE === "true" ? (
               <div>{column.canFilter ? column.render("Filter") : null}</div>
             ) : null}
           </th>
