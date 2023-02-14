@@ -1,3 +1,4 @@
+import Dropdown from "../../Dropdown";
 import "../../../../css/buscador.css";
 
 const BuscadorPorSeleccion = ({ column }: any) => {
@@ -11,17 +12,18 @@ const BuscadorPorSeleccion = ({ column }: any) => {
       </option>
     );
   });
+
+  const buscar = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setFilter(e.target.value);
+  };
+
   return (
-    <select
-      className="form-select form-select-sm mt-3 buscarSeleccion"
-      value={filterValue || "Todo"}
-      onChange={(e) => {
-        setFilter(e.target.value);
-      }}
-    >
-      <option value="">Todo</option>
-      {options};
-    </select>
+    <Dropdown
+      className={"form-select-sm mt-3 buscarSeleccion"}
+      value={filterValue}
+      options={options}
+      onChange={buscar}
+    />
   );
 };
 
