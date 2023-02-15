@@ -5,7 +5,7 @@ const Cuerpo = (tabla: any) => {
   const { getTableBodyProps, prepareRow, page } = tabla;
 
   return (
-    <tbody className="cuerpo cuerpo_texto" {...getTableBodyProps()}>
+    <tbody className="cuerpo cuerpo-texto" {...getTableBodyProps()}>
       {
         // Recorremos las filas
         page.map((row: Row) => {
