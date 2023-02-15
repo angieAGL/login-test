@@ -1,7 +1,7 @@
 @import url("variables.css");
 
 .editar{
-    background-color: transparent;
-    color: var(--color-principal);
-    margin: 10px;
+  background-color: transparent;
+  color: var(--color-principal);
+  margin: 10px;
 }

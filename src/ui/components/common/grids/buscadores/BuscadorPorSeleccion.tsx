@@ -19,7 +19,7 @@ const BuscadorPorSeleccion = ({ column }: any) => {
 
   return (
     <Dropdown
-      className={"form-select-sm mt-3 buscarSeleccion"}
+      class_name={"form-select-sm mt-3 buscar-seleccion"}
       value={filterValue}
       options={options}
       onChange={buscar}

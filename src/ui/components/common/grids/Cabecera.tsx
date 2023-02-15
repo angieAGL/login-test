@@ -5,7 +5,7 @@ const Cabecera = (tabla: any) => {
   const { headerGroups } = tabla;
 
   return (
-    <thead className="cabecera cabecera_texto">
+    <thead className="cabecera cabecera-texto">
       {
         // Recorremos las columnas que previamente definimos
         headerGroups.map((headerGroup: HeaderGroup) => (

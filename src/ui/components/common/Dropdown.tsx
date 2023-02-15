@@ -1,6 +1,7 @@
-const Dropdown = ({ value, onChange, options, className }: any) => {
+import "../../css/buscador.css";
+const Dropdown = ({ value, onChange, options, class_name }: any) => {
   const valorDefault = "Todo";
-  className = `form-select ${className}`;
+  const className = `form-select ${class_name}`;
   return (
     <select
       className={className}

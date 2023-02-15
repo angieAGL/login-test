@@ -1,7 +1,7 @@
 @import url("variables.css");
 @import url("textos.css");
 
-.buscar_texto {
+.buscar-texto {
   font-family: var(--fuente-text);
   font-style: normal;
   font-weight: 400;
@@ -9,7 +9,7 @@
   line-height: 17px;
 }
 
-.buscar_texto_btn {
+.buscar-texto-btn {
   font-family: var(--fuente-text);
   font-style: normal;
   font-weight: 600;
@@ -19,8 +19,8 @@
   text-align: center;
 }
 
-.buscarSeleccion {
+.buscar-seleccion {
   font-size: var(--texto-buscar-size);
-  font-family: "Montserrat", sans-serif;
+  font-family: Montserrat, sans-serif;
   font-weight: 400;
 }

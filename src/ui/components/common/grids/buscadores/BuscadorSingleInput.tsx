@@ -34,7 +34,7 @@ const BuscadorSingleInput = (tabla: any) => {
           <div className="row gap-2  text-center">
             <div className="col">
               <input
-                className="form-control buscar_texto"
+                className="form-control buscar-texto"
                 value={value || ""}
                 onChange={handleInputChange}
                 placeholder="Ingrese el dato para buscar"

@@ -5,8 +5,8 @@
   --texto-size: 12px;
   --texto-buscar-size: 14px;
   --fuente-text: "Montserrat";
-  --color-text: #000000;
-  --color-text_blanco: #ffffff;
+  --color-text: #000;
+  --color-text-blanco: #fff;
   --border-buscador: 1px solid #c7c7c7;
   --height-buscador: 30px;
 }
