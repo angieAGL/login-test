@@ -4,7 +4,7 @@ import {
   MENSAJE_FORMATO_USUARIO,
   MENSAJE_LONGITUD_MINIMO_USUARIO,
   LONGITUD_MINIMO_USUARIO,
-} from "../../../cross-cutting/constant";
+} from "../../../cross-cutting/constants";
 import { useForm } from "react-hook-form";
 import LoginEvents from "../../../presentacion/LoginEvents";
 
