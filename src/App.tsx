@@ -1,15 +1,23 @@
 import { InfraestructureProvider } from "./dependency-injection/InfraestructureInjector";
 import DemoGridView from "./ui/components/mantenimiento/demo/DemoGridView";
+import LoginView from "./ui/components/autenticacion/LoginView";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    // <>
-    //   <DemoGridView />
-    //   {/*<LoginView></LoginView>*/}
-    // </>
-    <InfraestructureProvider>
-      <DemoGridView />
-    </InfraestructureProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LoginView />}></Route>
+        <Route
+          path="/mantenimiento"
+          element={
+            <InfraestructureProvider>
+              <DemoGridView />
+            </InfraestructureProvider>
+          }
+        ></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
