@@ -1,23 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../css/login.css";
 import "../../css/textos.css";
 import Boton from "../common/grids/botones/Boton";
 import LoginValidation from "./LoginValidation";
 import { useInfraestructureRepository } from "../common/base/Dependencies";
+import PopUp from "../common/PopUp";
+import LoginEvents from "../../../presentacion/LoginEvents";
 
 const logoEmpresa = require("../../assets/img/proInvesting.png");
 const imgLogin = require("../../assets/img/imagenLogin.png");
 
 const LoginView = () => {
   const { userRepositoy } = useInfraestructureRepository();
+  const [respuesta, setRespuesta] = useState({
+    exito: false,
+    mensaje: "",
+  });
   const {
     handleSubmit,
-    onSubmit,
     usuarioValidar,
     contraseñaValidar,
     mensajeErrorUsuario,
     mensajeErrorContraseña,
-  } = LoginValidation(userRepositoy);
+  } = LoginValidation();
+
+  const { onSubmit } = LoginEvents(userRepositoy, setRespuesta);
+
+  console.log(respuesta);
+
   return (
     <div>
       <nav className="navbar">
@@ -77,13 +87,25 @@ const LoginView = () => {
                 {mensajeErrorContraseña}
               </p>
             }
-            <div className="mb-4 text-end">
+            <div
+              className="mb-4 text-end"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
+            >
               <a href="*">¿Olvidaste tu contraseña ?</a>
             </div>
-            <div className="text-center">
+
+            <div
+              className="mb-4 text-center"
+              data-bs-toggle="modal"
+              data-bs-target="#modal"
+            >
               <Boton text={"Iniciar sesión"}></Boton>
             </div>
           </form>
+          {respuesta.mensaje ? (
+            <PopUp id={"modal"} mensaje={respuesta.mensaje}></PopUp>
+          ) : null}
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@ import { LoginUseCase } from "../aplicacion/use-cases/LoginUseCase";
 
 import { IUserRepository } from "../aplicacion/interfaces/IUserRepository";
 
-const LoginEvents = (userRepository: IUserRepository) => {
+const LoginEvents = (userRepository: IUserRepository, setRespuesta: any) => {
   const onSubmit = (data: any) => {
     const validarDAtos = new LoginUseCase(userRepository);
 
@@ -10,8 +10,7 @@ const LoginEvents = (userRepository: IUserRepository) => {
       data.usuario,
       data.contrasenia
     );
-
-    console.log(respuesta);
+    setRespuesta(respuesta);
   };
 
   return { onSubmit };

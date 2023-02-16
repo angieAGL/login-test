@@ -6,15 +6,11 @@ import {
   LONGITUD_MINIMO_USUARIO,
 } from "../../../cross-cutting/Constants";
 import { useForm } from "react-hook-form";
-import LoginEvents from "../../../presentacion/LoginEvents";
-import { IUserRepository } from "../../../aplicacion/interfaces/IUserRepository";
 
-const LoginValidation = (userRepository: IUserRepository) => {
+const LoginValidation = () => {
   const initialData = { usuario: "", contrasenia: "" };
 
   const patterns = { name: /^[A-Za-z]+$/i };
-
-  const { onSubmit } = LoginEvents(userRepository);
 
   const {
     register,
@@ -45,7 +41,6 @@ const LoginValidation = (userRepository: IUserRepository) => {
     errors,
     register,
     handleSubmit,
-    onSubmit,
     usuarioValidar,
     contraseñaValidar,
     mensajeErrorUsuario,
