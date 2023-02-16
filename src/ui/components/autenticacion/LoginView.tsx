@@ -3,11 +3,13 @@ import "../../css/login.css";
 import "../../css/textos.css";
 import Boton from "../common/grids/botones/Boton";
 import LoginValidation from "./LoginValidation";
+import { useInfraestructureRepository } from "../common/base/Dependencies";
 
 const logoEmpresa = require("../../assets/img/proInvesting.png");
 const imgLogin = require("../../assets/img/imagenLogin.png");
 
 const LoginView = () => {
+  const { userRepositoy } = useInfraestructureRepository();
   const {
     handleSubmit,
     onSubmit,
@@ -15,8 +17,7 @@ const LoginView = () => {
     contraseñaValidar,
     mensajeErrorUsuario,
     mensajeErrorContraseña,
-  } = LoginValidation();
-
+  } = LoginValidation(userRepositoy);
   return (
     <div>
       <nav className="navbar">

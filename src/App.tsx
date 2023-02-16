@@ -7,7 +7,14 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LoginView />}></Route>
+        <Route
+          path="/"
+          element={
+            <InfraestructureProvider>
+              <LoginView />
+            </InfraestructureProvider>
+          }
+        ></Route>
         <Route
           path="/mantenimiento"
           element={

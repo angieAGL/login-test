@@ -7,13 +7,14 @@ import {
 } from "../../../cross-cutting/Constants";
 import { useForm } from "react-hook-form";
 import LoginEvents from "../../../presentacion/LoginEvents";
+import { IUserRepository } from "../../../aplicacion/interfaces/IUserRepository";
 
-const LoginValidation = () => {
-  const initialData = { usuario: "", contraseña: "" };
+const LoginValidation = (userRepository: IUserRepository) => {
+  const initialData = { usuario: "", contrasenia: "" };
 
   const patterns = { name: /^[A-Za-z]+$/i };
 
-  const { onSubmit } = LoginEvents();
+  const { onSubmit } = LoginEvents(userRepository);
 
   const {
     register,
@@ -33,12 +34,12 @@ const LoginValidation = () => {
     },
   });
 
-  const contraseñaValidar = register("contraseña", {
+  const contraseñaValidar = register("contrasenia", {
     required: MENSAJE_INGRESE_CONTRASEÑA,
   });
 
   const mensajeErrorUsuario = errors?.usuario?.message;
-  const mensajeErrorContraseña = errors?.contraseña?.message;
+  const mensajeErrorContraseña = errors?.contrasenia?.message;
 
   return {
     errors,
