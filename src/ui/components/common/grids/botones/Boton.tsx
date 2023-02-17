@@ -6,7 +6,7 @@ const Boton = ({ text, class_name, onChange, onClick }: BotonInterface) => {
 
   return (
     <button
-      type="submit"
+      type="button"
       id="boton"
       className={className}
       onChange={onChange}

@@ -8,12 +8,19 @@ export class LoginUseCase {
     this._userRepository = userRepository;
   }
 
-  validarUsuario(usuario: string, contrasenia: string): LoginResponse {
-    if (usuario === "" || contrasenia === "") {
-      return { exito: false, mensaje: "Ingrese valores por favor" };
-    }
-    return this._userRepository.autenticarUsuario(usuario, contrasenia)
-      ? { exito: true, mensaje: "Exito" }
-      : { exito: false, mensaje: "Usuario o contraseña incorrecta" };
+  validarUsuario(usuario: string, contrasenia: string): Promise<LoginResponse> {
+    return new Promise((resolve, reject) => {
+      function obtener(userRepository: IUserRepository) {
+        if (usuario === "" || contrasenia === "") {
+          return { exito: false, mensaje: "Ingrese valores por favor" };
+        }
+        return userRepository.autenticarUsuario(usuario, contrasenia)
+          ? { exito: true, mensaje: "Exito" }
+          : { exito: false, mensaje: "Usuario o contraseña incorrecta" };
+      }
+      setTimeout(() => {
+        return resolve(obtener(this._userRepository));
+      });
+    });
   }
 }
