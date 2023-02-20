@@ -24,8 +24,6 @@ export class LoginUseCase {
           : { exito: false, mensaje: "Usuario o contraseña incorrecta" };
       });
 
-    console.log(valor);
-
     return valor;
   }
 }

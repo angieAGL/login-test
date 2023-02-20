@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "../../css/login.css";
 import "../../css/textos.css";
-import Boton from "../common/grids/botones/Boton";
 import BotonFormulario from "../common/grids/botones/BotonFormulario";
 import LoginValidation from "./LoginValidation";
 import { useInfraestructureRepository } from "../common/base/Dependencies";
@@ -41,8 +40,6 @@ const LoginView = () => {
     // va a esperar a que acabe el onSubmit
     // cuando acabe, evaluas el objeto response
     // si es exitoso, redireccionas a la pagina de inicio
-
-    console.log(mostrarPopUp);
 
     //si no es exitoso, mostras el mensaje de error
   };

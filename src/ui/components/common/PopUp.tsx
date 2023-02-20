@@ -12,8 +12,8 @@ const PopUp = (
       <Modal show={valor}>
         <Modal.Body>{mensaje}</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setMostrarPopUp(false)}>
-            Close
+          <Button variant="btn" onClick={() => setMostrarPopUp(false)}>
+            Cerrar
           </Button>
         </Modal.Footer>
       </Modal>

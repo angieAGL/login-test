@@ -1,6 +1,6 @@
-import React from "react";
+import Boton from "./Boton";
 const BotonFormulario = () => {
-  return <button type="submit">Iniciar sesion</button>;
+  return <Boton type="submit" text={"Iniciar sesion"}></Boton>;
 };
 
 export default BotonFormulario;
