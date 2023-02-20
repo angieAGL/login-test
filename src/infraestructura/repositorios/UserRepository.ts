@@ -1,5 +1,4 @@
 import { IUserRepository } from "../../aplicacion/interfaces/IUserRepository";
-import DATASET_USUARIO from "../data-sets/DATASET_USUARIOS.json";
 import { User } from "../../dominio/entidades/User";
 
 export class UserRepository implements IUserRepository {
@@ -7,6 +6,7 @@ export class UserRepository implements IUserRepository {
     let response = await fetch(
       "https://my-json-server.typicode.com/angieAGL/DatosUser/listaUSer"
     );
+
     let data = await response.json();
 
     return data;

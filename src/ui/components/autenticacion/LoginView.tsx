@@ -7,6 +7,7 @@ import LoginValidation from "./LoginValidation";
 import { useInfraestructureRepository } from "../common/base/Dependencies";
 import PopUp from "../common/PopUp";
 import LoginEvents from "../../../presentacion/LoginEvents";
+import { useNavigate } from "react-router-dom";
 
 const logoEmpresa = require("../../assets/img/proInvesting.png");
 const imgLogin = require("../../assets/img/imagenLogin.png");
@@ -23,24 +24,29 @@ const LoginView = () => {
     mensajeErrorContraseña,
   } = LoginValidation();
   const { onSubmit } = new LoginEvents(userRepositoy);
-
-  const funcionSubmit = async (data: any) => {
+  const navigate = useNavigate();
+  const funcionSubmit = (data: any) => {
     // va a llamar al onSubmit
 
-    setRespuesta(await onSubmit(data));
-
-    console.log(respuesta);
+    onSubmit(data).then((response) => {
+      setRespuesta(response);
+      if (response.exito) {
+        setMostrarPopUp(false);
+        navigate("/mantenimiento");
+      } else {
+        setMostrarPopUp(true);
+      }
+    });
 
     // va a esperar a que acabe el onSubmit
     // cuando acabe, evaluas el objeto response
     // si es exitoso, redireccionas a la pagina de inicio
-    if (respuesta.exito) {
-      setMostrarPopUp(false);
-    } else {
-      setMostrarPopUp(true);
-    }
+
+    console.log(mostrarPopUp);
+
     //si no es exitoso, mostras el mensaje de error
   };
+
   return (
     <div>
       <nav className="navbar">
@@ -109,10 +115,8 @@ const LoginView = () => {
             <div className="mb-4 text-center">
               <BotonFormulario></BotonFormulario>
             </div>
-            {mostrarPopUp ? "si" : "no"}
-            {respuesta.mensaje}
           </form>
-          {mostrarPopUp ? <PopUp mensaje={respuesta.mensaje}></PopUp> : <></>}
+          {PopUp(mostrarPopUp, setMostrarPopUp, respuesta.mensaje)}
         </div>
       </div>
     </div>
