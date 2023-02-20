@@ -18,12 +18,6 @@ export class LoginEvents {
     );
 
     return valor;
-
-    /*const respuesta =  validarDAtos.validarUsuario(
-        data.usuario,
-        data.contrasenia
-      );
-      return respuesta;*/
   };
 }
 

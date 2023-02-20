@@ -7,13 +7,13 @@ import LoginValidation from "./LoginValidation";
 import { useInfraestructureRepository } from "../common/base/Dependencies";
 import PopUp from "../common/PopUp";
 import LoginEvents from "../../../presentacion/LoginEvents";
-import { LoginResponse } from "../../../dominio/responses/LoginResponse";
 
 const logoEmpresa = require("../../assets/img/proInvesting.png");
 const imgLogin = require("../../assets/img/imagenLogin.png");
 
 const LoginView = () => {
   const { userRepositoy } = useInfraestructureRepository();
+  const [respuesta, setRespuesta] = useState({ exito: false, mensaje: "" });
   const [mostrarPopUp, setMostrarPopUp] = useState(false);
   const {
     handleSubmit,
@@ -24,22 +24,22 @@ const LoginView = () => {
   } = LoginValidation();
   const { onSubmit } = new LoginEvents(userRepositoy);
 
-  const funcionSubmit = (data: any) => {
+  const funcionSubmit = async (data: any) => {
     // va a llamar al onSubmit
 
-    onSubmit(data).then((res) => {
-      console.log(res);
-    });
+    setRespuesta(await onSubmit(data));
+
+    console.log(respuesta);
 
     // va a esperar a que acabe el onSubmit
     // cuando acabe, evaluas el objeto response
     // si es exitoso, redireccionas a la pagina de inicio
-    // if () {
-    //   setMostrarPopUp(false);
-    // } else {
-    //   setMostrarPopUp(true);
-    // }
-    // si no es exitoso, mostras el mensaje de error
+    if (respuesta.exito) {
+      setMostrarPopUp(false);
+    } else {
+      setMostrarPopUp(true);
+    }
+    //si no es exitoso, mostras el mensaje de error
   };
   return (
     <div>
@@ -110,8 +110,9 @@ const LoginView = () => {
               <BotonFormulario></BotonFormulario>
             </div>
             {mostrarPopUp ? "si" : "no"}
+            {respuesta.mensaje}
           </form>
-          {mostrarPopUp ? <PopUp mensaje={"hola"}></PopUp> : <></>}
+          {mostrarPopUp ? <PopUp mensaje={respuesta.mensaje}></PopUp> : <></>}
         </div>
       </div>
     </div>

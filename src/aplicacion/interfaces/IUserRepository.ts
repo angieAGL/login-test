@@ -1,3 +1,5 @@
+import { User } from "../../dominio/entidades/User";
 export interface IUserRepository {
-  autenticarUsuario(usuario: string, contrasenia: string): boolean;
+  getUser(): Promise<User[]>;
+  autenticarUsuario(usuario: string, contrasenia: string): Promise<boolean>;
 }

@@ -8,19 +8,24 @@ export class LoginUseCase {
     this._userRepository = userRepository;
   }
 
-  validarUsuario(usuario: string, contrasenia: string): Promise<LoginResponse> {
-    return new Promise((resolve, reject) => {
-      function obtener(userRepository: IUserRepository) {
-        if (usuario === "" || contrasenia === "") {
-          return { exito: false, mensaje: "Ingrese valores por favor" };
-        }
-        return userRepository.autenticarUsuario(usuario, contrasenia)
+  async validarUsuario(
+    usuario: string,
+    contrasenia: string
+  ): Promise<LoginResponse> {
+    if (usuario === "" || contrasenia === "") {
+      return { exito: false, mensaje: "Ingrese valores por favor" };
+    }
+
+    let valor = await this._userRepository
+      .autenticarUsuario(usuario, contrasenia)
+      .then((valor) => {
+        return valor
           ? { exito: true, mensaje: "Exito" }
           : { exito: false, mensaje: "Usuario o contraseña incorrecta" };
-      }
-      setTimeout(() => {
-        return resolve(obtener(this._userRepository));
       });
-    });
+
+    console.log(valor);
+
+    return valor;
   }
 }
