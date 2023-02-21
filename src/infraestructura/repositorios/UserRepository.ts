@@ -15,7 +15,7 @@ export class UserRepository implements IUserRepository {
     usuario: string,
     contrasenia: string
   ): Promise<boolean> {
-    let listado_json = await this.getUser();
+    let listado_json: User[] = await this.getUser();
 
     let exito: boolean = listado_json.some(
       (user) => user.usuario === usuario && user.contrasenia === contrasenia
