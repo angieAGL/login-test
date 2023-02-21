@@ -4,16 +4,13 @@ import {
   MENSAJE_FORMATO_USUARIO,
   MENSAJE_LONGITUD_MINIMO_USUARIO,
   LONGITUD_MINIMO_USUARIO,
-} from "../../../cross-cutting/constants";
+} from "../../../cross-cutting/Constants";
 import { useForm } from "react-hook-form";
-import LoginEvents from "../../../presentacion/LoginEvents";
 
 const LoginValidation = () => {
-  const initialData = { usuario: "", contraseña: "" };
+  const initialData = { usuario: "", contrasenia: "" };
 
   const patterns = { name: /^[A-Za-z]+$/i };
-
-  const { onSubmit } = LoginEvents();
 
   const {
     register,
@@ -33,18 +30,17 @@ const LoginValidation = () => {
     },
   });
 
-  const contraseñaValidar = register("contraseña", {
+  const contraseñaValidar = register("contrasenia", {
     required: MENSAJE_INGRESE_CONTRASEÑA,
   });
 
   const mensajeErrorUsuario = errors?.usuario?.message;
-  const mensajeErrorContraseña = errors?.contraseña?.message;
+  const mensajeErrorContraseña = errors?.contrasenia?.message;
 
   return {
     errors,
     register,
     handleSubmit,
-    onSubmit,
     usuarioValidar,
     contraseñaValidar,
     mensajeErrorUsuario,
