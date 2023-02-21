@@ -17,10 +17,10 @@ export class UserRepository implements IUserRepository {
   ): Promise<boolean> {
     let listado_json = await this.getUser();
 
-    let exito1 = listado_json.some(
+    let exito: boolean = listado_json.some(
       (user) => user.usuario === usuario && user.contrasenia === contrasenia
     );
 
-    return exito1;
+    return exito;
   }
 }

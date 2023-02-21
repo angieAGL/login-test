@@ -25,8 +25,6 @@ const LoginView = () => {
   const { onSubmit } = new LoginEvents(userRepositoy);
   const navigate = useNavigate();
   const funcionSubmit = (data: any) => {
-    // va a llamar al onSubmit
-
     onSubmit(data).then((response) => {
       setRespuesta(response);
       if (response.exito) {
@@ -36,12 +34,6 @@ const LoginView = () => {
         setMostrarPopUp(true);
       }
     });
-
-    // va a esperar a que acabe el onSubmit
-    // cuando acabe, evaluas el objeto response
-    // si es exitoso, redireccionas a la pagina de inicio
-
-    //si no es exitoso, mostras el mensaje de error
   };
 
   return (

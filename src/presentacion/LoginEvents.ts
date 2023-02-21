@@ -1,5 +1,4 @@
 import { LoginUseCase } from "../aplicacion/use-cases/LoginUseCase";
-
 import { IUserRepository } from "../aplicacion/interfaces/IUserRepository";
 
 export class LoginEvents {
