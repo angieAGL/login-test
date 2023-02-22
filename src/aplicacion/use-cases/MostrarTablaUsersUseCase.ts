@@ -1,7 +1,7 @@
 import { IUserRepository } from "../interfaces/IUserRepository";
 import { User } from "../../dominio/entidades/User";
 
-export class MostrarTablaUsersoUseCase {
+export class MostrarTablaUsersUseCase {
   private _userRepository: IUserRepository;
 
   constructor(userRepository: IUserRepository) {
