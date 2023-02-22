@@ -1,5 +1,5 @@
-import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import Boton from "./grids/botones/Boton";
 const PopUp = (
   mostrar: boolean,
   setMostrarPopUp: React.Dispatch<React.SetStateAction<boolean>>,
@@ -9,12 +9,14 @@ const PopUp = (
 
   return (
     <>
-      <Modal show={valor}>
+      <Modal show={valor} centered>
         <Modal.Body>{mensaje}</Modal.Body>
         <Modal.Footer>
-          <Button variant="btn" onClick={() => setMostrarPopUp(false)}>
-            Cerrar
-          </Button>
+          <Boton
+            text={"Cerrar"}
+            type={"button"}
+            onClick={() => setMostrarPopUp(false)}
+          />
         </Modal.Footer>
       </Modal>
     </>

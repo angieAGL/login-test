@@ -2,6 +2,7 @@ import BotonBuscador from "./BotonBuscador";
 
 const BotonReset = (tabla: any) => {
   const { setAllFilters } = tabla;
+
   return (
     <BotonBuscador
       text={"Reset"}

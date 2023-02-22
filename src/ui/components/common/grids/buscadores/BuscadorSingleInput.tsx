@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useAsyncDebounce } from "react-table";
 import "../../../../css/buscador.css";
 import BotonBuscador from "../botones/BotonBuscador";
+import { Col, Row, Form } from "react-bootstrap";
 
 const BuscadorSingleInput = (tabla: any) => {
   const {
@@ -24,28 +25,26 @@ const BuscadorSingleInput = (tabla: any) => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
-    console.log(e.target.value);
   };
 
   return (
     <>
       {process.env.REACT_APP_BUSCAR_SINGLE === "true" ? (
         <div className="d-grid">
-          <div className="row gap-2  text-center">
-            <div className="col">
-              <input
+          <Row className="gap-2 text-center">
+            <Col>
+              <Form.Control
                 className="form-control buscar-texto"
                 value={value || ""}
                 onChange={handleInputChange}
                 placeholder="Ingrese el dato para buscar"
               />
-            </div>
-
-            <div className="col-md-auto  ">
+            </Col>
+            <Col md="auto">
               <BotonBuscador text={"Buscar"} onClick={buscar}></BotonBuscador>
               <BotonBuscador text={"Limpiar"} onClick={reset}></BotonBuscador>
-            </div>
-          </div>
+            </Col>
+          </Row>
         </div>
       ) : null}
     </>

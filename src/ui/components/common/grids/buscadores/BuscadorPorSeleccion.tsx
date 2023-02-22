@@ -1,4 +1,4 @@
-import Dropdown from "../../Dropdown";
+import DropDown from "../../DropDown";
 import "../../../../css/buscador.css";
 
 const BuscadorPorSeleccion = ({ column }: any) => {
@@ -18,7 +18,7 @@ const BuscadorPorSeleccion = ({ column }: any) => {
   };
 
   return (
-    <Dropdown
+    <DropDown
       class_name={"form-select-sm mt-3 buscar-seleccion"}
       value={filterValue}
       options={options}

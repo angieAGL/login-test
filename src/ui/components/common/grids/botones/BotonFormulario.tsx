@@ -1,6 +1,8 @@
+import { BotonInterface } from "../Interfaces/BotonesInterface";
 import Boton from "./Boton";
-const BotonFormulario = () => {
-  return <Boton type="submit" text={"Iniciar sesion"}></Boton>;
+
+const BotonFormulario = ({ text }: BotonInterface) => {
+  return <Boton type="submit" text={text}></Boton>;
 };
 
 export default BotonFormulario;
