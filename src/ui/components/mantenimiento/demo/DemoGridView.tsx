@@ -16,6 +16,7 @@ import BuscadorPorCabecera from "../../common/grids/buscadores/BuscadorPorCabece
 import BuscadorMultiplesInput from "../../common/grids/buscadores/BuscadorMultiplesInput";
 import { DemoEvents } from "../../../../presentacion/DemoEvents";
 import { useInfraestructureRepository } from "../../common/base/Dependencies";
+import { Table, Container } from "react-bootstrap";
 
 const DemoGridView = () => {
   const { demoRepository, tipoRepository } = useInfraestructureRepository();
@@ -40,25 +41,19 @@ const DemoGridView = () => {
     useGlobalFilter,
     usePagination
   );
-
   const { getTableProps } = tabla;
+
   return (
-    <div className="container-fluid grid">
+    <Container fluid className="grid">
       <h1 className="titulo">Mantenimiento </h1>
       {BuscadorSingleInput(tabla)}
-      <div className="table-responsive">
-        <table
-          className="table table-hover table-borderless "
-          {...getTableProps()}
-        >
-          {BuscadorMultiplesInput(tabla)}
-          {Cabecera(tabla)}
-          {Cuerpo(tabla)}
-        </table>
-      </div>
-
+      <Table responsive hover borderless {...getTableProps()}>
+        {BuscadorMultiplesInput(tabla)}
+        {Cabecera(tabla)}
+        {Cuerpo(tabla)}
+      </Table>
       {Paginacion(tabla)}
-    </div>
+    </Container>
   );
 };
 

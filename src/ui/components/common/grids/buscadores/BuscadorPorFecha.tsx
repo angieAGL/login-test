@@ -1,15 +1,16 @@
-
-const BuscadorPorFecha = ({ column }:any) => {
+import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
+const BuscadorPorFecha = ({ column }: any) => {
   const { filterValue, setFilter } = column;
   return (
-    <div className="col-auto">
-      <input
+    <Col className="col-auto">
+      <Form.Control
         className="form-control form-control-sm mt-3"
         type="date"
         value={filterValue || ""}
         onChange={(e) => setFilter(e.target.value)}
       />
-    </div>
+    </Col>
   );
 };
 

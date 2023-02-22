@@ -1,17 +1,19 @@
 import "../../css/buscador.css";
-const Dropdown = ({ value, onChange, options, class_name }: any) => {
+import Form from "react-bootstrap/Form";
+
+const DropDown = ({ value, onChange, options, class_name }: any) => {
   const valorDefault = "Todo";
   const className = `form-select ${class_name}`;
   return (
-    <select
+    <Form.Select
       className={className}
       value={value || valorDefault}
       onChange={onChange}
     >
       <option value="">{valorDefault}</option>
       {options};
-    </select>
+    </Form.Select>
   );
 };
 
-export default Dropdown;
+export default DropDown;

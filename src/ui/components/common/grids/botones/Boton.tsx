@@ -1,5 +1,6 @@
 import "../../../../css/boton.css";
 import { BotonInterface } from "../Interfaces/BotonesInterface";
+import Button from "react-bootstrap/Button";
 
 const Boton = ({
   text,
@@ -8,18 +9,16 @@ const Boton = ({
   onChange,
   onClick,
 }: BotonInterface) => {
-  const className = `btn ${class_name}`;
-
   return (
-    <button
+    <Button
       type={type}
       id="boton"
-      className={className}
+      variant={`btn ${class_name}`}
       onChange={onChange}
       onClick={onClick}
     >
       {text}
-    </button>
+    </Button>
   );
 };
 export default Boton;
