@@ -17,7 +17,7 @@ function App() {
           }
         ></Route>
         <Route
-          path="/tablaDemo"
+          path="/demo"
           element={
             <InfraestructureProvider>
               <DemoGridView />
@@ -25,7 +25,7 @@ function App() {
           }
         ></Route>
         <Route
-          path="/tablaUser"
+          path="/users"
           element={
             <InfraestructureProvider>
               <UserGridView />
