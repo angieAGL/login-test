@@ -1,7 +1,7 @@
 import { IUserRepository } from "../aplicacion/interfaces/IUserRepository";
 import { MostrarTablaUsersUseCase } from "../aplicacion/use-cases/MostrarTablaUsersUseCase";
 
-export class UsersEvents {
+export class UserEvents {
   private _userRepository: IUserRepository;
 
   constructor(userRepository: IUserRepository) {
@@ -17,4 +17,4 @@ export class UsersEvents {
   };
 }
 
-export default UsersEvents;
+export default UserEvents;

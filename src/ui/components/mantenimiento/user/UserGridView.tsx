@@ -14,7 +14,7 @@ import Cuerpo from "../../common/grids/Cuerpo";
 import BuscadorSingleInput from "../../common/grids/buscadores/BuscadorSingleInput";
 import BuscadorPorCabecera from "../../common/grids/buscadores/BuscadorPorCabecera";
 import BuscadorMultiplesInput from "../../common/grids/buscadores/BuscadorMultiplesInput";
-import { UsersEvents } from "../../../../presentacion/UserEvents";
+import { UserEvents } from "../../../../presentacion/UserEvents";
 import { useInfraestructureRepository } from "../../common/base/Dependencies";
 import { Table, Container } from "react-bootstrap";
 import { useEffect, useState } from "react";
@@ -25,7 +25,7 @@ const UserGridView = () => {
   const [data1, setData1] = useState<User[]>([]);
 
   useEffect(() => {
-    const userEvento = new UsersEvents(userRepositoy);
+    const userEvento = new UserEvents(userRepositoy);
 
     userEvento.onLoad().then((response) => {
       setData1(response);
