@@ -1,7 +1,7 @@
 import { IDemoRepository } from "../aplicacion/interfaces/IDemoRepository";
 import { ITipoRepository } from "../aplicacion/interfaces/ITipoRepository";
 import { MostrarTablaDemoUseCase } from "../aplicacion/use-cases/MotrarTablaDemoUseCase";
-
+import { DeleteDemoUseCase } from "../aplicacion/use-cases/DeleteDemoUseCase";
 export class DemoEvents {
   private _demoRepository: IDemoRepository;
   private _tipoRepository: ITipoRepository;
@@ -21,5 +21,10 @@ export class DemoEvents {
     );
 
     return mostrarTabla.mostrarTablaDemo();
+  }
+  delete(id: number) {
+    const eliminarDemo = new DeleteDemoUseCase(this._demoRepository);
+
+    return eliminarDemo.deleteDemo(id);
   }
 }

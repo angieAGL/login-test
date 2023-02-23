@@ -10,11 +10,11 @@ export class DemoRepository implements IDemoRepository {
 
   delete(id: number): boolean {
     let listaDemo = this.listarDemo();
-    listaDemo[0].activo = true;
 
     for (var i in listaDemo) {
       if (listaDemo[i].id === id) {
         listaDemo[i].activo = false;
+
         return true;
       }
     }
