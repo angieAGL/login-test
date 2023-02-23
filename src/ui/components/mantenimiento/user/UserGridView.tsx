@@ -4,8 +4,8 @@ import {
   usePagination,
   useFilters,
 } from "react-table";
-import ColumnaGrid from "./ColumnaDemoGrid";
-import FilasGrid from "./FilasDemoGrid";
+import ColumnaGrid from "./ColumnaUserGrid";
+import FilasGrid from "./FilasUserGrid";
 import "../../../css/gridView.css";
 import Paginacion from "../../common/grids/Paginacion";
 import { TAMAÑO_PAGINAS } from "../../../../cross-cutting/Constants";
@@ -14,17 +14,26 @@ import Cuerpo from "../../common/grids/Cuerpo";
 import BuscadorSingleInput from "../../common/grids/buscadores/BuscadorSingleInput";
 import BuscadorPorCabecera from "../../common/grids/buscadores/BuscadorPorCabecera";
 import BuscadorMultiplesInput from "../../common/grids/buscadores/BuscadorMultiplesInput";
-import { DemoEvents } from "../../../../presentacion/DemoEvents";
+import { UsersEvents } from "../../../../presentacion/UsersEvents";
 import { useInfraestructureRepository } from "../../common/base/Dependencies";
 import { Table, Container } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { User } from "../../../../dominio/entidades/User";
 
-const DemoGridView = () => {
-  const { demoRepository, tipoRepository } = useInfraestructureRepository();
-  const demoEvento = new DemoEvents(demoRepository, tipoRepository);
+const UserGridView = () => {
+  const { userRepositoy } = useInfraestructureRepository();
+  const [data1, setData1] = useState<User[]>([]);
 
-  const { listaDemo, listaGenero, listaActivo } = demoEvento.onLoad();
-  const columns = ColumnaGrid(listaGenero, listaActivo);
-  const data = FilasGrid(listaDemo);
+  useEffect(() => {
+    const userEvento = new UsersEvents(userRepositoy);
+
+    userEvento.onLoad().then((response) => {
+      setData1(response);
+    });
+  }, [userRepositoy]);
+
+  const columns = ColumnaGrid();
+  const data = FilasGrid(data1);
   const tabla: any = useTable(
     {
       columns,
@@ -33,7 +42,6 @@ const DemoGridView = () => {
       initialState: {
         pageSize: TAMAÑO_PAGINAS,
         pageIndex: 0,
-        hiddenColumns: ["genero"],
       } as object,
     },
     useFilters,
@@ -56,4 +64,4 @@ const DemoGridView = () => {
   );
 };
 
-export default DemoGridView;
+export default UserGridView;
