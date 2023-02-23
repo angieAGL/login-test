@@ -14,7 +14,7 @@ import Cuerpo from "../../common/grids/Cuerpo";
 import BuscadorSingleInput from "../../common/grids/buscadores/BuscadorSingleInput";
 import BuscadorPorCabecera from "../../common/grids/buscadores/BuscadorPorCabecera";
 import BuscadorMultiplesInput from "../../common/grids/buscadores/BuscadorMultiplesInput";
-import { UsersEvents } from "../../../../presentacion/UsersEvents";
+import { UsersEvents } from "../../../../presentacion/UserEvents";
 import { useInfraestructureRepository } from "../../common/base/Dependencies";
 import { Table, Container } from "react-bootstrap";
 import { useEffect, useState } from "react";

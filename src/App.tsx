@@ -17,7 +17,7 @@ function App() {
           }
         ></Route>
         <Route
-          path="/mantenimiento"
+          path="/tablaDemo"
           element={
             <InfraestructureProvider>
               <DemoGridView />
