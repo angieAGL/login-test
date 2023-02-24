@@ -9,10 +9,12 @@ import BuscadorPorFecha from "../../common/grids/buscadores/BuscadorPorFecha";
 import BotonReset from "../../common/grids/botones/BotonReset";
 import FormatoFecha from "../../common/FormatoFecha";
 import { Column } from "react-table";
+import { DemoEvents } from "../../../../presentacion/DemoEvents";
 
 const ColumnaGrid = (
   listaGenero: Map<number, string>,
-  listaActivo: Map<boolean, string>
+  listaActivo: Map<boolean, string>,
+  funcionEliminar: DemoEvents
 ) => {
   const columns: Array<Column> = useMemo(
     () => [
@@ -77,7 +79,10 @@ const ColumnaGrid = (
             />
             <BotonEliminar
               href="#"
-              onClick={() => alert(`${row.values.numero}`)}
+              onClick={() => {
+                console.log(funcionEliminar.delete(row.values.id));
+                console.log(row.values.activo);
+              }}
             />
           </div>
         ),

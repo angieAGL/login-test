@@ -1,7 +1,6 @@
 import { Demo } from "../../dominio/entidades/Demo";
 import DATASET_DEMO from "../data-sets/DATASET_DEMO.json";
 import { IDemoRepository } from "../../aplicacion/interfaces/IDemoRepository";
-
 export class DemoRepository implements IDemoRepository {
   listarDemo(): Demo[] {
     let listado_json = DATASET_DEMO;
@@ -9,12 +8,12 @@ export class DemoRepository implements IDemoRepository {
   }
 
   delete(id: number): boolean {
-    let listaDemo = this.listarDemo();
+    // Read the JSON file
 
-    for (var i in listaDemo) {
-      if (listaDemo[i].id === id) {
-        listaDemo[i].activo = false;
-
+    for (var i in DATASET_DEMO) {
+      if (DATASET_DEMO[i].id === id) {
+        DATASET_DEMO[i].activo = false;
+        console.log(DATASET_DEMO[i].activo);
         return true;
       }
     }

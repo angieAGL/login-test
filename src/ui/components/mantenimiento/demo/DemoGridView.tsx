@@ -23,7 +23,7 @@ const DemoGridView = () => {
   const demoEvento = new DemoEvents(demoRepository, tipoRepository);
 
   const { listaDemo, listaGenero, listaActivo } = demoEvento.onLoad();
-  const columns = ColumnaGrid(listaGenero, listaActivo);
+  const columns = ColumnaGrid(listaGenero, listaActivo, demoEvento);
   const data = FilasGrid(listaDemo);
   const tabla: any = useTable(
     {
