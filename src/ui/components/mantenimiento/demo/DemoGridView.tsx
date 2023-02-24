@@ -17,14 +17,16 @@ import BuscadorMultiplesInput from "../../common/grids/buscadores/BuscadorMultip
 import { DemoEvents } from "../../../../presentacion/DemoEvents";
 import { useInfraestructureRepository } from "../../common/base/Dependencies";
 import { Table, Container } from "react-bootstrap";
+import { useState } from "react";
 
 const DemoGridView = () => {
   const { demoRepository, tipoRepository } = useInfraestructureRepository();
   const demoEvento = new DemoEvents(demoRepository, tipoRepository);
 
   const { listaDemo, listaGenero, listaActivo } = demoEvento.onLoad();
-  const columns = ColumnaGrid(listaGenero, listaActivo, demoEvento);
-  const data = FilasGrid(listaDemo);
+  const [data, setData] = useState(FilasGrid(listaDemo));
+  const columns = ColumnaGrid(listaGenero, listaActivo, data, setData);
+
   const tabla: any = useTable(
     {
       columns,

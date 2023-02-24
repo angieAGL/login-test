@@ -2,10 +2,10 @@ import { FaPen } from "react-icons/fa";
 import "../../../../css/botonEditar.css";
 import { BotonAccion } from "../Interfaces/BotonesInterface";
 
-export const BotonEditar = ({ href, onClick }: BotonAccion) => {
+export const BotonEditar = ({ onClick }: BotonAccion) => {
   return (
-    <a className="editar" href={href} onClick={onClick}>
+    <span className="editar" onClick={onClick}>
       <FaPen />
-    </a>
+    </span>
   );
 };

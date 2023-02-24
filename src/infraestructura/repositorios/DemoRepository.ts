@@ -13,7 +13,6 @@ export class DemoRepository implements IDemoRepository {
     for (var i in DATASET_DEMO) {
       if (DATASET_DEMO[i].id === id) {
         DATASET_DEMO[i].activo = false;
-        console.log(DATASET_DEMO[i].activo);
         return true;
       }
     }

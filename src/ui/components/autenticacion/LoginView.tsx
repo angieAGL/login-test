@@ -4,7 +4,7 @@ import "../../css/textos.css";
 import BotonFormulario from "../common/grids/botones/BotonFormulario";
 import LoginValidation from "./LoginValidation";
 import { useInfraestructureRepository } from "../common/base/Dependencies";
-import PopUp from "../common/PopUp";
+import PopUp from "../common/modal/PopUp";
 import LoginEvents from "../../../presentacion/LoginEvents";
 import { useNavigate } from "react-router-dom";
 import { Form, Nav, Container, Row, Col } from "react-bootstrap";

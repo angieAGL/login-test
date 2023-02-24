@@ -2,10 +2,10 @@ import { FaTrashAlt } from "react-icons/fa";
 import "../../../../css/botonEliminar.css";
 import { BotonAccion } from "../Interfaces/BotonesInterface";
 
-export const BotonEliminar = ({ href, onClick }: BotonAccion) => {
+export const BotonEliminar = ({ onClick }: BotonAccion) => {
   return (
-    <a className="eliminar" href={href} onClick={onClick}>
+    <span className="eliminar" onClick={onClick}>
       <FaTrashAlt />
-    </a>
+    </span>
   );
 };

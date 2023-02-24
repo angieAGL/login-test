@@ -1,5 +1,5 @@
 import Modal from "react-bootstrap/Modal";
-import Boton from "./grids/botones/Boton";
+import Boton from "../grids/botones/Boton";
 const PopUp = (
   mostrar: boolean,
   setMostrarPopUp: React.Dispatch<React.SetStateAction<boolean>>,

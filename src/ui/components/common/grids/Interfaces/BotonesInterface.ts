@@ -8,6 +8,5 @@ export type BotonInterface = {
 };
 
 export type BotonAccion = {
-  href: string;
   onClick: (event: React.MouseEvent<HTMLAnchorElement>) => void;
 };
