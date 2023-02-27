@@ -11,6 +11,7 @@ const PopUp = (
   boton.push(
     <Boton
       text={"Cerrar"}
+      class_name={"btn-cerrar"}
       type={"button"}
       onClick={() => setMostrarPopUp(false)}
     />

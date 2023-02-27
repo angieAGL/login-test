@@ -4,26 +4,28 @@ import PopUpBase from "./PopUpBase";
 const PopUpConfirmacion = (
   mostrar: boolean,
   mensaje: string,
-  setMostrarPopUp: any
+  setMostrarPopUp: React.Dispatch<React.SetStateAction<boolean>>,
+  funcionEliminar: (id: number) => void,
+  id: number
 ) => {
-  let boton: Array<object> = [];
-
-  boton.push(
+  const boton: Array<object> = [
     <Boton
       key={1}
+      class_name={""}
       text={"Cerrar"}
       type={"button"}
       onClick={() => setMostrarPopUp(false)}
     />,
     <Boton
       key={2}
-      text={"Guardar"}
+      text={"Aceptar"}
       type={"button"}
       onClick={() => {
+        funcionEliminar(id);
         setMostrarPopUp(false);
       }}
-    />
-  );
+    />,
+  ];
 
   return (
     <>

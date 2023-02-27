@@ -17,13 +17,6 @@ const ColumnaGrid = (
   data: Demo[],
   setData: React.Dispatch<React.SetStateAction<Demo[]>>
 ) => {
-  // const eliminar = (id: number) => {
-  //   setMostrarPopUp(true);
-  //   const datacopy = [...data];
-  //   datacopy[id].activo = false;
-  //   setData(datacopy);
-  // };
-
   const columns: Array<Column> = useMemo(
     () => [
       {
@@ -86,7 +79,7 @@ const ColumnaGrid = (
               onClick={() => alert("mensaje")}
             ></BotonEditar>
 
-            {Eliminar()}
+            {Eliminar(row.index, data, setData)}
           </div>
         ),
       },
