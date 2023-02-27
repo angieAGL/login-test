@@ -11,7 +11,7 @@ const PopUpConfirmacion = (
   const boton: Array<object> = [
     <Boton
       key={1}
-      class_name={""}
+      class_name={"btn-cerrar"}
       text={"Cerrar"}
       type={"button"}
       onClick={() => setMostrarPopUp(false)}

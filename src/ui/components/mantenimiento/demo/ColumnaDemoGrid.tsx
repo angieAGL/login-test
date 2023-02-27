@@ -9,7 +9,7 @@ import BotonReset from "../../common/grids/botones/BotonReset";
 import FormatoFecha from "../../common/FormatoFecha";
 import { Column } from "react-table";
 import { Demo } from "../../../../dominio/entidades/Demo";
-import { Eliminar } from "./Eliminar";
+import { Eliminar } from "./EliminarDemo";
 
 const ColumnaGrid = (
   listaGenero: Map<number, string>,
