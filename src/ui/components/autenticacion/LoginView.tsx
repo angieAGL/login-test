@@ -4,7 +4,7 @@ import "../../css/textos.css";
 import BotonFormulario from "../common/grids/botones/BotonFormulario";
 import LoginValidation from "./LoginValidation";
 import { useInfraestructureRepository } from "../common/base/Dependencies";
-import PopUp from "../common/modal/PopUp";
+import PopUpInformativo from "../common/modal/PopUpInformativo";
 import LoginEvents from "../../../presentacion/LoginEvents";
 import { useNavigate } from "react-router-dom";
 import { Form, Nav, Container, Row, Col } from "react-bootstrap";
@@ -33,7 +33,7 @@ const LoginView = () => {
       setRespuesta(response);
       if (response.exito) {
         setMostrarPopUp(false);
-        navigate("/mantenimiento");
+        navigate("/demo");
       } else {
         setMostrarPopUp(true);
       }
@@ -111,7 +111,7 @@ const LoginView = () => {
               <BotonFormulario text={"Iniciar Sesion"}></BotonFormulario>
             </div>
           </Form>
-          {PopUp(mostrarPopUp, setMostrarPopUp, respuesta.mensaje)}
+          {PopUpInformativo(mostrarPopUp, setMostrarPopUp, respuesta.mensaje)}
         </Col>
       </Row>
     </>

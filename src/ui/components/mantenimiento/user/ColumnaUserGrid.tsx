@@ -30,8 +30,14 @@ const ColumnaGrid = () => {
         Filter: BotonReset,
         Cell: ({ row }) => (
           <div>
-            <BotonEditar onClick={() => alert(`${row.values.usuario}`)} />
-            <BotonEliminar onClick={() => alert(`${row.values.usuario}`)} />
+            <BotonEditar
+              href="#"
+              onClick={() => alert(`${row.values.usuario}`)}
+            />
+            <BotonEliminar
+              href="#"
+              onClick={() => alert(`${row.values.usuario}`)}
+            />
           </div>
         ),
       },
