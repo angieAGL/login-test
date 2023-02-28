@@ -1,9 +1,8 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useMemo } from "react";
 import { Demo } from "../../../../dominio/entidades/Demo";
 
 const FilasGrid = (listaDemo: Demo[]) => {
-  const rows = useMemo(() => listaDemo, []);
+  const rows = useMemo(() => listaDemo, [listaDemo]);
   return rows;
 };
 

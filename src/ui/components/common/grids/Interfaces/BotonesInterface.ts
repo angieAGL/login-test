@@ -13,7 +13,7 @@ export type BotonBorrar = {
   mostrarPopUp: boolean;
   mensaje: string;
   setMostrarPopUp: React.Dispatch<React.SetStateAction<boolean>>;
-  eliminar: (id: number) => void;
+  funcion: (id: number) => Promise<boolean>;
   id: number;
 };
 

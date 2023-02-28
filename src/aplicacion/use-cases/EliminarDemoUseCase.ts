@@ -7,7 +7,7 @@ export class EliminarDemoUseCase {
     this._demoRepository = demoRepository;
   }
 
-  eliminaDemo(id: number): boolean {
-    return this._demoRepository.eliminarDemo(id);
+  async eliminaDemo(id: number): Promise<boolean> {
+    return await this._demoRepository.eliminarDemo(id);
   }
 }

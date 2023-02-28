@@ -2,18 +2,21 @@ import React from "react";
 import { BotonEliminar } from "../../common/grids/botones/BotonEliminar";
 import { useState } from "react";
 import { Demo } from "../../../../dominio/entidades/Demo";
+import { DemoEvents } from "../../../../presentacion/DemoEvents";
 
 export const BotonEliminarDemo = (
   id: number,
   data: Demo[],
-  setData: React.Dispatch<React.SetStateAction<Demo[]>>
+  setData: React.Dispatch<React.SetStateAction<Demo[]>>,
+  funcionEimina: DemoEvents
 ) => {
   const [mostrarPopUp, setMostrarPopUp] = useState(false);
   const mensaje = "¿Esta seguro que quiere eliminar ?";
-  const eliminar = (id: number) => {
+  const eliminar = async (id: number) => {
     const datacopy = [...data];
     datacopy[id].activo = false;
     setData(datacopy);
+    return funcionEimina.onClickDelete(id).then((res) => res);
   };
   return (
     <>
@@ -25,7 +28,7 @@ export const BotonEliminarDemo = (
         mostrarPopUp={mostrarPopUp}
         mensaje={mensaje}
         setMostrarPopUp={setMostrarPopUp}
-        eliminar={eliminar}
+        funcion={eliminar}
         id={id}
       ></BotonEliminar>
     </>

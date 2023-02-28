@@ -1,21 +1,20 @@
 import { Demo } from "../../dominio/entidades/Demo";
-import DATASET_DEMO from "../data-sets/DATASET_DEMO.json";
 import { IDemoRepository } from "../../aplicacion/interfaces/IDemoRepository";
 
 export class DemoRepository implements IDemoRepository {
-  listarDemo(): Demo[] {
-    let listado_json = DATASET_DEMO;
-    return listado_json;
+  async listarDemo(): Promise<Demo[]> {
+    let response = await fetch(
+      "https://my-json-server.typicode.com/angieAGL/datosDemo/listaDemo"
+    );
+    let data = await response.json();
+    return data;
   }
 
-  eliminarDemo(id: number): boolean {
-    for (var i in DATASET_DEMO) {
-      if (DATASET_DEMO[i].id === id) {
-        DATASET_DEMO[i].activo = false;
-        return true;
-      }
-    }
+  async eliminarDemo(id: number): Promise<boolean> {
+    let listado_json: Demo[] = await this.listarDemo();
 
-    return false;
+    console.log(listado_json.some((user) => user.id === id));
+
+    return listado_json.some((user) => user.id === id);
   }
 }

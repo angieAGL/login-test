@@ -6,7 +6,7 @@ const PopUpConfirmacion = (
   mostrar: boolean,
   mensaje: string,
   setMostrarPopUp: React.Dispatch<React.SetStateAction<boolean>>,
-  funcion: (id: number) => void,
+  funcion: (id: number) => Promise<boolean>,
   id: number
 ) => {
   const boton: Array<JSX.Element> = [
@@ -21,9 +21,10 @@ const PopUpConfirmacion = (
       key={2}
       text={"Aceptar"}
       type={"button"}
-      onClick={() => {
-        funcion(id);
-        setMostrarPopUp(false);
+      onClick={async () => {
+        if (await funcion(id)) {
+          setMostrarPopUp(false);
+        }
       }}
     />,
   ];

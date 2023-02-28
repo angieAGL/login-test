@@ -17,15 +17,35 @@ import BuscadorMultiplesInput from "../../common/grids/buscadores/BuscadorMultip
 import { DemoEvents } from "../../../../presentacion/DemoEvents";
 import { useInfraestructureRepository } from "../../common/base/Dependencies";
 import { Table, Container } from "react-bootstrap";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Demo } from "../../../../dominio/entidades/Demo";
 
 const DemoGridView = () => {
   const { demoRepository, tipoRepository } = useInfraestructureRepository();
-  const demoEvento = new DemoEvents(demoRepository, tipoRepository);
+  const [listaDemo, setListaDemo] = useState<Demo[]>([]);
+  const [listaGenero, setListaGenero] = useState<Map<number, string>>(
+    new Map()
+  );
+  const [listaActivo, setListaActivo] = useState<Map<boolean, string>>(
+    new Map()
+  );
+  const [demoEvento] = useState(new DemoEvents(demoRepository, tipoRepository));
+  useEffect(() => {
+    demoEvento.onLoad().then((res) => {
+      setListaDemo(res.listaDemo);
+      setListaGenero(res.listaGenero);
+      setListaActivo(res.listaActivo);
+    });
+  }, [demoEvento]);
 
-  const { listaDemo, listaGenero, listaActivo } = demoEvento.onLoad();
-  const [data, setData] = useState(FilasGrid(listaDemo));
-  const columns = ColumnaGrid(listaGenero, listaActivo, data, setData);
+  const data = FilasGrid(listaDemo);
+  const columns = ColumnaGrid(
+    listaGenero,
+    listaActivo,
+    listaDemo,
+    setListaDemo,
+    demoEvento
+  );
 
   const tabla: any = useTable(
     {

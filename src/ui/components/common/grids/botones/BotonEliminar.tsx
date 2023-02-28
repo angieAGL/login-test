@@ -9,7 +9,7 @@ export const BotonEliminar = ({
   mostrarPopUp,
   mensaje,
   setMostrarPopUp,
-  eliminar,
+  funcion,
   id,
 }: BotonBorrar) => {
   return (
@@ -17,7 +17,7 @@ export const BotonEliminar = ({
       <a className="eliminar" href={href} onClick={onClick}>
         <FaTrashAlt />
       </a>
-      {PopUpConfirmacion(mostrarPopUp, mensaje, setMostrarPopUp, eliminar, id)}
+      {PopUpConfirmacion(mostrarPopUp, mensaje, setMostrarPopUp, funcion, id)}
     </>
   );
 };
