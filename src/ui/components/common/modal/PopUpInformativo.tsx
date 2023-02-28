@@ -1,6 +1,7 @@
 import React from "react";
 import Boton from "../grids/botones/Boton";
 import PopUpBase from "./PopUpBase";
+
 const PopUp = (
   mostrar: boolean,
   setMostrarPopUp: React.Dispatch<React.SetStateAction<boolean>>,

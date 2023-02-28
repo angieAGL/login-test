@@ -2,7 +2,6 @@
 import { useMemo } from "react";
 import { Column } from "react-table";
 import { BotonEditar } from "../../common/grids/botones/BotonEditar";
-import { BotonEliminar } from "../../common/grids/botones/BotonEliminar";
 import BuscadorPorCabecera from "../../common/grids/buscadores/BuscadorPorCabecera";
 import BotonReset from "../../common/grids/botones/BotonReset";
 

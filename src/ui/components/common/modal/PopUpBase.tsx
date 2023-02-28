@@ -1,6 +1,6 @@
-import React from "react";
 import Modal from "react-bootstrap/Modal";
 import { popUpBaseInterface } from "./PopUpInterface";
+
 const PopUpBase = ({ show, mensaje, botones }: popUpBaseInterface) => {
   return (
     <>

@@ -1,7 +1,6 @@
 import React from "react";
 import { BotonEliminar } from "../../common/grids/botones/BotonEliminar";
 import { useState } from "react";
-import PopUpConfirmacion from "../../common/modal/PopUpConfirmacion";
 import { Demo } from "../../../../dominio/entidades/Demo";
 
 export const BotonEliminarDemo = (

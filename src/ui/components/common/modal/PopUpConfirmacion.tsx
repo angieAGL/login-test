@@ -1,14 +1,15 @@
 import React from "react";
 import Boton from "../grids/botones/Boton";
 import PopUpBase from "./PopUpBase";
+
 const PopUpConfirmacion = (
   mostrar: boolean,
   mensaje: string,
   setMostrarPopUp: React.Dispatch<React.SetStateAction<boolean>>,
-  funcionEliminar: (id: number) => void,
+  funcion: (id: number) => void,
   id: number
 ) => {
-  const boton: Array<object> = [
+  const boton: Array<JSX.Element> = [
     <Boton
       key={1}
       class_name={"btn-cerrar"}
@@ -21,7 +22,7 @@ const PopUpConfirmacion = (
       text={"Aceptar"}
       type={"button"}
       onClick={() => {
-        funcionEliminar(id);
+        funcion(id);
         setMostrarPopUp(false);
       }}
     />,
