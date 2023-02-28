@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from "react-bootstrap/Modal";
-const PopUpBase = ({ show, mensaje, botones }: any) => {
+import { popUpBaseInterface } from "./PopUpInterface";
+const PopUpBase = ({ show, mensaje, botones }: popUpBaseInterface) => {
   return (
     <>
       <Modal show={show} centered>

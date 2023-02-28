@@ -9,7 +9,7 @@ import BotonReset from "../../common/grids/botones/BotonReset";
 import FormatoFecha from "../../common/FormatoFecha";
 import { Column } from "react-table";
 import { Demo } from "../../../../dominio/entidades/Demo";
-import { Eliminar } from "./EliminarDemo";
+import { BotonEliminarDemo } from "./BotonEliminarDemo";
 
 const ColumnaGrid = (
   listaGenero: Map<number, string>,
@@ -79,7 +79,7 @@ const ColumnaGrid = (
               onClick={() => alert("mensaje")}
             ></BotonEditar>
 
-            {Eliminar(row.index, data, setData)}
+            {BotonEliminarDemo(row.index, data, setData)}
           </div>
         ),
       },

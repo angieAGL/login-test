@@ -4,7 +4,7 @@ import { useState } from "react";
 import PopUpConfirmacion from "../../common/modal/PopUpConfirmacion";
 import { Demo } from "../../../../dominio/entidades/Demo";
 
-export const Eliminar = (
+export const BotonEliminarDemo = (
   id: number,
   data: Demo[],
   setData: React.Dispatch<React.SetStateAction<Demo[]>>
@@ -17,14 +17,18 @@ export const Eliminar = (
     setData(datacopy);
   };
   return (
-    <div>
+    <>
       <BotonEliminar
         href="#"
         onClick={() => {
           setMostrarPopUp(true);
         }}
+        mostrarPopUp={mostrarPopUp}
+        mensaje={mensaje}
+        setMostrarPopUp={setMostrarPopUp}
+        eliminar={eliminar}
+        id={id}
       ></BotonEliminar>
-      {PopUpConfirmacion(mostrarPopUp, mensaje, setMostrarPopUp, eliminar, id)}
-    </div>
+    </>
   );
 };

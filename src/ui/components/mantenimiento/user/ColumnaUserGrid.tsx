@@ -34,10 +34,6 @@ const ColumnaGrid = () => {
               href="#"
               onClick={() => alert(`${row.values.usuario}`)}
             />
-            <BotonEliminar
-              href="#"
-              onClick={() => alert(`${row.values.usuario}`)}
-            />
           </div>
         ),
       },

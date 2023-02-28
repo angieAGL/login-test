@@ -1,15 +1,13 @@
 import { IDemoRepository } from "../interfaces/IDemoRepository";
 
-export class DeleteDemoUseCase {
+export class EliminarDemoUseCase {
   private _demoRepository: IDemoRepository;
 
   constructor(demoRepository: IDemoRepository) {
     this._demoRepository = demoRepository;
   }
 
-  deleteDemo(id: number): boolean {
-    const eliminar = this._demoRepository.delete(id);
-
-    return eliminar;
+  eliminaDemo(id: number): boolean {
+    return this._demoRepository.eliminarDemo(id);
   }
 }
