@@ -22,9 +22,7 @@ const PopUpConfirmacion = (
       text={"Aceptar"}
       type={"button"}
       onClick={async () => {
-        if (await funcion(id)) {
-          setMostrarPopUp(false);
-        }
+        await funcion(id).then(() => setMostrarPopUp(false));
       }}
     />,
   ];

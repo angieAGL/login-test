@@ -13,8 +13,6 @@ export class DemoRepository implements IDemoRepository {
   async eliminarDemo(id: number): Promise<boolean> {
     let listado_json: Demo[] = await this.listarDemo();
 
-    console.log(listado_json.some((user) => user.id === id));
-
     return listado_json.some((user) => user.id === id);
   }
 }
