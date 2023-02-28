@@ -27,3 +27,9 @@
   color: white;
   opacity: unset;
 }
+
+.btn-cerrar{
+  background-color:white;
+  color:var(--color-principal);
+  border-color: var(--color-principal);
+}

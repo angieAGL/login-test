@@ -1,5 +1,6 @@
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
+
 const BuscadorPorFecha = ({ column }: any) => {
   const { filterValue, setFilter } = column;
   return (

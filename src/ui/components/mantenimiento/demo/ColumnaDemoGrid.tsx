@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useMemo } from "react";
 import { BotonEditar } from "../../common/grids/botones/BotonEditar";
-import { BotonEliminar } from "../../common/grids/botones/BotonEliminar";
 import CellActivo from "../../common/grids/CellActivo";
 import BuscadorPorCabecera from "../../common/grids/buscadores/BuscadorPorCabecera";
 import BuscadorPorSeleccion from "../../common/grids/buscadores/BuscadorPorSeleccion";
@@ -9,10 +8,16 @@ import BuscadorPorFecha from "../../common/grids/buscadores/BuscadorPorFecha";
 import BotonReset from "../../common/grids/botones/BotonReset";
 import FormatoFecha from "../../common/FormatoFecha";
 import { Column } from "react-table";
+import { Demo } from "../../../../dominio/entidades/Demo";
+import { BotonEliminarDemo } from "./BotonEliminarDemo";
+import { DemoEvents } from "../../../../presentacion/DemoEvents";
 
 const ColumnaGrid = (
   listaGenero: Map<number, string>,
-  listaActivo: Map<boolean, string>
+  listaActivo: Map<boolean, string>,
+  data: Demo[],
+  setData: React.Dispatch<React.SetStateAction<Demo[]>>,
+  funcionEliminar: DemoEvents
 ) => {
   const columns: Array<Column> = useMemo(
     () => [
@@ -73,19 +78,21 @@ const ColumnaGrid = (
           <div>
             <BotonEditar
               href="#"
-              onClick={() => alert(`${row.values.numero}`)}
-            />
-            <BotonEliminar
-              href="#"
-              onClick={() => alert(`${row.values.numero}`)}
-            />
+              onClick={() => {
+                alert("mensaje");
+                funcionEliminar
+                  .onClickDelete(row.index)
+                  .then((res) => console.log(res));
+              }}
+            ></BotonEditar>
+
+            {BotonEliminarDemo(row.index, data, setData, funcionEliminar)}
           </div>
         ),
       },
     ],
-    []
+    [data, setData]
   );
-
   return columns;
 };
 

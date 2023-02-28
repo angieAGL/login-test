@@ -15,9 +15,8 @@ export class MostrarTablaDemoUseCase {
     this._tipoRepository = tipoRepository;
   }
 
-  mostrarTablaDemo(): MostarTablaDemoResponse {
-    const lista_demo: Demo[] = this._demoRepository.listarDemo();
-
+  async mostrarTablaDemo(): Promise<MostarTablaDemoResponse> {
+    const lista_demo: Demo[] = await this._demoRepository.listarDemo();
     const map_genero: Map<number, string> = this._tipoRepository.listarGenero();
     const map_activo: Map<boolean, string> =
       this._tipoRepository.listarActivo();
