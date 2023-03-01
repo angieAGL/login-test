@@ -1,10 +1,10 @@
 import { LoginUseCase } from "../aplicacion/use-cases/LoginUseCase";
-import { IUserRepository } from "../aplicacion/interfaces/IUserRepository";
+import { IUsuarioRepository } from "../aplicacion/interfaces/IUsuarioRepository";
 
 export class LoginEvents {
-  private _userRepository: IUserRepository;
+  private _userRepository: IUsuarioRepository;
 
-  constructor(userRepository: IUserRepository) {
+  constructor(userRepository: IUsuarioRepository) {
     this._userRepository = userRepository;
   }
 
