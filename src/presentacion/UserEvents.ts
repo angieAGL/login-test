@@ -1,5 +1,6 @@
 import { IUserRepository } from "../aplicacion/interfaces/IUserRepository";
 import { MostrarTablaUsersUseCase } from "../aplicacion/use-cases/MostrarTablaUsersUseCase";
+import { EliminarUserUseCase } from "../aplicacion/use-cases/EliminarUserUseCase";
 
 export class UserEvents {
   private _userRepository: IUserRepository;
@@ -15,6 +16,11 @@ export class UserEvents {
 
     return valor;
   };
+  async onClickDelete(id: number) {
+    const eliminarUser = new EliminarUserUseCase(this._userRepository);
+
+    return await eliminarUser.eliminaUser(id);
+  }
 }
 
 export default UserEvents;

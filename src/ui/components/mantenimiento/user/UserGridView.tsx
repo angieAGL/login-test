@@ -22,18 +22,17 @@ import { User } from "../../../../dominio/entidades/User";
 
 const UserGridView = () => {
   const { userRepositoy } = useInfraestructureRepository();
-  const [data1, setData1] = useState<User[]>([]);
+  const [listaUser, setListaUser] = useState<User[]>([]);
+  const [userEvento] = useState(new UserEvents(userRepositoy));
 
   useEffect(() => {
-    const userEvento = new UserEvents(userRepositoy);
-
     userEvento.onLoad().then((response) => {
-      setData1(response);
+      setListaUser(response);
     });
-  }, [userRepositoy]);
+  }, [userEvento]);
 
-  const columns = ColumnaGrid();
-  const data = FilasGrid(data1);
+  const columns = ColumnaGrid(listaUser, setListaUser, userEvento);
+  const data = FilasGrid(listaUser);
   const tabla: any = useTable(
     {
       columns,

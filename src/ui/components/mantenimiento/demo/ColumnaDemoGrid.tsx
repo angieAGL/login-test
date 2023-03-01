@@ -80,9 +80,6 @@ const ColumnaGrid = (
               href="#"
               onClick={() => {
                 alert("mensaje");
-                funcionEliminar
-                  .onClickDelete(row.index)
-                  .then((res) => console.log(res));
               }}
             ></BotonEditar>
 

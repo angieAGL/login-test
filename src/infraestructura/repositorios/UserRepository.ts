@@ -23,4 +23,10 @@ export class UserRepository implements IUserRepository {
 
     return exito;
   }
+
+  async eliminarUsuario(id: number) {
+    let listado_json: User[] = await this.listarUsers();
+
+    return listado_json.some((user) => user.id === id);
+  }
 }
