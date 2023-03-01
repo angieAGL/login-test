@@ -13,10 +13,10 @@ const logoEmpresa = require("../../assets/img/proInvesting.png");
 const imgLogin = require("../../assets/img/imagenLogin.png");
 
 const LoginView = () => {
-  const { userRepositoy } = useInfraestructureRepository();
+  const { usuarioRepositoy } = useInfraestructureRepository();
   const [respuesta, setRespuesta] = useState({ exito: false, mensaje: "" });
   const [mostrarPopUp, setMostrarPopUp] = useState(false);
-  const { onSubmit } = new LoginEvents(userRepositoy);
+  const { onSubmit } = new LoginEvents(usuarioRepositoy);
 
   const {
     handleSubmit,

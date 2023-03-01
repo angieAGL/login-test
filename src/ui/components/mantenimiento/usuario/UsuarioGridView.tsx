@@ -4,8 +4,8 @@ import {
   usePagination,
   useFilters,
 } from "react-table";
-import ColumnaGrid from "./ColumnaUserGrid";
-import FilasGrid from "./FilasUserGrid";
+import ColumnaUsuarioGrid from "./ColumnaUsuarioGrid";
+import FilasUsuarioGrid from "./FilasUsuarioGrid";
 import "../../../css/gridView.css";
 import Paginacion from "../../common/grids/Paginacion";
 import { TAMAÑO_PAGINAS } from "../../../../cross-cutting/Constants";
@@ -14,25 +14,29 @@ import Cuerpo from "../../common/grids/Cuerpo";
 import BuscadorSingleInput from "../../common/grids/buscadores/BuscadorSingleInput";
 import BuscadorPorCabecera from "../../common/grids/buscadores/BuscadorPorCabecera";
 import BuscadorMultiplesInput from "../../common/grids/buscadores/BuscadorMultiplesInput";
-import { UserEvents } from "../../../../presentacion/UserEvents";
+import { UsuarioEvents } from "../../../../presentacion/UsuarioEvents";
 import { useInfraestructureRepository } from "../../common/base/Dependencies";
 import { Table, Container } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import { User } from "../../../../dominio/entidades/User";
+import { Usuario } from "../../../../dominio/entidades/Usuario";
 
-const UserGridView = () => {
-  const { userRepositoy } = useInfraestructureRepository();
-  const [listaUser, setListaUser] = useState<User[]>([]);
-  const [userEvento] = useState(new UserEvents(userRepositoy));
+const UsuarioGridView = () => {
+  const { usuarioRepositoy } = useInfraestructureRepository();
+  const [listaUsuarios, setListaUsuarios] = useState<Usuario[]>([]);
+  const [userEvento] = useState(new UsuarioEvents(usuarioRepositoy));
 
   useEffect(() => {
     userEvento.onLoad().then((response) => {
-      setListaUser(response);
+      setListaUsuarios(response);
     });
   }, [userEvento]);
 
-  const columns = ColumnaGrid(listaUser, setListaUser, userEvento);
-  const data = FilasGrid(listaUser);
+  const columns = ColumnaUsuarioGrid(
+    listaUsuarios,
+    setListaUsuarios,
+    userEvento
+  );
+  const data = FilasUsuarioGrid(listaUsuarios);
   const tabla: any = useTable(
     {
       columns,
@@ -63,4 +67,4 @@ const UserGridView = () => {
   );
 };
 
-export default UserGridView;
+export default UsuarioGridView;

@@ -1,11 +1,11 @@
-import { IUserRepository } from "../interfaces/IUserRepository";
+import { IUsuarioRepository } from "../interfaces/IUsuarioRepository";
 import { LoginResponse } from "../../dominio/responses/LoginResponse";
 
 export class LoginUseCase {
-  private _userRepository: IUserRepository;
+  private _usuarioRepository: IUsuarioRepository;
 
-  constructor(userRepository: IUserRepository) {
-    this._userRepository = userRepository;
+  constructor(usuarioRepository: IUsuarioRepository) {
+    this._usuarioRepository = usuarioRepository;
   }
 
   async validarUsuario(
@@ -16,7 +16,7 @@ export class LoginUseCase {
       return { exito: false, mensaje: "Ingrese valores por favor" };
     }
 
-    let valor = await this._userRepository
+    let valor = await this._usuarioRepository
       .autenticarUsuario(usuario, contrasenia)
       .then((valor) => {
         return valor

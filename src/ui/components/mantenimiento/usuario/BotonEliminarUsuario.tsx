@@ -1,14 +1,14 @@
 import React from "react";
 import { BotonEliminar } from "../../common/grids/botones/BotonEliminar";
 import { useState } from "react";
-import { UserEvents } from "../../../../presentacion/UserEvents";
-import { User } from "../../../../dominio/entidades/User";
+import { UsuarioEvents } from "../../../../presentacion/UsuarioEvents";
+import { Usuario } from "../../../../dominio/entidades/Usuario";
 
-export const BotonEliminarUser = (
+export const BotonEliminarUsuario = (
   id: number,
-  data: User[],
-  setData: React.Dispatch<React.SetStateAction<User[]>>,
-  funcionEimina: UserEvents
+  data: Usuario[],
+  setData: React.Dispatch<React.SetStateAction<Usuario[]>>,
+  funcionEimina: UsuarioEvents
 ) => {
   const [mostrarPopUp, setMostrarPopUp] = useState(false);
   const mensaje = "¿Esta seguro que quiere eliminar ?";
@@ -16,7 +16,7 @@ export const BotonEliminarUser = (
     const datacopy = [...data];
     datacopy.splice(id, 1);
     setData(datacopy);
-    return funcionEimina.onClickDelete(id).then((res) => res);
+    return funcionEimina.onClickEliminar(id).then((res) => res);
   };
   return (
     <>

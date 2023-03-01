@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import { IDemoRepository } from "../aplicacion/interfaces/IDemoRepository";
 import { ITipoRepository } from "../aplicacion/interfaces/ITipoRepository";
-import { IUserRepository } from "../aplicacion/interfaces/IUserRepository";
+import { IUsuarioRepository } from "../aplicacion/interfaces/IUsuarioRepository";
 import { DemoRepository } from "../infraestructura/repositorios/DemoRepository";
 import { TipoRepository } from "../infraestructura/repositorios/TipoRepository";
-import { UserRepository } from "../infraestructura/repositorios/UserRepository";
+import { UsuarioRepository } from "../infraestructura/repositorios/UsuarioRepository";
 
 export class Infraestructure {
   demoRepository: IDemoRepository;
   tipoRepository: ITipoRepository;
-  userRepositoy: IUserRepository;
+  usuarioRepositoy: IUsuarioRepository;
 
   constructor() {
     this.demoRepository = new DemoRepository();
     this.tipoRepository = new TipoRepository();
-    this.userRepositoy = new UserRepository();
+    this.usuarioRepositoy = new UsuarioRepository();
   }
 }
 

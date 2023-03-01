@@ -1,8 +1,8 @@
-import { IUserRepository } from "../../aplicacion/interfaces/IUserRepository";
-import { User } from "../../dominio/entidades/User";
+import { IUsuarioRepository } from "../../aplicacion/interfaces/IUsuarioRepository";
+import { Usuario } from "../../dominio/entidades/Usuario";
 
-export class UserRepository implements IUserRepository {
-  async listarUsers(): Promise<User[]> {
+export class UsuarioRepository implements IUsuarioRepository {
+  async listarUsuarios(): Promise<Usuario[]> {
     let response = await fetch(
       "https://my-json-server.typicode.com/angieAGL/DatosUser/listaUSer"
     );
@@ -15,7 +15,7 @@ export class UserRepository implements IUserRepository {
     usuario: string,
     contrasenia: string
   ): Promise<boolean> {
-    let listado_json: User[] = await this.listarUsers();
+    let listado_json: Usuario[] = await this.listarUsuarios();
 
     let exito: boolean = listado_json.some(
       (user) => user.usuario === usuario && user.contrasenia === contrasenia
@@ -25,7 +25,7 @@ export class UserRepository implements IUserRepository {
   }
 
   async eliminarUsuario(id: number) {
-    let listado_json: User[] = await this.listarUsers();
+    let listado_json: Usuario[] = await this.listarUsuarios();
 
     return listado_json.some((user) => user.id === id);
   }

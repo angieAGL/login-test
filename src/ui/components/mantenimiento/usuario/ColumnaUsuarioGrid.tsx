@@ -4,14 +4,14 @@ import { Column } from "react-table";
 import { BotonEditar } from "../../common/grids/botones/BotonEditar";
 import BuscadorPorCabecera from "../../common/grids/buscadores/BuscadorPorCabecera";
 import BotonReset from "../../common/grids/botones/BotonReset";
-import { User } from "../../../../dominio/entidades/User";
-import UserEvents from "../../../../presentacion/UserEvents";
-import { BotonEliminarUser } from "../user/BotonEliminarUser";
+import { Usuario } from "../../../../dominio/entidades/Usuario";
+import UsuarioEvents from "../../../../presentacion/UsuarioEvents";
+import { BotonEliminarUsuario } from "./BotonEliminarUsuario";
 
-const ColumnaGrid = (
-  data: User[],
-  setData: React.Dispatch<React.SetStateAction<User[]>>,
-  funcionEliminar: UserEvents
+const ColumnaUsuarioGrid = (
+  data: Usuario[],
+  setData: React.Dispatch<React.SetStateAction<Usuario[]>>,
+  funcionEliminar: UsuarioEvents
 ) => {
   const columns: Array<Column> = useMemo(
     () => [
@@ -42,7 +42,7 @@ const ColumnaGrid = (
                 alert(`${row.values.usuario}`);
               }}
             />
-            {BotonEliminarUser(row.index, data, setData, funcionEliminar)}
+            {BotonEliminarUsuario(row.index, data, setData, funcionEliminar)}
           </div>
         ),
       },
@@ -53,4 +53,4 @@ const ColumnaGrid = (
   return columns;
 };
 
-export default ColumnaGrid;
+export default ColumnaUsuarioGrid;

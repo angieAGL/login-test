@@ -1,6 +1,6 @@
 import { InfraestructureProvider } from "./dependency-injection/InfraestructureInjector";
 import DemoGridView from "./ui/components/mantenimiento/demo/DemoGridView";
-import UserGridView from "./ui/components/mantenimiento/user/UserGridView";
+import UsuarioGridView from "./ui/components/mantenimiento/usuario/UsuarioGridView";
 import LoginView from "./ui/components/autenticacion/LoginView";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
@@ -28,7 +28,7 @@ function App() {
           path="/users"
           element={
             <InfraestructureProvider>
-              <UserGridView />
+              <UsuarioGridView />
             </InfraestructureProvider>
           }
         ></Route>
