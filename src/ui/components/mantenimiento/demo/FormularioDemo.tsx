@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { Form } from "react-bootstrap";
 import DropDown from "../../common/DropDown";
-import { Demo } from "../../../../dominio/entidades/Demo";
+import { useForm } from "react-hook-form";
 
-const AgregarDemo = ({ lista }: any) => {
+const FormularioDemo = (
+  listaGenero: Map<number, string>,
+  idForm: string,
+  onSubmit: any
+) => {
   const initialUser = {
     id: 0,
     nombre: "",
@@ -16,11 +20,13 @@ const AgregarDemo = ({ lista }: any) => {
     activo: true,
   };
 
-  const [user, setUser] = useState<Demo>(initialUser);
+  const { register, handleSubmit, setValue } = useForm({
+    defaultValues: initialUser,
+  });
 
   const options: any = [];
 
-  lista.forEach((value: string, key: any) => {
+  listaGenero.forEach((value: string, key: any) => {
     options.push(
       <option key={key} value={key}>
         {value}
@@ -29,32 +35,20 @@ const AgregarDemo = ({ lista }: any) => {
   });
 
   const seleccionrGenero = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setUser({
-      ...user,
-      id_genero: Number(e.target.value),
-      genero: lista.get(Number(e.target.value)),
-    });
+    setValue("id_genero", Number(e.target.value));
+    setValue("genero", listaGenero.get(Number(e.target.value)) as string);
   };
-
-  const handleChange =
-    (name: any) =>
-    ({ target: { value } }: any) => {
-      setUser({ ...user, [name]: value });
-    };
-
-  console.log(user);
 
   return (
     <div>
       <p className="text-center titulo">Agregar demo</p>
-      <Form>
+      <Form onSubmit={handleSubmit(onSubmit)} id={idForm}>
         <Form.Group className="mb-2">
           <Form.Label className="form-label ">ID</Form.Label>
           <Form.Control
             className="form-label"
             type="number"
-            value={user.id}
-            onChange={handleChange("id")}
+            {...register("id")}
           ></Form.Control>
         </Form.Group>
         <Form.Group className="mb-2">
@@ -62,8 +56,7 @@ const AgregarDemo = ({ lista }: any) => {
           <Form.Control
             className="form-label"
             type="text"
-            value={user.nombre}
-            onChange={handleChange("nombre")}
+            {...register("nombre")}
           ></Form.Control>
         </Form.Group>
         <Form.Group className="mb-2">
@@ -71,8 +64,7 @@ const AgregarDemo = ({ lista }: any) => {
           <Form.Control
             className="form-label"
             type="text"
-            value={user.apellido}
-            onChange={handleChange("apellido")}
+            {...register("apellido")}
           ></Form.Control>
         </Form.Group>
         <Form.Group className="mb-2">
@@ -80,15 +72,13 @@ const AgregarDemo = ({ lista }: any) => {
           <Form.Control
             className="form-label"
             type="email"
-            value={user.email}
-            onChange={handleChange("email")}
+            {...register("email")}
           ></Form.Control>
         </Form.Group>
         <Form.Group className="mb-2">
           <Form.Label className="form-label">Genero</Form.Label>
           <DropDown
             class_name={"form-select-sm buscar-seleccion"}
-            value={user.id_genero}
             options={options}
             onChange={seleccionrGenero}
           ></DropDown>
@@ -98,8 +88,7 @@ const AgregarDemo = ({ lista }: any) => {
           <Form.Control
             className="form-label"
             type="number"
-            value={user.numero}
-            onChange={handleChange("numero")}
+            {...register("numero")}
           ></Form.Control>
         </Form.Group>
         <Form.Group className="mb-2">
@@ -107,8 +96,7 @@ const AgregarDemo = ({ lista }: any) => {
           <Form.Control
             className="form-control form-control-sm"
             type="date"
-            value={user.fecha || ""}
-            onChange={handleChange("fecha")}
+            {...register("fecha")}
           />
         </Form.Group>
       </Form>
@@ -116,4 +104,4 @@ const AgregarDemo = ({ lista }: any) => {
   );
 };
 
-export default AgregarDemo;
+export default FormularioDemo;

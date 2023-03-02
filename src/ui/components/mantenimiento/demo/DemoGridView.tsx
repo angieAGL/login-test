@@ -75,7 +75,7 @@ const DemoGridView = () => {
         {Cuerpo(tabla)}
       </Table>
       {Paginacion(tabla)}
-      {BotonAgregarDemo(listaGenero)}
+      {BotonAgregarDemo(listaGenero, listaDemo, setListaDemo, demoEvento)}
     </Container>
   );
 };

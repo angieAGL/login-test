@@ -5,14 +5,12 @@ export type BotonInterface = {
   onChange?: (event: React.ChangeEvent<HTMLButtonElement>) => void;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   disabled?: any;
+  form?: string;
 };
 
 export type BotonCrear = {
   href: string;
   onClick: (event: React.MouseEvent<HTMLAnchorElement>) => void;
-  mostrarPopUp: boolean;
-  mensaje: JSX.Element;
-  setMostrarPopUp: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export type BotonBorrar = {

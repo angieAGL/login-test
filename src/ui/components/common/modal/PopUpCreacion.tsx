@@ -5,27 +5,29 @@ import PopUpBase from "./PopUpBase";
 const PopUpCreacion = (
   mostrar: boolean,
   setMostrarPopUp: React.Dispatch<React.SetStateAction<boolean>>,
-  mensaje: JSX.Element
+  mensaje: JSX.Element,
+  idForm: string
 ) => {
-  const boton: Array<JSX.Element> = [
+  const botones: Array<JSX.Element> = [
     <Boton
       key={1}
       class_name={"btn-cerrar"}
-      text={"Cerrar"}
+      text={"Cancelar"}
       type={"button"}
       onClick={() => setMostrarPopUp(false)}
     />,
     <Boton
       key={2}
-      text={"Aceptar"}
-      type={"button"}
+      text={"Agregar"}
+      type={"submit"}
+      form={idForm}
       onClick={() => setMostrarPopUp(false)}
     />,
   ];
 
   return (
     <>
-      <PopUpBase show={mostrar} mensaje={mensaje} botones={boton}></PopUpBase>
+      <PopUpBase show={mostrar} mensaje={mensaje} botones={botones}></PopUpBase>
     </>
   );
 };
