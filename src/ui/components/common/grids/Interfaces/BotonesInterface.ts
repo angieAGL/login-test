@@ -7,6 +7,14 @@ export type BotonInterface = {
   disabled?: any;
 };
 
+export type BotonCrear = {
+  href: string;
+  onClick: (event: React.MouseEvent<HTMLAnchorElement>) => void;
+  mostrarPopUp: boolean;
+  mensaje: JSX.Element;
+  setMostrarPopUp: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
 export type BotonBorrar = {
   href: string;
   onClick: (event: React.MouseEvent<HTMLAnchorElement>) => void;

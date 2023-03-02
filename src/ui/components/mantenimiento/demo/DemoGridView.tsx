@@ -19,7 +19,7 @@ import { useInfraestructureRepository } from "../../common/base/Dependencies";
 import { Table, Container } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { Demo } from "../../../../dominio/entidades/Demo";
-import BotonAgregar from "../../common/grids/botones/BotonAgregar";
+import { BotonAgregarDemo } from "./BotonAgregarDemo";
 
 const DemoGridView = () => {
   const { demoRepository, tipoRepository } = useInfraestructureRepository();
@@ -75,7 +75,7 @@ const DemoGridView = () => {
         {Cuerpo(tabla)}
       </Table>
       {Paginacion(tabla)}
-      <BotonAgregar text={"Agregar"}></BotonAgregar>
+      {BotonAgregarDemo(listaGenero)}
     </Container>
   );
 };

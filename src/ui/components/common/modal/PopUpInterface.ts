@@ -1,5 +1,5 @@
 export type popUpBaseInterface = {
   show: boolean;
-  mensaje: string;
-  botones: any;
+  mensaje: string | JSX.Element;
+  botones: Array<JSX.Element>;
 };

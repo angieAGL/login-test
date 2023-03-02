@@ -2,21 +2,26 @@ import React from "react";
 import Boton from "../grids/botones/Boton";
 import PopUpBase from "./PopUpBase";
 
-const PopUpInformativo = (
+const PopUpCreacion = (
   mostrar: boolean,
   setMostrarPopUp: React.Dispatch<React.SetStateAction<boolean>>,
-  mensaje: string
+  mensaje: JSX.Element
 ) => {
-  let boton: Array<JSX.Element> = [];
-
-  boton.push(
+  const boton: Array<JSX.Element> = [
     <Boton
-      text={"Cerrar"}
+      key={1}
       class_name={"btn-cerrar"}
+      text={"Cerrar"}
       type={"button"}
       onClick={() => setMostrarPopUp(false)}
-    />
-  );
+    />,
+    <Boton
+      key={2}
+      text={"Aceptar"}
+      type={"button"}
+      onClick={() => setMostrarPopUp(false)}
+    />,
+  ];
 
   return (
     <>
@@ -25,4 +30,4 @@ const PopUpInformativo = (
   );
 };
 
-export default PopUpInformativo;
+export default PopUpCreacion;

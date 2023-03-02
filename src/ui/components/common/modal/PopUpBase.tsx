@@ -4,7 +4,7 @@ import { popUpBaseInterface } from "./PopUpInterface";
 const PopUpBase = ({ show, mensaje, botones }: popUpBaseInterface) => {
   return (
     <>
-      <Modal show={show} centered>
+      <Modal show={show} centered scrollable>
         <Modal.Body>{mensaje}</Modal.Body>
         <Modal.Footer>{botones}</Modal.Footer>
       </Modal>

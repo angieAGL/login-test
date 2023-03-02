@@ -1,22 +1,21 @@
-import React, { useState } from "react";
-import Boton from "./Boton";
-import { BotonInterface } from "../Interfaces/BotonesInterface";
-import PopUpInformativo from "../../modal/PopUpInformativo";
+import "../../../../css/botonEliminar.css";
+import { BotonCrear } from "../Interfaces/BotonesInterface";
+import PopUpCreacion from "../../modal/PopUpCreacion";
+import React from "react";
 
-const BotonAgregar = ({ text, class_name }: BotonInterface) => {
-  const [mostrarPopUp, setMostrarPopUp] = useState(false);
-
+export const BotonAgregar = ({
+  href,
+  onClick,
+  mostrarPopUp,
+  mensaje,
+  setMostrarPopUp,
+}: BotonCrear) => {
   return (
     <>
-      <Boton
-        type="button"
-        text={text}
-        class_name={`me-2 ${class_name}`}
-        onClick={() => setMostrarPopUp(true)}
-      ></Boton>
-      {PopUpInformativo(mostrarPopUp, setMostrarPopUp, "hola")}
+      <a className="btn" href={href} onClick={onClick}>
+        Agregar
+      </a>
+      {PopUpCreacion(mostrarPopUp, setMostrarPopUp, mensaje)}
     </>
   );
 };
-
-export default BotonAgregar;
