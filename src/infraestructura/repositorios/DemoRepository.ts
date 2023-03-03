@@ -23,8 +23,6 @@ export class DemoRepository implements IDemoRepository {
       return false;
     } else {
       listado_json.push(demo);
-      console.log(listado_json);
-
       return true;
     }
   }
