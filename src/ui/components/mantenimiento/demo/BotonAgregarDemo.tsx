@@ -13,13 +13,21 @@ export const BotonAgregarDemo = (
   funcionEliminar: DemoEvents
 ) => {
   const [mostrarPopUp, setMostrarPopUp] = useState(false);
-  const idForm = "FormDemo";
-  const onSubmit = (data1: Demo) => {
-    const datacopy = [...data];
-    datacopy.push(data1);
-    setData(datacopy);
-    return funcionEliminar.onClickAgregar(data1).then((resp) => resp);
+  const idFormulario = "FormDemo";
+
+  const onsubmit = async (nuevoDemo: Demo) => {
+    funcionEliminar.onClickAgregar(nuevoDemo).then((resp) => {
+      if (resp) {
+        setMostrarPopUp(false);
+        const datacopy = [...data];
+        datacopy.push(nuevoDemo);
+        setData(datacopy);
+      } else {
+        setMostrarPopUp(true);
+      }
+    });
   };
+
   return (
     <>
       <BotonAgregar
@@ -31,8 +39,8 @@ export const BotonAgregarDemo = (
       {PopUpCreacion(
         mostrarPopUp,
         setMostrarPopUp,
-        FormularioDemo(listaGenero, idForm, onSubmit),
-        idForm
+        FormularioDemo(listaGenero, idFormulario, onsubmit),
+        idFormulario
       )}
     </>
   );

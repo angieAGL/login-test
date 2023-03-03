@@ -16,13 +16,7 @@ const PopUpCreacion = (
       type={"button"}
       onClick={() => setMostrarPopUp(false)}
     />,
-    <Boton
-      key={2}
-      text={"Agregar"}
-      type={"submit"}
-      form={idForm}
-      onClick={() => setMostrarPopUp(false)}
-    />,
+    <Boton key={3} text={"Agregar"} type={"submit"} form={idForm} />,
   ];
 
   return (

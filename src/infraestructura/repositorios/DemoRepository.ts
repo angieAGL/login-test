@@ -19,8 +19,13 @@ export class DemoRepository implements IDemoRepository {
   async agregarDemo(demo: Demo): Promise<boolean> {
     let listado_json: Demo[] = await this.listarDemo();
 
-    listado_json.push(demo);
+    if (demo.id === 0) {
+      return false;
+    } else {
+      listado_json.push(demo);
+      console.log(listado_json);
 
-    return true;
+      return true;
+    }
   }
 }

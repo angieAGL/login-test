@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import DropDown from "../../common/DropDown";
 import { useForm } from "react-hook-form";
+import { Demo } from "../../../../dominio/entidades/Demo";
 
 const FormularioDemo = (
   listaGenero: Map<number, string>,
   idForm: string,
-  onSubmit: any
+  onsubmit: (user: Demo) => Promise<void>
 ) => {
   const initialUser = {
     id: 0,
@@ -24,6 +25,7 @@ const FormularioDemo = (
     defaultValues: initialUser,
   });
 
+  const [genero, setGenero] = useState(0);
   const options: any = [];
 
   listaGenero.forEach((value: string, key: any) => {
@@ -35,6 +37,7 @@ const FormularioDemo = (
   });
 
   const seleccionrGenero = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setGenero(Number(e.target.value));
     setValue("id_genero", Number(e.target.value));
     setValue("genero", listaGenero.get(Number(e.target.value)) as string);
   };
@@ -42,13 +45,13 @@ const FormularioDemo = (
   return (
     <div>
       <p className="text-center titulo">Agregar demo</p>
-      <Form onSubmit={handleSubmit(onSubmit)} id={idForm}>
+      <Form onSubmit={handleSubmit(onsubmit)} id={idForm}>
         <Form.Group className="mb-2">
           <Form.Label className="form-label ">ID</Form.Label>
           <Form.Control
             className="form-label"
             type="number"
-            {...register("id")}
+            {...register("id", { required: true })}
           ></Form.Control>
         </Form.Group>
         <Form.Group className="mb-2">
@@ -56,7 +59,7 @@ const FormularioDemo = (
           <Form.Control
             className="form-label"
             type="text"
-            {...register("nombre")}
+            {...register("nombre", { required: true })}
           ></Form.Control>
         </Form.Group>
         <Form.Group className="mb-2">
@@ -64,7 +67,7 @@ const FormularioDemo = (
           <Form.Control
             className="form-label"
             type="text"
-            {...register("apellido")}
+            {...register("apellido", { required: true })}
           ></Form.Control>
         </Form.Group>
         <Form.Group className="mb-2">
@@ -72,7 +75,7 @@ const FormularioDemo = (
           <Form.Control
             className="form-label"
             type="email"
-            {...register("email")}
+            {...register("email", { required: true })}
           ></Form.Control>
         </Form.Group>
         <Form.Group className="mb-2">
@@ -80,6 +83,7 @@ const FormularioDemo = (
           <DropDown
             class_name={"form-select-sm buscar-seleccion"}
             options={options}
+            value={genero}
             onChange={seleccionrGenero}
           ></DropDown>
         </Form.Group>
@@ -88,7 +92,7 @@ const FormularioDemo = (
           <Form.Control
             className="form-label"
             type="number"
-            {...register("numero")}
+            {...register("numero", { required: true })}
           ></Form.Control>
         </Form.Group>
         <Form.Group className="mb-2">
@@ -96,7 +100,7 @@ const FormularioDemo = (
           <Form.Control
             className="form-control form-control-sm"
             type="date"
-            {...register("fecha")}
+            {...register("fecha", { required: true })}
           />
         </Form.Group>
       </Form>
