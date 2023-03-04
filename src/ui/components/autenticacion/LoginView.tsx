@@ -71,7 +71,7 @@ const LoginView = () => {
                 className={
                   mensajeErrorUsuario
                     ? "form-control error"
-                    : "form-control login"
+                    : "form-control correcto"
                 }
                 placeholder="Ingrese el usuario"
                 autoComplete="off"
@@ -92,7 +92,7 @@ const LoginView = () => {
                 className={
                   mensajeErrorContraseña
                     ? "form-control error"
-                    : "form-control login"
+                    : "form-control correcto"
                 }
                 placeholder="Ingrese la contraseña"
                 autoComplete="off"

@@ -67,7 +67,12 @@ const DemoGridView = () => {
 
   return (
     <Container fluid className="grid">
-      <h1 className="titulo">Mantenimiento </h1>
+      <div className="row mb-2">
+        <h1 className="col-md-4 titulo">Mantenimiento </h1>
+        <div className="col-1 offset-md-7 ">
+          {BotonAgregarDemo(listaGenero, listaDemo, setListaDemo, demoEvento)}
+        </div>
+      </div>
       {BuscadorSingleInput(tabla)}
       <Table responsive hover borderless {...getTableProps()}>
         {BuscadorMultiplesInput(tabla)}
@@ -75,7 +80,6 @@ const DemoGridView = () => {
         {Cuerpo(tabla)}
       </Table>
       {Paginacion(tabla)}
-      {BotonAgregarDemo(listaGenero, listaDemo, setListaDemo, demoEvento)}
     </Container>
   );
 };

@@ -1,7 +1,7 @@
 import {
   MENSAJE_INGRESE_USUARIO,
   MENSAJE_INGRESE_CONTRASEÑA,
-  MENSAJE_FORMATO_USUARIO,
+  MENSAJE_FORMATO_INPUT_STRING,
   MENSAJE_LONGITUD_MINIMO_USUARIO,
   LONGITUD_MINIMO_USUARIO,
 } from "../../../cross-cutting/Constants";
@@ -26,7 +26,7 @@ const LoginValidation = () => {
     },
     pattern: {
       value: patterns.name,
-      message: MENSAJE_FORMATO_USUARIO,
+      message: MENSAJE_FORMATO_INPUT_STRING,
     },
   });
 

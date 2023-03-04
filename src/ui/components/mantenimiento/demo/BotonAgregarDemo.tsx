@@ -14,6 +14,17 @@ export const BotonAgregarDemo = (
 ) => {
   const [mostrarPopUp, setMostrarPopUp] = useState(false);
   const idFormulario = "FormDemo";
+  const initialData = {
+    id: 0,
+    nombre: "",
+    apellido: "",
+    email: "",
+    id_genero: 0,
+    genero: "",
+    numero: 0,
+    fecha: "",
+    activo: true,
+  };
 
   const onsubmit = async (nuevoDemo: Demo) => {
     funcionEliminar.onClickAgregar(nuevoDemo).then((resp) => {
@@ -39,7 +50,7 @@ export const BotonAgregarDemo = (
       {PopUpCreacion(
         mostrarPopUp,
         setMostrarPopUp,
-        FormularioDemo(listaGenero, idFormulario, onsubmit),
+        FormularioDemo(listaGenero, idFormulario, onsubmit, initialData),
         idFormulario
       )}
     </>

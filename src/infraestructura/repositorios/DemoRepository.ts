@@ -21,9 +21,8 @@ export class DemoRepository implements IDemoRepository {
 
     if (demo.id === 0) {
       return false;
-    } else {
-      listado_json.push(demo);
-      return true;
     }
+    listado_json.push(demo);
+    return true;
   }
 }

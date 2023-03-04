@@ -21,7 +21,12 @@ const PopUpCreacion = (
 
   return (
     <>
-      <PopUpBase show={mostrar} mensaje={mensaje} botones={botones}></PopUpBase>
+      <PopUpBase
+        show={mostrar}
+        titulo={"Agregar Demo"}
+        mensaje={mensaje}
+        botones={botones}
+      ></PopUpBase>
     </>
   );
 };
