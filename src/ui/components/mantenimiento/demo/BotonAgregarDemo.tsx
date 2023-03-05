@@ -10,7 +10,7 @@ export const BotonAgregarDemo = (
   listaGenero: Map<number, string>,
   data: Demo[],
   setData: React.Dispatch<React.SetStateAction<Demo[]>>,
-  funcionEliminar: DemoEvents
+  funcionEvento: DemoEvents
 ) => {
   const [mostrarPopUp, setMostrarPopUp] = useState(false);
   const idFormulario = "FormDemo";
@@ -27,7 +27,7 @@ export const BotonAgregarDemo = (
   };
 
   const onsubmit = async (nuevoDemo: Demo) => {
-    funcionEliminar.onClickAgregar(nuevoDemo).then((resp) => {
+    funcionEvento.onClickAgregar(nuevoDemo).then((resp) => {
       if (resp) {
         setMostrarPopUp(false);
         const datacopy = [...data];
