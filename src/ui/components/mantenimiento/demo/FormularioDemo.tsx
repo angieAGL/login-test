@@ -3,7 +3,6 @@ import { Form } from "react-bootstrap";
 import DropDown from "../../common/DropDown";
 import { Demo } from "../../../../dominio/entidades/Demo";
 import FormularioDemoValidacion from "./FormularioDemoValidacion";
-import { MENSAJE_INGRESE_FECHA } from "../../../../cross-cutting/Constants";
 
 const FormularioDemo = (
   listaGenero: Map<number, string>,
@@ -12,10 +11,10 @@ const FormularioDemo = (
   initialDemo: Demo
 ) => {
   const {
-    register,
     handleSubmit,
     setValue,
     reset,
+    generoValidar,
     idValidar,
     nombreValidar,
     apellidoValidar,
@@ -42,9 +41,6 @@ const FormularioDemo = (
     );
   });
 
-  register("id_genero", {
-    required: MENSAJE_INGRESE_FECHA,
-  });
   const seleccionrGenero = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setGenero(Number(e.target.value));
     setValue("id_genero", Number(e.target.value));
@@ -53,6 +49,7 @@ const FormularioDemo = (
 
   const funcionSubmit = (data: Demo) => {
     onsubmit(data);
+    setGenero(0);
     reset();
   };
 
@@ -113,7 +110,7 @@ const FormularioDemo = (
           ></Form.Control>
           {<p style={{ color: "var(--color-error)" }}>{mensajeErrorEmail}</p>}
         </Form.Group>
-        <Form.Group className="mb-2">
+        <Form.Group {...generoValidar} className="mb-2">
           <Form.Label className="form-label">Genero</Form.Label>
           <DropDown
             class_name={

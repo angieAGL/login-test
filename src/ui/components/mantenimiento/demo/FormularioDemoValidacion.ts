@@ -10,6 +10,7 @@ import {
   MENSAJE_VALOR_MINIMO_NUMERO,
   VALOR_MINIMO_ID,
   VALOR_MINIMO_NUMERO,
+  MENSAJE_SELECCION,
 } from "../../../../cross-cutting/Constants";
 import { useForm } from "react-hook-form";
 import { Demo } from "../../../../dominio/entidades/Demo";
@@ -58,7 +59,7 @@ const FormularioDemoValidation = (initialData: Demo) => {
   const emailValidar = register("email", { required: MENSAJE_INGRESE_EMAIL });
 
   const generoValidar = register("id_genero", {
-    required: MENSAJE_INGRESE_FECHA,
+    required: MENSAJE_SELECCION,
   });
 
   const numeroValidar = register("numero", {

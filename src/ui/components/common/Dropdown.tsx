@@ -1,13 +1,13 @@
 import "../../css/buscador.css";
 import Form from "react-bootstrap/Form";
-
+import { DropDownInterface } from "./DropDownInterface";
 const DropDown = ({
   value,
   onChange,
   options,
   class_name,
   valorDefault = "Todo",
-}: any) => {
+}: DropDownInterface) => {
   const className = `form-select ${class_name}`;
   return (
     <Form.Select

@@ -17,4 +17,5 @@ export const MENSAJE_VALOR_MINIMO_ID: string =
   "El valor del id tiene que ser mayor que";
 export const MENSAJE_VALOR_MINIMO_NUMERO: string =
   "El valor del numero tiene que ser mayor que";
+export const MENSAJE_SELECCION: string = "Seleccione un valor";
 export const FORMATO_FECHA: string = "DD-MM-YYYY";
