@@ -16,7 +16,7 @@ import BuscadorPorCabecera from "../../common/grids/buscadores/BuscadorPorCabece
 import BuscadorMultiplesInput from "../../common/grids/buscadores/BuscadorMultiplesInput";
 import { DemoEvents } from "../../../../presentacion/DemoEvents";
 import { useInfraestructureRepository } from "../../common/base/Dependencies";
-import { Table, Container } from "react-bootstrap";
+import { Table, Container, Col } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { Demo } from "../../../../dominio/entidades/Demo";
 import { BotonAgregarDemo } from "./BotonAgregarDemo";
@@ -67,12 +67,13 @@ const DemoGridView = () => {
 
   return (
     <Container fluid className="grid">
-      <div className="row mb-2">
-        <h1 className="col-md-4 titulo">Mantenimiento </h1>
-        <div className="col-1 offset-md-7 ">
+      <h1 className="titulo">Mantenimiento </h1>
+      <div className="d-grid">
+        <Col style={{ textAlign: "right" }}>
           {BotonAgregarDemo(listaGenero, listaDemo, setListaDemo, demoEvento)}
-        </div>
+        </Col>
       </div>
+
       {BuscadorSingleInput(tabla)}
       <Table responsive hover borderless {...getTableProps()}>
         {BuscadorMultiplesInput(tabla)}
