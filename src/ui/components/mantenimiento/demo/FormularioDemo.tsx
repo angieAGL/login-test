@@ -30,7 +30,7 @@ const FormularioDemo = (
     mensajeErrorNumero,
   } = FormularioDemoValidacion(initialDemo);
 
-  const [genero, setGenero] = useState(0);
+  const [genero, setGenero] = useState(initialDemo.id_genero);
   const options: any = [];
 
   listaGenero.forEach((value: string, key: any) => {
@@ -49,7 +49,7 @@ const FormularioDemo = (
 
   const funcionSubmit = (data: Demo) => {
     onsubmit(data);
-    setGenero(0);
+    setGenero(initialDemo.id_genero);
     reset();
   };
 

@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useMemo } from "react";
-import { BotonEditar } from "../../common/grids/botones/BotonEditar";
 import CellActivo from "../../common/grids/CellActivo";
 import BuscadorPorCabecera from "../../common/grids/buscadores/BuscadorPorCabecera";
 import BuscadorPorSeleccion from "../../common/grids/buscadores/BuscadorPorSeleccion";
@@ -10,6 +9,7 @@ import FormatoFecha from "../../common/FormatoFecha";
 import { Column } from "react-table";
 import { Demo } from "../../../../dominio/entidades/Demo";
 import { BotonEliminarDemo } from "./BotonEliminarDemo";
+import { BotonEditarDemo } from "./BotonEditarDemo";
 import { DemoEvents } from "../../../../presentacion/DemoEvents";
 
 const ColumnaGrid = (
@@ -17,7 +17,7 @@ const ColumnaGrid = (
   listaActivo: Map<boolean, string>,
   data: Demo[],
   setData: React.Dispatch<React.SetStateAction<Demo[]>>,
-  funcionEliminar: DemoEvents
+  funcionEvento: DemoEvents
 ) => {
   const columns: Array<Column> = useMemo(
     () => [
@@ -76,14 +76,15 @@ const ColumnaGrid = (
         Filter: BotonReset,
         Cell: ({ row }) => (
           <div>
-            <BotonEditar
-              href="#"
-              onClick={() => {
-                alert("mensaje");
-              }}
-            ></BotonEditar>
-
-            {BotonEliminarDemo(row.index, data, setData, funcionEliminar)}
+            {BotonEditarDemo(
+              listaGenero,
+              data,
+              setData,
+              funcionEvento,
+              row.index,
+              row.values
+            )}
+            {BotonEliminarDemo(row.index, data, setData, funcionEvento)}
           </div>
         ),
       },

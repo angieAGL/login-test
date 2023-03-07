@@ -45,6 +45,9 @@ export class DemoRepository implements IDemoRepository {
       }
       return res;
     });
+
+    console.log(listado_json);
+
     return true;
   }
 }
