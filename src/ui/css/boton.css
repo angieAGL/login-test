@@ -3,6 +3,11 @@
 .btn {
   background-color: var(--color-principal);
   color: white;
+  width: 100px
+}
+
+.btn-login{
+  width: auto;
 }
 
 .btn-paginacion {
@@ -32,4 +37,13 @@
   background-color:white;
   color:var(--color-principal);
   border-color: var(--color-principal);
+}
+
+.boton-agregar{
+  margin-bottom: 5px;
+  font-family: var(--fuente-text);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
 }

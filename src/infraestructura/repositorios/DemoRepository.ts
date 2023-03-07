@@ -15,4 +15,14 @@ export class DemoRepository implements IDemoRepository {
 
     return listado_json.some((demo) => demo.id === id);
   }
+
+  async agregarDemo(demo: Demo): Promise<boolean> {
+    let listado_json: Demo[] = await this.listarDemo();
+
+    if (demo.id === 0) {
+      return false;
+    }
+    listado_json.push(demo);
+    return true;
+  }
 }

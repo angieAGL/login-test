@@ -71,7 +71,7 @@ const LoginView = () => {
                 className={
                   mensajeErrorUsuario
                     ? "form-control error"
-                    : "form-control login"
+                    : "form-control correcto"
                 }
                 placeholder="Ingrese el usuario"
                 autoComplete="off"
@@ -92,7 +92,7 @@ const LoginView = () => {
                 className={
                   mensajeErrorContraseña
                     ? "form-control error"
-                    : "form-control login"
+                    : "form-control correcto"
                 }
                 placeholder="Ingrese la contraseña"
                 autoComplete="off"
@@ -108,7 +108,10 @@ const LoginView = () => {
               <a href="*">¿Olvidaste tu contraseña ?</a>
             </div>
             <div className="mb-4 text-center">
-              <BotonFormulario text={"Iniciar Sesion"}></BotonFormulario>
+              <BotonFormulario
+                class_name={"btn-login"}
+                text={"Iniciar Sesion"}
+              ></BotonFormulario>
             </div>
           </Form>
           {PopUpInformativo(mostrarPopUp, setMostrarPopUp, respuesta.mensaje)}

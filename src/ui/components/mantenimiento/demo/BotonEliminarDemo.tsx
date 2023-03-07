@@ -8,7 +8,7 @@ export const BotonEliminarDemo = (
   id: number,
   data: Demo[],
   setData: React.Dispatch<React.SetStateAction<Demo[]>>,
-  funcionEimina: DemoEvents
+  funcionEvento: DemoEvents
 ) => {
   const [mostrarPopUp, setMostrarPopUp] = useState(false);
   const mensaje = "¿Esta seguro que quiere eliminar ?";
@@ -16,7 +16,7 @@ export const BotonEliminarDemo = (
     const datacopy = [...data];
     datacopy[id].activo = false;
     setData(datacopy);
-    return funcionEimina.onClickDelete(id).then((res) => res);
+    return funcionEvento.onClickEliminar(id).then((res) => res);
   };
   return (
     <>

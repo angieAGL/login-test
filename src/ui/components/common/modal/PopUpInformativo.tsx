@@ -2,12 +2,12 @@ import React from "react";
 import Boton from "../grids/botones/Boton";
 import PopUpBase from "./PopUpBase";
 
-const PopUp = (
+const PopUpInformativo = (
   mostrar: boolean,
   setMostrarPopUp: React.Dispatch<React.SetStateAction<boolean>>,
   mensaje: string
 ) => {
-  let boton: Array<object> = [];
+  let boton: Array<JSX.Element> = [];
 
   boton.push(
     <Boton
@@ -25,4 +25,4 @@ const PopUp = (
   );
 };
 
-export default PopUp;
+export default PopUpInformativo;

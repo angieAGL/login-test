@@ -3,7 +3,7 @@ export interface Demo {
   nombre: string;
   apellido: string;
   email: string;
-  id_genero?: number;
+  id_genero: number;
   genero: string;
   numero: number;
   fecha: string;

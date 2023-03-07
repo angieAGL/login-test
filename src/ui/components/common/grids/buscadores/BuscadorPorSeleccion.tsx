@@ -5,7 +5,7 @@ const BuscadorPorSeleccion = ({ column }: any) => {
   const { filterValue, setFilter, lista } = column;
   const options: any = [];
 
-  lista.forEach((value: string, key: any) => {
+  lista.forEach((value: string, key: number) => {
     options.push(
       <option key={key} value={key}>
         {value}

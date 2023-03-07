@@ -5,6 +5,12 @@ export type BotonInterface = {
   onChange?: (event: React.ChangeEvent<HTMLButtonElement>) => void;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   disabled?: any;
+  form?: string;
+};
+
+export type BotonCrear = {
+  href: string;
+  onClick: (event: React.MouseEvent<HTMLAnchorElement>) => void;
 };
 
 export type BotonBorrar = {

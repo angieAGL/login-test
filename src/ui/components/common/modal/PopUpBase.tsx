@@ -1,10 +1,16 @@
 import Modal from "react-bootstrap/Modal";
 import { popUpBaseInterface } from "./PopUpInterface";
 
-const PopUpBase = ({ show, mensaje, botones }: popUpBaseInterface) => {
+const PopUpBase = ({ show, titulo, mensaje, botones }: popUpBaseInterface) => {
   return (
     <>
-      <Modal show={show} centered>
+      <Modal show={show} centered scrollable>
+        {titulo ? (
+          <Modal.Header>
+            <Modal.Title>{titulo}</Modal.Title>
+          </Modal.Header>
+        ) : null}
+
         <Modal.Body>{mensaje}</Modal.Body>
         <Modal.Footer>{botones}</Modal.Footer>
       </Modal>

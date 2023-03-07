@@ -8,6 +8,7 @@ const Boton = ({
   class_name,
   onChange,
   onClick,
+  form,
 }: BotonInterface) => {
   return (
     <Button
@@ -16,6 +17,7 @@ const Boton = ({
       variant={`btn ${class_name}`}
       onChange={onChange}
       onClick={onClick}
+      form={form}
     >
       {text}
     </Button>
