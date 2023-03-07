@@ -20,18 +20,9 @@ export const BotonEditarDemo = (
   const onsubmit = async (nuevoDemo: Demo) => {
     funcionEliminar.onClickEditar(nuevoDemo).then((resp) => {
       if (resp) {
-        console.log(nuevoDemo);
         const datacopy = [...data];
-        datacopy[id].nombre = nuevoDemo.nombre;
-        datacopy[id].apellido = nuevoDemo.apellido;
-        datacopy[id].email = nuevoDemo.email;
-        datacopy[id].fecha = nuevoDemo.fecha;
-        datacopy[id].id_genero = nuevoDemo.id_genero;
-        datacopy[id].genero = nuevoDemo.genero;
-        datacopy[id].numero = nuevoDemo.numero;
-        console.log(datacopy);
+        datacopy.splice(id, 1, nuevoDemo);
         setData(datacopy);
-
         setMostrarPopUp(false);
       } else {
         setMostrarPopUp(true);
@@ -51,6 +42,7 @@ export const BotonEditarDemo = (
         mostrarPopUp,
         setMostrarPopUp,
         FormularioDemo(
+          true,
           listaGenero,
           idFormulario,
           onsubmit,

@@ -5,6 +5,7 @@ import { Demo } from "../../../../dominio/entidades/Demo";
 import FormularioDemoValidacion from "./FormularioDemoValidacion";
 
 const FormularioDemo = (
+  modoEditar: boolean,
   listaGenero: Map<number, string>,
   idForm: string,
   onsubmit: (user: Demo) => Promise<void>,
@@ -59,6 +60,7 @@ const FormularioDemo = (
         <Form.Group className="mb-2">
           <Form.Label className="form-label ">ID</Form.Label>
           <Form.Control
+            disabled={modoEditar}
             className={
               mensajeErrorId ? "form-control error" : "form-control correcto"
             }

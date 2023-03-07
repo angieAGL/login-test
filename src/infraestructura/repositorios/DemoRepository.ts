@@ -29,25 +29,6 @@ export class DemoRepository implements IDemoRepository {
   async editarDemo(demo: Demo): Promise<boolean> {
     let listado_json: Demo[] = await this.listarDemo();
 
-    if (!listado_json.some((res) => res.id === demo.id)) {
-      return false;
-    }
-
-    listado_json.map(function (res) {
-      if (res.id === demo.id) {
-        res.nombre = demo.nombre;
-        res.apellido = demo.apellido;
-        res.email = demo.email;
-        res.fecha = demo.fecha;
-        res.id_genero = demo.id_genero;
-        res.genero = demo.genero;
-        res.numero = demo.numero;
-      }
-      return res;
-    });
-
-    console.log(listado_json);
-
-    return true;
+    return listado_json.some((res) => res.id === demo.id);
   }
 }
