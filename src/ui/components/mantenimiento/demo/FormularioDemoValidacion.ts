@@ -60,6 +60,7 @@ const FormularioDemoValidation = (initialData: Demo) => {
 
   const generoValidar = register("id_genero", {
     required: MENSAJE_SELECCION,
+    min: { value: 1, message: MENSAJE_SELECCION },
   });
 
   const numeroValidar = register("numero", {

@@ -4,4 +4,5 @@ export type DropDownInterface = {
   options: JSX.Element;
   class_name: string;
   valorDefault?: string;
+  modo: "Editar" | "Buscar";
 };

@@ -7,6 +7,7 @@ const DropDown = ({
   options,
   class_name,
   valorDefault = "Todo",
+  modo,
 }: DropDownInterface) => {
   const className = `form-select ${class_name}`;
   return (
@@ -15,7 +16,7 @@ const DropDown = ({
       value={value || valorDefault}
       onChange={onChange}
     >
-      <option value="">{valorDefault}</option>
+      <option value={modo === "Editar" ? 0 : ""}>{valorDefault}</option>
       {options};
     </Form.Select>
   );

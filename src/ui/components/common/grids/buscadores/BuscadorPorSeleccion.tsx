@@ -23,6 +23,7 @@ const BuscadorPorSeleccion = ({ column }: any) => {
       value={filterValue}
       options={options}
       onChange={buscar}
+      modo={"Buscar"}
     />
   );
 };

@@ -122,6 +122,7 @@ const FormularioDemo = (
             }
             options={options}
             value={genero}
+            modo={"Editar"}
             valorDefault={"Seleccione"}
             onChange={seleccionrGenero}
           ></DropDown>
