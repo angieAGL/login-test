@@ -3,6 +3,7 @@ import { ITipoRepository } from "../aplicacion/interfaces/ITipoRepository";
 import { MostrarTablaDemoUseCase } from "../aplicacion/use-cases/MotrarTablaDemoUseCase";
 import { EliminarDemoUseCase } from "../aplicacion/use-cases/EliminarDemoUseCase";
 import { AgregarDemoUseCase } from "../aplicacion/use-cases/AgregarDemoUseCase";
+import { EditarDemoUseCase } from "../aplicacion/use-cases/EditarDemoUseCase";
 import { Demo } from "../dominio/entidades/Demo";
 
 export class DemoEvents {
@@ -35,5 +36,11 @@ export class DemoEvents {
     const agregarDemo = new AgregarDemoUseCase(this._demoRepository);
 
     return await agregarDemo.agregarDemo(demo);
+  }
+
+  async onClickEditar(demo: Demo) {
+    const agregarDemo = new EditarDemoUseCase(this._demoRepository);
+
+    return await agregarDemo.editarDemo(demo);
   }
 }
