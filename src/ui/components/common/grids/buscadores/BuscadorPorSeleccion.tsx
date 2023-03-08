@@ -1,5 +1,5 @@
-import DropDown from "../../DropDown";
 import "../../../../css/buscador.css";
+import { Form } from "react-bootstrap";
 
 const BuscadorPorSeleccion = ({ column }: any) => {
   const { filterValue, setFilter, lista } = column;
@@ -16,15 +16,17 @@ const BuscadorPorSeleccion = ({ column }: any) => {
   const buscar = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setFilter(e.target.value);
   };
+  const valorDefault = "Todo";
 
   return (
-    <DropDown
-      class_name={"form-select-sm mt-3 buscar-seleccion"}
-      value={filterValue}
-      options={options}
+    <Form.Select
+      className={"form-select-sm mt-3 buscar-seleccion"}
+      value={filterValue || valorDefault}
       onChange={buscar}
-      modo={"Buscar"}
-    />
+    >
+      <option value="">{valorDefault}</option>
+      {options};
+    </Form.Select>
   );
 };
 

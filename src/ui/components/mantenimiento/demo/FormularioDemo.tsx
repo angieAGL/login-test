@@ -1,6 +1,6 @@
 import { Form } from "react-bootstrap";
 import { Demo } from "../../../../dominio/entidades/Demo";
-import FormularioDemoValidacion from "./FormularioDemoValidacion";
+import FormularioDemoValidacion from "./FormularioDemoHook";
 
 const FormularioDemo = (
   modoEditar: boolean,
@@ -107,12 +107,12 @@ const FormularioDemo = (
           <Form.Select
             className={
               mensajeErrorGenero
-                ? "form-select-sm buscar-seleccion error"
-                : "form-select-sm buscar-seleccion correcto"
+                ? "form-control error"
+                : "form-control correcto"
             }
             {...generoValidar}
           >
-            <option value={0}>"Seleccione"</option>
+            <option value={0}>Seleccione</option>
             {options};
           </Form.Select>
           {<p style={{ color: "var(--color-error)" }}>{mensajeErrorGenero}</p>}
@@ -139,6 +139,7 @@ const FormularioDemo = (
                 : "form-control-s, correcto"
             }
             type="date"
+            id={"fecha"}
             {...fechaValidar}
           ></Form.Control>
           {<p style={{ color: "var(--color-error)" }}>{mensajeErrorFecha}</p>}
