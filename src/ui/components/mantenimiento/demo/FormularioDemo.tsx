@@ -1,6 +1,4 @@
-import React, { useState } from "react";
 import { Form } from "react-bootstrap";
-import DropDown from "../../common/DropDown";
 import { Demo } from "../../../../dominio/entidades/Demo";
 import FormularioDemoValidacion from "./FormularioDemoValidacion";
 
@@ -13,7 +11,6 @@ const FormularioDemo = (
 ) => {
   const {
     handleSubmit,
-    setValue,
     reset,
     generoValidar,
     idValidar,
@@ -31,7 +28,6 @@ const FormularioDemo = (
     mensajeErrorNumero,
   } = FormularioDemoValidacion(initialDemo);
 
-  const [genero, setGenero] = useState(initialDemo.id_genero);
   const options: any = [];
 
   listaGenero.forEach((value: string, key: any) => {
@@ -42,15 +38,9 @@ const FormularioDemo = (
     );
   });
 
-  const seleccionrGenero = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setGenero(Number(e.target.value));
-    setValue("id_genero", Number(e.target.value));
-    setValue("genero", listaGenero.get(Number(e.target.value)) as string);
-  };
-
   const funcionSubmit = (data: Demo) => {
+    data.genero = listaGenero.get(Number(data.id_genero)) as string;
     onsubmit(data);
-    setGenero(initialDemo.id_genero);
     reset();
   };
 
@@ -112,20 +102,19 @@ const FormularioDemo = (
           ></Form.Control>
           {<p style={{ color: "var(--color-error)" }}>{mensajeErrorEmail}</p>}
         </Form.Group>
-        <Form.Group {...generoValidar} className="mb-2">
+        <Form.Group className="mb-2">
           <Form.Label className="form-label">Genero</Form.Label>
-          <DropDown
-            class_name={
+          <Form.Select
+            className={
               mensajeErrorGenero
                 ? "form-select-sm buscar-seleccion error"
                 : "form-select-sm buscar-seleccion correcto"
             }
-            options={options}
-            value={genero}
-            modo={"Editar"}
-            valorDefault={"Seleccione"}
-            onChange={seleccionrGenero}
-          ></DropDown>
+            {...generoValidar}
+          >
+            <option value={0}>"Seleccione"</option>
+            {options};
+          </Form.Select>
           {<p style={{ color: "var(--color-error)" }}>{mensajeErrorGenero}</p>}
         </Form.Group>
         <Form.Group className="mb-2">

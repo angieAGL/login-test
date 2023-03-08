@@ -12,7 +12,7 @@ import {
   VALOR_MINIMO_NUMERO,
   MENSAJE_SELECCION,
 } from "../../../../cross-cutting/Constants";
-import { useForm } from "react-hook-form";
+import { useForm, UseFormRegisterReturn } from "react-hook-form";
 import { Demo } from "../../../../dominio/entidades/Demo";
 
 const FormularioDemoValidation = (initialData: Demo) => {
@@ -58,7 +58,7 @@ const FormularioDemoValidation = (initialData: Demo) => {
 
   const emailValidar = register("email", { required: MENSAJE_INGRESE_EMAIL });
 
-  const generoValidar = register("id_genero", {
+  const generoValidar: UseFormRegisterReturn = register("id_genero", {
     required: MENSAJE_SELECCION,
     min: { value: 1, message: MENSAJE_SELECCION },
   });

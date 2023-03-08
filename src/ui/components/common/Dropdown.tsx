@@ -8,6 +8,7 @@ const DropDown = ({
   class_name,
   valorDefault = "Todo",
   modo,
+  ref,
 }: DropDownInterface) => {
   const className = `form-select ${class_name}`;
   return (
@@ -15,6 +16,8 @@ const DropDown = ({
       className={className}
       value={value || valorDefault}
       onChange={onChange}
+      name="id_genero"
+      {...ref}
     >
       <option value={modo === "Editar" ? 0 : ""}>{valorDefault}</option>
       {options};
