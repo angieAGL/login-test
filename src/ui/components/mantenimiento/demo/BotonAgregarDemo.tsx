@@ -30,11 +30,8 @@ export const BotonAgregarDemo = (
     funcionEvento.onClickAgregar(nuevoDemo).then((resp) => {
       if (resp) {
         setMostrarPopUp(false);
-        nuevoDemo.id = parseInt(nuevoDemo.id as unknown as string);
         const datacopy = [...data];
         datacopy.push(nuevoDemo);
-        console.log(datacopy);
-
         setData(datacopy);
       } else {
         setMostrarPopUp(true);
