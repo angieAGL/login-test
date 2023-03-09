@@ -2,11 +2,12 @@ import React from "react";
 import Boton from "../grids/botones/Boton";
 import PopUpBase from "./PopUpBase";
 
-const PopUpCreacion = (
+const PopUpFormulario = (
   mostrar: boolean,
   setMostrarPopUp: React.Dispatch<React.SetStateAction<boolean>>,
   mensaje: JSX.Element,
-  idForm: string
+  idForm: string,
+  titulo: string
 ) => {
   const botones: Array<JSX.Element> = [
     <Boton
@@ -16,14 +17,14 @@ const PopUpCreacion = (
       type={"button"}
       onClick={() => setMostrarPopUp(false)}
     />,
-    <Boton key={3} text={"Agregar"} type={"submit"} form={idForm} />,
+    <Boton key={3} text={"Guardar"} type={"submit"} form={idForm} />,
   ];
 
   return (
     <>
       <PopUpBase
         show={mostrar}
-        titulo={"Agregar Demo"}
+        titulo={titulo}
         mensaje={mensaje}
         botones={botones}
       ></PopUpBase>
@@ -31,4 +32,4 @@ const PopUpCreacion = (
   );
 };
 
-export default PopUpCreacion;
+export default PopUpFormulario;

@@ -25,4 +25,10 @@ export class DemoRepository implements IDemoRepository {
     listado_json.push(demo);
     return true;
   }
+
+  async editarDemo(demo: Demo): Promise<boolean> {
+    let listado_json: Demo[] = await this.listarDemo();
+
+    return listado_json.some((res) => res.id === demo.id);
+  }
 }

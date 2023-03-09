@@ -4,4 +4,5 @@ export interface IDemoRepository {
   listarDemo(): Promise<Demo[]>;
   eliminarDemo(id: number): Promise<boolean>;
   agregarDemo(demo: Demo): Promise<boolean>;
+  editarDemo(demo: Demo): Promise<boolean>;
 }

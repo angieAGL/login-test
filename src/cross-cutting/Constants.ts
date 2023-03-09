@@ -7,6 +7,8 @@ export const MENSAJE_INGRESE_EMAIL: string = "Ingrese email";
 export const MENSAJE_INGRESE_FECHA: string = "Ingrese fecha";
 export const MENSAJE_FORMATO_INPUT_STRING: string = "Solo se aceptan letras";
 export const MENSAJE_FORMATO_INPUT_NUMBER: string = "Solo se aceptan numeros";
+export const MENSAJE_FORMATO_INPUT_EMAIL: string =
+  "Ingrese un formato correcto de email";
 export const MENSAJE_LONGITUD_MINIMO_USUARIO: string =
   "La logitud minima del usuario es";
 export const LONGITUD_MINIMO_USUARIO: number = 3;

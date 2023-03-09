@@ -2,35 +2,26 @@ import React from "react";
 import { useState } from "react";
 import { Demo } from "../../../../dominio/entidades/Demo";
 import { DemoEvents } from "../../../../presentacion/DemoEvents";
-import { BotonAgregar } from "../../common/grids/botones/BotonAgregar";
+import { BotonEditar } from "../../common/grids/botones/BotonEditar";
 import PopUpFormulario from "../../common/modal/PopUpFormulario";
 import FormularioDemo from "./FormularioDemo";
 
-export const BotonAgregarDemo = (
+export const BotonEditarDemo = (
   listaGenero: Map<number, string>,
   data: Demo[],
   setData: React.Dispatch<React.SetStateAction<Demo[]>>,
-  funcionEvento: DemoEvents
+  funcionEliminar: DemoEvents,
+  id: number,
+  initialData: Record<string, any>
 ) => {
   const [mostrarPopUp, setMostrarPopUp] = useState(false);
   const idFormulario = "FormDemo";
-  const initialData = {
-    id: 0,
-    nombre: "",
-    apellido: "",
-    email: "",
-    id_genero: 0,
-    genero: "",
-    numero: 0,
-    fecha: "",
-    activo: true,
-  };
 
   const onsubmit = async (nuevoDemo: Demo) => {
-    funcionEvento.onClickAgregar(nuevoDemo).then((resp) => {
+    funcionEliminar.onClickEditar(nuevoDemo).then((resp) => {
       if (resp) {
         const datacopy = [...data];
-        datacopy.push(nuevoDemo);
+        datacopy.splice(id, 1, nuevoDemo);
         setData(datacopy);
       }
       setMostrarPopUp(!resp);
@@ -39,18 +30,24 @@ export const BotonAgregarDemo = (
 
   return (
     <>
-      <BotonAgregar
+      <BotonEditar
         href="#"
         onClick={() => {
           setMostrarPopUp(true);
         }}
-      ></BotonAgregar>
+      ></BotonEditar>
       {PopUpFormulario(
         mostrarPopUp,
         setMostrarPopUp,
-        FormularioDemo(false, listaGenero, idFormulario, onsubmit, initialData),
+        FormularioDemo(
+          true,
+          listaGenero,
+          idFormulario,
+          onsubmit,
+          initialData as Demo
+        ),
         idFormulario,
-        "Agregar Demo"
+        "Editar Demo"
       )}
     </>
   );

@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../../css/login.css";
 import "../../css/textos.css";
 import BotonFormulario from "../common/grids/botones/BotonFormulario";
-import LoginValidation from "./LoginValidation";
+import LoginValidation from "./LoginHook";
 import { useInfraestructureRepository } from "../common/base/Dependencies";
 import PopUpInformativo from "../common/modal/PopUpInformativo";
 import LoginEvents from "../../../presentacion/LoginEvents";

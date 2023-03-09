@@ -6,17 +6,22 @@ import {
   MENSAJE_INGRESE_FECHA,
   MENSAJE_FORMATO_INPUT_STRING,
   MENSAJE_FORMATO_INPUT_NUMBER,
+  MENSAJE_FORMATO_INPUT_EMAIL,
   MENSAJE_VALOR_MINIMO_ID,
   MENSAJE_VALOR_MINIMO_NUMERO,
   VALOR_MINIMO_ID,
   VALOR_MINIMO_NUMERO,
   MENSAJE_SELECCION,
 } from "../../../../cross-cutting/Constants";
-import { useForm } from "react-hook-form";
+import { useForm, UseFormRegisterReturn } from "react-hook-form";
 import { Demo } from "../../../../dominio/entidades/Demo";
 
 const FormularioDemoValidation = (initialData: Demo) => {
-  const patterns = { string: /^[A-Za-z]+$/i, id: /[0-9]/ };
+  const patterns = {
+    string: /^[A-Za-z]+$/i,
+    id: /[0-9]/,
+    email: /^[a-zA-Z0-9.!#$%&’+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/,
+  };
 
   const {
     register,
@@ -26,7 +31,7 @@ const FormularioDemoValidation = (initialData: Demo) => {
     formState: { errors },
   } = useForm({ defaultValues: initialData });
 
-  const idValidar = register("id", {
+  const idValidar: UseFormRegisterReturn<string> = register("id", {
     required: MENSAJE_INGRESE_ID,
     min: {
       value: VALOR_MINIMO_ID,
@@ -38,7 +43,7 @@ const FormularioDemoValidation = (initialData: Demo) => {
     },
   });
 
-  const nombreValidar = register("nombre", {
+  const nombreValidar: UseFormRegisterReturn<string> = register("nombre", {
     required: MENSAJE_INGRESE_NOMBRE,
     pattern: {
       value: patterns.string,
@@ -46,7 +51,7 @@ const FormularioDemoValidation = (initialData: Demo) => {
     },
   });
 
-  const apellidoValidar = register("apellido", {
+  const apellidoValidar: UseFormRegisterReturn<string> = register("apellido", {
     required: MENSAJE_INGRESE_APELLIDO,
     pattern: {
       value: patterns.string,
@@ -54,15 +59,24 @@ const FormularioDemoValidation = (initialData: Demo) => {
     },
   });
 
-  const fechaValidar = register("fecha", { required: MENSAJE_INGRESE_FECHA });
-
-  const emailValidar = register("email", { required: MENSAJE_INGRESE_EMAIL });
-
-  const generoValidar = register("id_genero", {
-    required: MENSAJE_SELECCION,
+  const fechaValidar: UseFormRegisterReturn<string> = register("fecha", {
+    required: MENSAJE_INGRESE_FECHA,
   });
 
-  const numeroValidar = register("numero", {
+  const emailValidar: UseFormRegisterReturn<string> = register("email", {
+    required: MENSAJE_INGRESE_EMAIL,
+    pattern: {
+      value: patterns.email,
+      message: MENSAJE_FORMATO_INPUT_EMAIL,
+    },
+  });
+
+  const generoValidar: UseFormRegisterReturn<string> = register("id_genero", {
+    required: MENSAJE_SELECCION,
+    min: { value: 1, message: MENSAJE_SELECCION },
+  });
+
+  const numeroValidar: UseFormRegisterReturn<string> = register("numero", {
     required: true,
     min: {
       value: VALOR_MINIMO_NUMERO,
