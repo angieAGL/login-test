@@ -12,6 +12,7 @@ import {
   VALOR_MINIMO_ID,
   VALOR_MINIMO_NUMERO,
   MENSAJE_SELECCION,
+  MENSAJE_INGRESE_NUMERO,
 } from "../../../../cross-cutting/Constants";
 import { useForm, UseFormRegisterReturn } from "react-hook-form";
 import { Demo } from "../../../../dominio/entidades/Demo";
@@ -77,7 +78,7 @@ const FormularioDemoValidation = (initialData: Demo) => {
   });
 
   const numeroValidar: UseFormRegisterReturn<string> = register("numero", {
-    required: true,
+    required: MENSAJE_INGRESE_NUMERO,
     min: {
       value: VALOR_MINIMO_NUMERO,
       message: `${MENSAJE_VALOR_MINIMO_NUMERO} ${VALOR_MINIMO_NUMERO}`,

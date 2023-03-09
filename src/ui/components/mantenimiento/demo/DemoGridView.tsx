@@ -19,7 +19,7 @@ import { useInfraestructureRepository } from "../../common/base/Dependencies";
 import { Table, Container, Col } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { Demo } from "../../../../dominio/entidades/Demo";
-import { BotonAgregarDemo } from "./BotonAgregarDemo";
+import { Link } from "react-router-dom";
 
 const DemoGridView = () => {
   const { demoRepository, tipoRepository } = useInfraestructureRepository();
@@ -38,6 +38,18 @@ const DemoGridView = () => {
       setListaActivo(res.listaActivo);
     });
   }, [demoEvento]);
+
+  const initialData = {
+    id: 0,
+    nombre: "",
+    apellido: "",
+    email: "",
+    id_genero: 0,
+    genero: "",
+    numero: 0,
+    fecha: "",
+    activo: true,
+  };
 
   const data = FilasGrid(listaDemo);
   const columns = ColumnaGrid(
@@ -70,7 +82,17 @@ const DemoGridView = () => {
       <h1 className="titulo">Mantenimiento </h1>
       <div className="d-grid">
         <Col style={{ textAlign: "right" }}>
-          {BotonAgregarDemo(listaGenero, listaDemo, setListaDemo, demoEvento)}
+          <Link
+            className="btn me-2 boton-agregar "
+            to={"/formularioDemo"}
+            state={{
+              initialData: initialData,
+              listaGenero: listaGenero,
+              modoEditar: false,
+            }}
+          >
+            Agregar
+          </Link>
         </Col>
       </div>
 

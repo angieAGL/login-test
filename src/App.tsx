@@ -3,6 +3,7 @@ import DemoGridView from "./ui/components/mantenimiento/demo/DemoGridView";
 import UsuarioGridView from "./ui/components/mantenimiento/usuario/UsuarioGridView";
 import LoginView from "./ui/components/autenticacion/LoginView";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import FormularioDemoView from "./ui/components/mantenimiento/demo/FomularioDemoView";
 
 function App() {
   return (
@@ -29,6 +30,14 @@ function App() {
           element={
             <InfraestructureProvider>
               <UsuarioGridView />
+            </InfraestructureProvider>
+          }
+        ></Route>
+        <Route
+          path="/formularioDemo"
+          element={
+            <InfraestructureProvider>
+              <FormularioDemoView />
             </InfraestructureProvider>
           }
         ></Route>

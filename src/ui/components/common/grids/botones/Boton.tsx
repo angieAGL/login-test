@@ -8,10 +8,12 @@ const Boton = ({
   class_name,
   onChange,
   onClick,
+  href,
   form,
 }: BotonInterface) => {
   return (
     <Button
+      href={href}
       type={type}
       id="boton"
       variant={`btn ${class_name}`}
