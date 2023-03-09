@@ -49,7 +49,7 @@ const FormularioDemoView = () => {
     demoEvento.onClickAgregar(data).then((resp) => {
       if (resp) {
         reset();
-        navigate("/matenimineto/demo");
+        navigate("/mantenimiento/demo");
       }
     });
   };
@@ -200,7 +200,7 @@ const FormularioDemoView = () => {
         <Stack direction="horizontal" gap={4} className={"mt-3 mb-3"}>
           <Boton
             class_name={"btn-cerrar ms-auto"}
-            href={"/matenimineto/demo"}
+            href={"/mantenimiento/demo"}
             text={"Cancelar"}
             type={"button"}
           />
