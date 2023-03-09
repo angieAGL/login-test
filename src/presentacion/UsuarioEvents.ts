@@ -1,6 +1,8 @@
 import { IUsuarioRepository } from "../aplicacion/interfaces/IUsuarioRepository";
 import { MostrarTablaUsuariosUseCase } from "../aplicacion/use-cases/MostrarTablaUsuariosUseCase";
 import { EliminarUsuarioUseCase } from "../aplicacion/use-cases/EliminarUsuarioUseCase";
+import { AgregarUsuarioUseCase } from "../aplicacion/use-cases/AgregarUsuarioUseCase";
+import { Usuario } from "../dominio/entidades/Usuario";
 
 export class UsuarioEvents {
   private _usuarioRepository: IUsuarioRepository;
@@ -18,10 +20,17 @@ export class UsuarioEvents {
 
     return valor;
   };
+
   async onClickEliminar(id: number) {
     const eliminarUsuario = new EliminarUsuarioUseCase(this._usuarioRepository);
 
     return await eliminarUsuario.eliminaUsuario(id);
+  }
+
+  async onClickAgregar(usuario: Usuario) {
+    const agregarUsuario = new AgregarUsuarioUseCase(this._usuarioRepository);
+
+    return await agregarUsuario.agregarUsuario(usuario);
   }
 }
 
