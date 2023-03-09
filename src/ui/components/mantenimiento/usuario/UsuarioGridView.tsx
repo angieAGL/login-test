@@ -56,7 +56,7 @@ const UsuarioGridView = () => {
 
   return (
     <Container fluid className="grid">
-      <h1 className="titulo">Mantenimiento </h1>
+      <h1 className="titulo mt-4">Mantenimiento de Usuario</h1>
       <div className="d-grid">
         <Col style={{ textAlign: "right" }}>
           {BotonAgregarUsuario(listaUsuarios, setListaUsuarios, userEvento)}

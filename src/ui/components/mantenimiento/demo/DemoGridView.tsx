@@ -79,12 +79,12 @@ const DemoGridView = () => {
 
   return (
     <Container fluid className="grid">
-      <h1 className="titulo">Mantenimiento </h1>
+      <h1 className="titulo mt-4">Mantenimiento de Demo </h1>
       <div className="d-grid">
         <Col style={{ textAlign: "right" }}>
           <Link
             className="btn me-2 boton-agregar "
-            to={"/formularioDemo"}
+            to={"/mantenimiento/demo/agregar"}
             state={{
               initialData: initialData,
               listaGenero: listaGenero,

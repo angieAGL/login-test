@@ -42,7 +42,7 @@ const FormularioUsuario = (
         </Form.Group>
 
         <Form.Group className="mb-2">
-          <Form.Label className="form-label">Usario</Form.Label>
+          <Form.Label className="form-label">Usuario</Form.Label>
           <Form.Control
             className={
               mensajeErrorUsuario

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Col, Container, Form, Row, Stack } from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Demo } from "../../../../dominio/entidades/Demo";
@@ -6,6 +6,7 @@ import { DemoEvents } from "../../../../presentacion/DemoEvents";
 import { useInfraestructureRepository } from "../../common/base/Dependencies";
 import Boton from "../../common/grids/botones/Boton";
 import FormularioDemoValidacion from "./FormularioDemoHook";
+import "../../../css/formulario.css";
 
 const FormularioDemoView = () => {
   const { demoRepository, tipoRepository } = useInfraestructureRepository();
@@ -43,19 +44,19 @@ const FormularioDemoView = () => {
     );
   });
 
-  const funcionSubmit = (data: Demo) => {
+  const funcionSubmit = async (data: Demo) => {
     data.genero = parametros.listaGenero.get(Number(data.id_genero)) as string;
     demoEvento.onClickAgregar(data).then((resp) => {
       if (resp) {
         reset();
-        navigate("/demo");
+        navigate("/matenimineto/demo");
       }
     });
   };
 
   return (
-    <Container className="d-grid">
-      <h1 className="titulo">Agregar Demo </h1>
+    <Container className="d-grid mt-3 formulario">
+      <h1 className="titulo mt-4"> Agregar Demo </h1>
       <Form onSubmit={handleSubmit(funcionSubmit)}>
         <Row className="mt-3">
           <Col sm>
@@ -196,10 +197,10 @@ const FormularioDemoView = () => {
             </Form.Group>
           </Col>
         </Row>
-        <Stack direction="horizontal" gap={4} className={"mt-3"}>
+        <Stack direction="horizontal" gap={4} className={"mt-3 mb-3"}>
           <Boton
             class_name={"btn-cerrar ms-auto"}
-            href={"/demo"}
+            href={"/matenimineto/demo"}
             text={"Cancelar"}
             type={"button"}
           />
