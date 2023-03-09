@@ -23,10 +23,8 @@ export const BotonEditarDemo = (
         const datacopy = [...data];
         datacopy.splice(id, 1, nuevoDemo);
         setData(datacopy);
-        setMostrarPopUp(false);
-      } else {
-        setMostrarPopUp(true);
       }
+      setMostrarPopUp(!resp);
     });
   };
 

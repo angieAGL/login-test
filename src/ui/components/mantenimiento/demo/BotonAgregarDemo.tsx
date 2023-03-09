@@ -29,13 +29,11 @@ export const BotonAgregarDemo = (
   const onsubmit = async (nuevoDemo: Demo) => {
     funcionEvento.onClickAgregar(nuevoDemo).then((resp) => {
       if (resp) {
-        setMostrarPopUp(false);
         const datacopy = [...data];
         datacopy.push(nuevoDemo);
         setData(datacopy);
-      } else {
-        setMostrarPopUp(true);
       }
+      setMostrarPopUp(!resp);
     });
   };
 
