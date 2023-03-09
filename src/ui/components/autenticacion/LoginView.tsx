@@ -33,7 +33,7 @@ const LoginView = () => {
       setRespuesta(response);
       if (response.exito) {
         setMostrarPopUp(false);
-        navigate("/demo");
+        navigate("/mantenimiento/demo");
       } else {
         setMostrarPopUp(true);
       }
