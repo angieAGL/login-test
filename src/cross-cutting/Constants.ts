@@ -5,6 +5,7 @@ export const MENSAJE_INGRESE_NOMBRE: string = "Ingrese nombre";
 export const MENSAJE_INGRESE_APELLIDO: string = "Ingrese apellido";
 export const MENSAJE_INGRESE_EMAIL: string = "Ingrese email";
 export const MENSAJE_INGRESE_FECHA: string = "Ingrese fecha";
+export const MENSAJE_INGRESE_NUMERO: string = "Ingrese numero";
 export const MENSAJE_FORMATO_INPUT_STRING: string = "Solo se aceptan letras";
 export const MENSAJE_FORMATO_INPUT_NUMBER: string = "Solo se aceptan numeros";
 export const MENSAJE_FORMATO_INPUT_EMAIL: string =

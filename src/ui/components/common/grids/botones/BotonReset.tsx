@@ -6,7 +6,7 @@ const BotonReset = (tabla: any) => {
   return (
     <BotonBuscador
       text={"Reset"}
-      class_name={"mt-3 mx-auto form-control"}
+      class_name={"mt-3 mx-auto w-100 form-control"}
       onClick={() => setAllFilters([])}
     />
   );

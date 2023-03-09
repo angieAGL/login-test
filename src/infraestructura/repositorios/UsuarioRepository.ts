@@ -29,4 +29,14 @@ export class UsuarioRepository implements IUsuarioRepository {
 
     return listado_json.some((user) => user.id === id);
   }
+
+  async agregarUsuario(usuario: Usuario): Promise<boolean> {
+    let listado_json: Usuario[] = await this.listarUsuarios();
+
+    if (usuario.id === 0) {
+      return false;
+    }
+    listado_json.push(usuario);
+    return true;
+  }
 }

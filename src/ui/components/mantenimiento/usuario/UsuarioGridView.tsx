@@ -16,9 +16,10 @@ import BuscadorPorCabecera from "../../common/grids/buscadores/BuscadorPorCabece
 import BuscadorMultiplesInput from "../../common/grids/buscadores/BuscadorMultiplesInput";
 import { UsuarioEvents } from "../../../../presentacion/UsuarioEvents";
 import { useInfraestructureRepository } from "../../common/base/Dependencies";
-import { Table, Container } from "react-bootstrap";
+import { Table, Container, Col } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { Usuario } from "../../../../dominio/entidades/Usuario";
+import { BotonAgregarUsuario } from "./BotonAgregarUsuario";
 
 const UsuarioGridView = () => {
   const { usuarioRepositoy } = useInfraestructureRepository();
@@ -55,7 +56,12 @@ const UsuarioGridView = () => {
 
   return (
     <Container fluid className="grid">
-      <h1 className="titulo">Mantenimiento </h1>
+      <h1 className="titulo mt-4">Mantenimiento de Usuario</h1>
+      <div className="d-grid">
+        <Col style={{ textAlign: "right" }}>
+          {BotonAgregarUsuario(listaUsuarios, setListaUsuarios, userEvento)}
+        </Col>
+      </div>
       {BuscadorSingleInput(tabla)}
       <Table responsive hover borderless {...getTableProps()}>
         {BuscadorMultiplesInput(tabla)}
