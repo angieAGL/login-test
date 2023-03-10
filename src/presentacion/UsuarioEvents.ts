@@ -3,6 +3,7 @@ import { MostrarTablaUsuariosUseCase } from "../aplicacion/use-cases/MostrarTabl
 import { EliminarUsuarioUseCase } from "../aplicacion/use-cases/EliminarUsuarioUseCase";
 import { AgregarUsuarioUseCase } from "../aplicacion/use-cases/AgregarUsuarioUseCase";
 import { Usuario } from "../dominio/entidades/Usuario";
+import { EditarUsuarioUseCase } from "../aplicacion/use-cases/EditarUsuarioUseCase";
 
 export class UsuarioEvents {
   private _usuarioRepository: IUsuarioRepository;
@@ -31,6 +32,12 @@ export class UsuarioEvents {
     const agregarUsuario = new AgregarUsuarioUseCase(this._usuarioRepository);
 
     return await agregarUsuario.agregarUsuario(usuario);
+  }
+
+  async onClickEditar(usuario: Usuario) {
+    const editarUsuario = new EditarUsuarioUseCase(this._usuarioRepository);
+
+    return await editarUsuario.editarUsuario(usuario);
   }
 }
 
