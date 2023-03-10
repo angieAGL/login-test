@@ -9,8 +9,8 @@ import FormatoFecha from "../../common/FormatoFecha";
 import { Column } from "react-table";
 import { Demo } from "../../../../dominio/entidades/Demo";
 import { BotonEliminarDemo } from "./BotonEliminarDemo";
-import { BotonEditarDemo } from "./BotonEditarDemo";
 import { DemoEvents } from "../../../../presentacion/DemoEvents";
+import { BotonEditar } from "../../common/grids/botones/BotonEditar";
 
 const ColumnaGrid = (
   listaGenero: Map<number, string>,
@@ -76,14 +76,15 @@ const ColumnaGrid = (
         Filter: BotonReset,
         Cell: ({ row }) => (
           <div>
-            {BotonEditarDemo(
-              listaGenero,
-              data,
-              setData,
-              funcionEvento,
-              row.index,
-              row.values
-            )}
+            <BotonEditar
+              to={"/mantenimiento/demo/editar"}
+              state={{
+                initialData: row.values,
+                listaGenero: listaGenero,
+                modoEditar: true,
+              }}
+            ></BotonEditar>
+
             {BotonEliminarDemo(row.index, data, setData, funcionEvento)}
           </div>
         ),

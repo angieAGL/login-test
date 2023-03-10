@@ -19,7 +19,7 @@ import { useInfraestructureRepository } from "../../common/base/Dependencies";
 import { Table, Container, Col } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { Demo } from "../../../../dominio/entidades/Demo";
-import { Link } from "react-router-dom";
+import { BotonAgregar } from "../../common/grids/botones/BotonAgregar";
 
 const DemoGridView = () => {
   const { demoRepository, tipoRepository } = useInfraestructureRepository();
@@ -82,17 +82,14 @@ const DemoGridView = () => {
       <h1 className="titulo mt-4">Mantenimiento de Demo </h1>
       <div className="d-grid">
         <Col style={{ textAlign: "right" }}>
-          <Link
-            className="btn me-2 boton-agregar "
+          <BotonAgregar
             to={"/mantenimiento/demo/agregar"}
             state={{
               initialData: initialData,
               listaGenero: listaGenero,
               modoEditar: false,
             }}
-          >
-            Agregar
-          </Link>
+          ></BotonAgregar>
         </Col>
       </div>
 

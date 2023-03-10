@@ -30,7 +30,7 @@ export const BotonEditarUsuario = (
   return (
     <>
       <BotonEditar
-        href="#"
+        to={"#"}
         onClick={() => {
           setMostrarPopUp(true);
         }}

@@ -1,11 +1,15 @@
+import { Link } from "react-router-dom";
 import { BotonCrear } from "../Interfaces/BotonesInterface";
 
-export const BotonAgregar = ({ href, onClick }: BotonCrear) => {
+export const BotonAgregar = ({ to, onClick, state }: BotonCrear) => {
   return (
-    <>
-      <a className="btn me-2 boton-agregar " href={href} onClick={onClick}>
-        Agregar
-      </a>
-    </>
+    <Link
+      to={to}
+      className="btn me-2 boton-agregar "
+      state={state}
+      onClick={onClick}
+    >
+      Agregar
+    </Link>
   );
 };
