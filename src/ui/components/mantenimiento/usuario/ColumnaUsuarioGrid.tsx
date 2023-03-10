@@ -1,17 +1,16 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useMemo } from "react";
 import { Column } from "react-table";
-import { BotonEditar } from "../../common/grids/botones/BotonEditar";
 import BuscadorPorCabecera from "../../common/grids/buscadores/BuscadorPorCabecera";
 import BotonReset from "../../common/grids/botones/BotonReset";
 import { Usuario } from "../../../../dominio/entidades/Usuario";
 import UsuarioEvents from "../../../../presentacion/UsuarioEvents";
 import { BotonEliminarUsuario } from "./BotonEliminarUsuario";
+import { BotonEditarUsuario } from "./BotonEditarUsuario";
 
 const ColumnaUsuarioGrid = (
   data: Usuario[],
   setData: React.Dispatch<React.SetStateAction<Usuario[]>>,
-  funcionEliminar: UsuarioEvents
+  funcionEvento: UsuarioEvents
 ) => {
   const columns: Array<Column> = useMemo(
     () => [
@@ -36,18 +35,19 @@ const ColumnaUsuarioGrid = (
         Filter: BotonReset,
         Cell: ({ row }) => (
           <div>
-            <BotonEditar
-              href="#"
-              onClick={() => {
-                alert(`${row.values.usuario}`);
-              }}
-            />
-            {BotonEliminarUsuario(row.index, data, setData, funcionEliminar)}
+            {BotonEditarUsuario(
+              data,
+              setData,
+              funcionEvento,
+              row.index,
+              row.values
+            )}
+            {BotonEliminarUsuario(row.index, data, setData, funcionEvento)}
           </div>
         ),
       },
     ],
-    [data, setData]
+    [data, funcionEvento, setData]
   );
 
   return columns;
