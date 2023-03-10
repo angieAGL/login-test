@@ -46,7 +46,10 @@ const FormularioDemoView = () => {
 
   const funcionSubmit = async (data: Demo) => {
     data.genero = parametros.listaGenero.get(Number(data.id_genero)) as string;
-    demoEvento.onClickAgregar(data).then((resp) => {
+    (parametros.modoEditar
+      ? demoEvento.onClickEditar(data)
+      : demoEvento.onClickAgregar(data)
+    ).then((resp) => {
       if (resp) {
         reset();
         navigate("/mantenimiento/demo");
@@ -56,7 +59,9 @@ const FormularioDemoView = () => {
 
   return (
     <Container className="d-grid mt-3 formulario">
-      <h1 className="titulo mt-4"> Agregar Demo </h1>
+      <h1 className="titulo mt-4">
+        {parametros.modoEditar ? "Editar Demo" : "Agregar Demo "}
+      </h1>
       <Form onSubmit={handleSubmit(funcionSubmit)}>
         <Row className="mt-3">
           <Col sm>

@@ -24,7 +24,7 @@ export class UsuarioRepository implements IUsuarioRepository {
     return exito;
   }
 
-  async eliminarUsuario(id: number) {
+  async eliminarUsuario(id: number): Promise<boolean> {
     let listado_json: Usuario[] = await this.listarUsuarios();
 
     return listado_json.some((user) => user.id === id);
@@ -38,5 +38,10 @@ export class UsuarioRepository implements IUsuarioRepository {
     }
     listado_json.push(usuario);
     return true;
+  }
+  async editarUsuario(usuario: Usuario): Promise<boolean> {
+    let listado_json: Usuario[] = await this.listarUsuarios();
+
+    return listado_json.some((resp) => resp.id === usuario.id);
   }
 }

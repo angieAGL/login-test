@@ -1,11 +1,12 @@
 import { FaPen } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import "../../../../css/botonEditar.css";
 import { BotonAccion } from "../Interfaces/BotonesInterface";
 
-export const BotonEditar = ({ href, onClick }: BotonAccion) => {
+export const BotonEditar = ({ to, onClick, state }: BotonAccion) => {
   return (
-    <a className="editar" href={href} onClick={onClick}>
+    <Link to={to} className="editar" state={state} onClick={onClick}>
       <FaPen />
-    </a>
+    </Link>
   );
 };

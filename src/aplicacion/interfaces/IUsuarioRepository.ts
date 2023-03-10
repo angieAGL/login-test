@@ -5,4 +5,5 @@ export interface IUsuarioRepository {
   autenticarUsuario(usuario: string, contrasenia: string): Promise<boolean>;
   eliminarUsuario(id: number): Promise<boolean>;
   agregarUsuario(usuario: Usuario): Promise<boolean>;
+  editarUsuario(usuario: Usuario): Promise<boolean>;
 }

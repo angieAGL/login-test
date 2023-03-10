@@ -10,8 +10,9 @@ export type BotonInterface = {
 };
 
 export type BotonCrear = {
-  href: string;
-  onClick: (event: React.MouseEvent<HTMLAnchorElement>) => void;
+  to: string;
+  state?: any;
+  onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
 };
 
 export type BotonBorrar = {
@@ -25,6 +26,7 @@ export type BotonBorrar = {
 };
 
 export type BotonAccion = {
-  href: string;
-  onClick: (event: React.MouseEvent<HTMLAnchorElement>) => void;
+  to: string;
+  state?: any;
+  onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
 };

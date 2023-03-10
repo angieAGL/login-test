@@ -34,7 +34,15 @@ function App() {
           }
         ></Route>
         <Route
-          path="/mantenimiento/demo/agregar"
+          path={"/mantenimiento/demo/agregar"}
+          element={
+            <InfraestructureProvider>
+              <FormularioDemoView />
+            </InfraestructureProvider>
+          }
+        ></Route>
+        <Route
+          path={"/mantenimiento/demo/editar"}
           element={
             <InfraestructureProvider>
               <FormularioDemoView />
