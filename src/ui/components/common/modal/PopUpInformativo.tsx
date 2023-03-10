@@ -11,6 +11,7 @@ const PopUpInformativo = (
 
   boton.push(
     <Boton
+      key={1}
       text={"Cerrar"}
       class_name={"btn-cerrar"}
       type={"button"}

@@ -4,6 +4,7 @@ import UsuarioGridView from "./ui/components/mantenimiento/usuario/UsuarioGridVi
 import LoginView from "./ui/components/autenticacion/LoginView";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import FormularioDemoView from "./ui/components/mantenimiento/demo/FormularioDemoView";
+import ErrorView from "./ui/components/ErrorView";
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
             </InfraestructureProvider>
           }
         ></Route>
+        <Route path="*" element={<ErrorView />}></Route>
       </Routes>
     </BrowserRouter>
   );
