@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "../../css/login.css";
 import "../../css/textos.css";
 import BotonFormulario from "../common/grids/botones/BotonFormulario";
@@ -8,6 +8,7 @@ import PopUpInformativo from "../common/modal/PopUpInformativo";
 import LoginEvents from "../../../presentacion/LoginEvents";
 import { useNavigate } from "react-router-dom";
 import { Form, Nav, Container, Row, Col } from "react-bootstrap";
+import { AuthContext } from "./AuthContext";
 
 const logoEmpresa = require("../../assets/img/proInvesting.png");
 const imgLogin = require("../../assets/img/imagenLogin.png");
@@ -28,12 +29,14 @@ const LoginView = () => {
 
   const navigate = useNavigate();
 
+  const { setLoggeado } = React.useContext(AuthContext);
   const funcionSubmit = (data: any) => {
     onSubmit(data).then((response) => {
       setRespuesta(response);
       if (response.exito) {
         setMostrarPopUp(false);
-        navigate("/mantenimiento/demo");
+        setLoggeado(true);
+        navigate("/home", { replace: true });
       } else {
         setMostrarPopUp(true);
       }
