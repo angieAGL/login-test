@@ -6,12 +6,16 @@ import LoginValidation from "./LoginHook";
 import { useInfraestructureRepository } from "../common/base/Dependencies";
 import PopUpInformativo from "../common/modal/PopUpInformativo";
 import LoginEvents from "../../../presentacion/LoginEvents";
-import { useNavigate } from "react-router-dom";
 import { Form, Nav, Container, Row, Col } from "react-bootstrap";
-import { AuthContext } from "./AuthContext";
+import Cookies from "js-cookie";
 
 const logoEmpresa = require("../../assets/img/proInvesting.png");
 const imgLogin = require("../../assets/img/imagenLogin.png");
+
+interface UserData {
+  usuario: string;
+  contrasenia: string;
+}
 
 const LoginView = () => {
   const { usuarioRepositoy } = useInfraestructureRepository();
@@ -27,23 +31,22 @@ const LoginView = () => {
     mensajeErrorContraseña,
   } = LoginValidation();
 
-  const navigate = useNavigate();
-
-  const { setLoggeado } = React.useContext(AuthContext);
-  const funcionSubmit = (data: any) => {
+  const funcionSubmit = (data: UserData) => {
     onSubmit(data).then((response) => {
       setRespuesta(response);
       if (response.exito) {
         setMostrarPopUp(false);
-        setLoggeado(true);
-        navigate("/home", { replace: true });
+        const expirationDate = new Date(Date.now() + 60 * 1000);
+        Cookies.set("session", JSON.stringify(data), {
+          expires: expirationDate,
+        });
       } else {
         setMostrarPopUp(true);
       }
     });
   };
 
-  return (
+  const vistaLogin = (
     <>
       <Nav className="navbar">
         <Container fluid>
@@ -122,6 +125,20 @@ const LoginView = () => {
       </Row>
     </>
   );
+
+  const vistaLayout = (
+    <>
+      <h1>Estas loggeado</h1>
+    </>
+  );
+
+  const userCookie = Cookies.get("session");
+  if (userCookie) {
+    const sessionData: UserData = JSON.parse(userCookie);
+    console.log("session:", sessionData);
+    return vistaLayout;
+  }
+  return vistaLogin;
 };
 
 export default LoginView;
