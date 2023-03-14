@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { BotonCrear } from "../Interfaces/BotonesInterface";
+import { BotonCrear } from "../../../Interfaces/BotonesInterface";
 
 export const BotonAgregar = ({ to, onClick, state }: BotonCrear) => {
   return (

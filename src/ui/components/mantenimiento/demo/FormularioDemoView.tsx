@@ -34,9 +34,9 @@ const FormularioDemoView = () => {
     mensajeErrorNumero,
   } = FormularioDemoValidacion(parametros.initialData);
 
-  const options: any = [];
+  const options: JSX.Element[] = [];
 
-  parametros.listaGenero.forEach((value: string, key: any) => {
+  parametros.listaGenero.forEach((value: string, key: number) => {
     options.push(
       <option key={key} value={key}>
         {value}

@@ -3,8 +3,9 @@ import { useAsyncDebounce } from "react-table";
 import "../../../../css/buscador.css";
 import BotonBuscador from "../botones/BotonBuscador";
 import { Col, Row, Form } from "react-bootstrap";
+import { TableInterface } from "../../../Interfaces/TablaInterface";
 
-const BuscadorSingleInput = (tabla: any) => {
+const BuscadorSingleInput = (tabla: TableInterface<{}>) => {
   const {
     setGlobalFilter,
     state: { globalFilter },

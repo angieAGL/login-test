@@ -1,5 +1,5 @@
 import "../../../../css/boton.css";
-import { BotonInterface } from "../Interfaces/BotonesInterface";
+import { BotonInterface } from "../../../Interfaces/BotonesInterface";
 import Button from "react-bootstrap/Button";
 
 const Boton = ({

@@ -7,15 +7,11 @@ import { useInfraestructureRepository } from "../common/base/Dependencies";
 import PopUpInformativo from "../common/modal/PopUpInformativo";
 import LoginEvents from "../../../presentacion/LoginEvents";
 import { Form, Nav, Container, Row, Col } from "react-bootstrap";
+import { DatosLogin } from "../Interfaces/DatosLoginInterface";
 import Cookies from "js-cookie";
 
 const logoEmpresa = require("../../assets/img/proInvesting.png");
 const imgLogin = require("../../assets/img/imagenLogin.png");
-
-interface UserData {
-  usuario: string;
-  contrasenia: string;
-}
 
 const LoginView = () => {
   const { usuarioRepositoy } = useInfraestructureRepository();
@@ -31,7 +27,7 @@ const LoginView = () => {
     mensajeErrorContraseña,
   } = LoginValidation();
 
-  const funcionSubmit = (data: UserData) => {
+  const funcionSubmit = (data: DatosLogin) => {
     onSubmit(data).then((response) => {
       setRespuesta(response);
       if (response.exito) {
@@ -134,7 +130,7 @@ const LoginView = () => {
 
   const userCookie = Cookies.get("session");
   if (userCookie) {
-    const sessionData: UserData = JSON.parse(userCookie);
+    const sessionData: DatosLogin = JSON.parse(userCookie);
     console.log("session:", sessionData);
     return vistaLayout;
   }

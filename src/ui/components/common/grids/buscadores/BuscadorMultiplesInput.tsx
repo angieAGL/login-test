@@ -1,6 +1,6 @@
-import { HeaderGroup } from "react-table";
+import { HeaderGroup, TableInstance } from "react-table";
 
-const BuscadorMultiplesInput = (tabla: any) => {
+const BuscadorMultiplesInput = (tabla: TableInstance) => {
   const { headerGroups } = tabla;
   return (
     <thead className=" cabecera_texto">

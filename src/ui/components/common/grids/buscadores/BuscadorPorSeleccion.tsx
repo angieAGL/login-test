@@ -1,9 +1,10 @@
 import "../../../../css/buscador.css";
 import { Form } from "react-bootstrap";
+import { TableInterface } from "../../../Interfaces/TablaInterface";
 
-const BuscadorPorSeleccion = ({ column }: any) => {
+const BuscadorPorSeleccion = ({ column }: TableInterface<{}>) => {
   const { filterValue, setFilter, lista } = column;
-  const options: any = [];
+  const options: JSX.Element[] = [];
 
   lista.forEach((value: string, key: number) => {
     options.push(

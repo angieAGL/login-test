@@ -1,11 +1,8 @@
-import React from "react";
+import Cookies from "js-cookie";
 import { Navigate, Outlet } from "react-router-dom";
-import { AuthContext } from "../../autenticacion/AuthContext";
 
 export const RutasPrivadas = () => {
-  const { loggeado } = React.useContext(AuthContext);
+  const userCookie = Cookies.get("session");
 
-  console.log(loggeado);
-
-  return loggeado ? <Outlet></Outlet> : <Navigate to={"/"} />;
+  return userCookie ? <Outlet></Outlet> : <Navigate to={"/"} />;
 };

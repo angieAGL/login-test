@@ -1,37 +1,22 @@
 import { Cell, Row } from "react-table";
 import "../../../css/cuerpo.css";
+import { TableInterface } from "../../Interfaces/TablaInterface";
 
-const Cuerpo = (tabla: any) => {
+const Cuerpo = (tabla: TableInterface<{}>) => {
   const { getTableBodyProps, prepareRow, page } = tabla;
 
   return (
     <tbody className="cuerpo cuerpo-texto" {...getTableBodyProps()}>
-      {
-        // Recorremos las filas
-        page.map((row: Row) => {
-          // Llamamos a la función que prepara la fila previo renderizado
-          prepareRow(row);
-          return (
-            // Añadimos las propiedades a la fila
-            <tr {...row.getRowProps()}>
-              {
-                // Recorremos cada celda de la fila
-                row.cells.map((cell: Cell) => {
-                  // Añadimos las propiedades a cada celda de la fila
-                  return (
-                    <td {...cell.getCellProps()}>
-                      {
-                        // Pintamos el contenido de la celda
-                        cell.render("Cell")
-                      }
-                    </td>
-                  );
-                })
-              }
-            </tr>
-          );
-        })
-      }
+      {page.map((row: Row) => {
+        prepareRow(row);
+        return (
+          <tr {...row.getRowProps()}>
+            {row.cells.map((cell: Cell) => {
+              return <td {...cell.getCellProps()}>{cell.render("Cell")}</td>;
+            })}
+          </tr>
+        );
+      })}
     </tbody>
   );
 };

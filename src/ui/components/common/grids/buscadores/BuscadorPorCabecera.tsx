@@ -1,8 +1,9 @@
 import "../../../../css/buscador.css";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
+import { TableInterface } from "../../../Interfaces/TablaInterface";
 
-const BuscadorPorCabecera = ({ column }: any) => {
+const BuscadorPorCabecera = ({ column }: TableInterface<{}>) => {
   const { filterValue, setFilter, Header } = column;
 
   return (

@@ -1,5 +1,6 @@
 import { LoginUseCase } from "../aplicacion/use-cases/LoginUseCase";
 import { IUsuarioRepository } from "../aplicacion/interfaces/IUsuarioRepository";
+import { DatosLogin } from "../ui/components/Interfaces/DatosLoginInterface";
 
 export class LoginEvents {
   private _userRepository: IUsuarioRepository;
@@ -8,7 +9,7 @@ export class LoginEvents {
     this._userRepository = userRepository;
   }
 
-  onSubmit = async (data: any) => {
+  onSubmit = async (data: DatosLogin) => {
     const validarDAtos = new LoginUseCase(this._userRepository);
 
     const valor = await validarDAtos.validarUsuario(

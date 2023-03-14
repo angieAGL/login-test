@@ -1,9 +1,3 @@
-import {
-  useTable,
-  useGlobalFilter,
-  usePagination,
-  useFilters,
-} from "react-table";
 import ColumnaUsuarioGrid from "./ColumnaUsuarioGrid";
 import FilasUsuarioGrid from "./FilasUsuarioGrid";
 import "../../../css/gridView.css";
@@ -20,6 +14,13 @@ import { Table, Container, Col } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { Usuario } from "../../../../dominio/entidades/Usuario";
 import { BotonAgregarUsuario } from "./BotonAgregarUsuario";
+import { TableInterface } from "../../Interfaces/TablaInterface";
+import {
+  useFilters,
+  useGlobalFilter,
+  usePagination,
+  useTable,
+} from "react-table";
 
 const UsuarioGridView = () => {
   const { usuarioRepositoy } = useInfraestructureRepository();
@@ -38,7 +39,7 @@ const UsuarioGridView = () => {
     userEvento
   );
   const data = FilasUsuarioGrid(listaUsuarios);
-  const tabla: any = useTable(
+  const tabla = useTable(
     {
       columns,
       data,
@@ -51,7 +52,7 @@ const UsuarioGridView = () => {
     useFilters,
     useGlobalFilter,
     usePagination
-  );
+  ) as TableInterface<{}>;
   const { getTableProps } = tabla;
 
   return (
