@@ -8,6 +8,7 @@ export const setCookie = (nombre: string, data: DatosUsuario) => {
   );
   Cookies.set(nombre, JSON.stringify(data), {
     expires: expirationDate,
+    sameSite: "lax",
   });
 };
 
