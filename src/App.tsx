@@ -1,7 +1,7 @@
 import { InfraestructureProvider } from "./dependency-injection/InfraestructureInjector";
 import DemoGridView from "./ui/components/mantenimiento/demo/DemoGridView";
 import UsuarioGridView from "./ui/components/mantenimiento/usuario/UsuarioGridView";
-import LoginView from "./ui/components/autenticacion/LoginView";
+import HomeView from "./ui/components/autenticacion/HomeView";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import FormularioDemoView from "./ui/components/mantenimiento/demo/FormularioDemoView";
 import ErrorView from "./ui/components/ErrorView";
@@ -15,7 +15,7 @@ function App() {
           path="/"
           element={
             <InfraestructureProvider>
-              <LoginView />
+              <HomeView />
             </InfraestructureProvider>
           }
         ></Route>

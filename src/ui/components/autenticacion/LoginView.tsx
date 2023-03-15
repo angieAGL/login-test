@@ -8,7 +8,8 @@ import PopUpInformativo from "../common/modal/PopUpInformativo";
 import LoginEvents from "../../../presentacion/LoginEvents";
 import { Form, Nav, Container, Row, Col } from "react-bootstrap";
 import { DatosLogin } from "../Interfaces/DatosLoginInterface";
-import Cookies from "js-cookie";
+import { setCookie } from "../utils/funcionesCookie";
+import { DatosUsuario } from "../../../dominio/entidades/DatosUsuario";
 
 const logoEmpresa = require("../../assets/img/proInvesting.png");
 const imgLogin = require("../../assets/img/imagenLogin.png");
@@ -32,17 +33,15 @@ const LoginView = () => {
       setRespuesta(response);
       if (response.exito) {
         setMostrarPopUp(false);
-        const expirationDate = new Date(Date.now() + 60 * 1000);
-        Cookies.set("session", JSON.stringify(data), {
-          expires: expirationDate,
-        });
+        setCookie("session", response.datos as DatosUsuario);
+        window.location.reload();
       } else {
         setMostrarPopUp(true);
       }
     });
   };
 
-  const vistaLogin = (
+  return (
     <>
       <Nav className="navbar">
         <Container fluid>
@@ -121,20 +120,6 @@ const LoginView = () => {
       </Row>
     </>
   );
-
-  const vistaLayout = (
-    <>
-      <h1>Estas loggeado</h1>
-    </>
-  );
-
-  const userCookie = Cookies.get("session");
-  if (userCookie) {
-    const sessionData: DatosLogin = JSON.parse(userCookie);
-    console.log("session:", sessionData);
-    return vistaLayout;
-  }
-  return vistaLogin;
 };
 
 export default LoginView;

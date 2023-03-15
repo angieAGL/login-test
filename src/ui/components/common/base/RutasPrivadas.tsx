@@ -1,8 +1,8 @@
-import Cookies from "js-cookie";
 import { Navigate, Outlet } from "react-router-dom";
+import { getCookie } from "../../utils/funcionesCookie";
 
 export const RutasPrivadas = () => {
-  const userCookie = Cookies.get("session");
+  const userCookie = getCookie("session");
 
   return userCookie ? <Outlet></Outlet> : <Navigate to={"/"} />;
 };

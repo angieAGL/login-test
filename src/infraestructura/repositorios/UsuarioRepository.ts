@@ -1,4 +1,5 @@
 import { IUsuarioRepository } from "../../aplicacion/interfaces/IUsuarioRepository";
+import { DatosUsuario } from "../../dominio/entidades/DatosUsuario";
 import { Usuario } from "../../dominio/entidades/Usuario";
 
 export class UsuarioRepository implements IUsuarioRepository {
@@ -43,5 +44,9 @@ export class UsuarioRepository implements IUsuarioRepository {
     let listado_json: Usuario[] = await this.listarUsuarios();
 
     return listado_json.some((resp) => resp.id === usuario.id);
+  }
+
+  obtenerUsuario(): DatosUsuario {
+    return { nombre: "Juan Torrez" };
   }
 }

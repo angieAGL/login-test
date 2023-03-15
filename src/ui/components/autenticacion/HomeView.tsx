@@ -1,7 +1,14 @@
 import React from "react";
-
+import { getCookie } from "../utils/funcionesCookie";
+import LoginView from "./LoginView";
+import LayoutView from "./LayoutView";
 const HomeView = () => {
-  return <div>HomeView</div>;
+  const userCookie = getCookie("session");
+
+  if (userCookie) {
+    return <LayoutView />;
+  }
+  return <LoginView />;
 };
 
 export default HomeView;
