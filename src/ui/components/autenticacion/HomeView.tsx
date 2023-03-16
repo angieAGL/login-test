@@ -1,4 +1,3 @@
-import React from "react";
 import { getCookie } from "../utils/funcionesCookie";
 import LoginView from "./LoginView";
 import LayoutView from "./LayoutView";

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "../../css/login.css";
 import "../../css/textos.css";
 import BotonFormulario from "../common/grids/botones/BotonFormulario";
@@ -34,7 +34,6 @@ const LoginView = () => {
       if (response.exito) {
         setMostrarPopUp(false);
         setCookie("session", response.datos as DatosUsuario);
-        window.location.reload();
       } else {
         setMostrarPopUp(true);
       }
