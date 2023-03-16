@@ -6,7 +6,7 @@ const LayoutView = () => {
   const datos: DatosUsuario = JSON.parse(userCookie as string);
   return (
     <>
-      <h1>Estas loggeado:{datos.nombre} </h1>
+      <h1>Estas loggeado: {datos.nombre} </h1>
     </>
   );
 };
