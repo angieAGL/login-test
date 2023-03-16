@@ -33,3 +33,12 @@
   font-size: 14px;
   line-height: 17px;
 }
+
+.nombre-texto{
+  font-family: var(--fuente-text);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color:var(--color-principal-oscuro);
+}

@@ -79,9 +79,10 @@ const DemoGridView = () => {
   const { getTableProps } = tabla;
 
   return (
-    <Container fluid className="grid">
-      <h1 className="titulo mt-4">Mantenimiento de Demo </h1>
+    <Container fluid className="grid min-vh-100 mt-2">
       <div className="d-grid">
+        <h1 className="titulo mt-4">Mantenimiento de Demo </h1>
+
         <Col style={{ textAlign: "right" }}>
           <BotonAgregar
             to={"/mantenimiento/demo/agregar"}

@@ -47,6 +47,6 @@ export class UsuarioRepository implements IUsuarioRepository {
   }
 
   obtenerUsuario(): DatosUsuario {
-    return { nombre: "Juan Torrez" };
+    return { nombre: "Juan Perez Solis" };
   }
 }

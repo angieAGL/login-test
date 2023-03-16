@@ -6,7 +6,6 @@ import { DemoEvents } from "../../../../presentacion/DemoEvents";
 import { useInfraestructureRepository } from "../../common/base/Dependencies";
 import Boton from "../../common/grids/botones/Boton";
 import FormularioDemoValidacion from "./FormularioDemoHook";
-import "../../../css/formulario.css";
 
 const FormularioDemoView = () => {
   const { demoRepository, tipoRepository } = useInfraestructureRepository();
@@ -58,11 +57,11 @@ const FormularioDemoView = () => {
   };
 
   return (
-    <Container className="d-grid mt-3 formulario">
-      <h1 className="titulo mt-4">
-        {parametros.modoEditar ? "Editar Demo" : "Agregar Demo "}
-      </h1>
+    <Container className="grid h-100 mt-2">
       <Form onSubmit={handleSubmit(funcionSubmit)}>
+        <h1 className="titulo mt-4">
+          {parametros.modoEditar ? "Editar Demo" : "Agregar Demo "}
+        </h1>
         <Row className="mt-3">
           <Col sm>
             <Form.Group className="mb-2">

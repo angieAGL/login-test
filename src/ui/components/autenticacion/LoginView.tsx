@@ -6,12 +6,12 @@ import LoginValidation from "./LoginHook";
 import { useInfraestructureRepository } from "../common/base/Dependencies";
 import PopUpInformativo from "../common/modal/PopUpInformativo";
 import LoginEvents from "../../../presentacion/LoginEvents";
-import { Form, Nav, Container, Row, Col } from "react-bootstrap";
+import { Form, Row, Col } from "react-bootstrap";
 import { DatosLogin } from "../Interfaces/DatosLoginInterface";
 import { setCookie } from "../utils/FuncionCookie";
 import { DatosUsuario } from "../../../dominio/entidades/DatosUsuario";
+import NavBar from "../common/NavBar";
 
-const logoEmpresa = require("../../assets/img/proInvesting.png");
 const imgLogin = require("../../assets/img/imagenLogin.png");
 
 const LoginView = () => {
@@ -43,15 +43,7 @@ const LoginView = () => {
 
   return (
     <>
-      <Nav className="navbar">
-        <Container fluid>
-          <img
-            className="navbar-brand logo"
-            src={logoEmpresa}
-            alt="Muestra el logo de la empresa"
-          />
-        </Container>
-      </Nav>
+      <NavBar modoLogin={true} />
       <Row>
         <Col className="col d-none d-lg-block col-12 col-lg-6 col-md-6 px-0 img-login">
           <img
