@@ -8,7 +8,7 @@ import PopUpInformativo from "../common/modal/PopUpInformativo";
 import LoginEvents from "../../../presentacion/LoginEvents";
 import { Form, Nav, Container, Row, Col } from "react-bootstrap";
 import { DatosLogin } from "../Interfaces/DatosLoginInterface";
-import { setCookie } from "../utils/funcionesCookie";
+import { setCookie } from "../utils/FuncionCookie";
 import { DatosUsuario } from "../../../dominio/entidades/DatosUsuario";
 
 const logoEmpresa = require("../../assets/img/proInvesting.png");
@@ -34,6 +34,7 @@ const LoginView = () => {
       if (response.exito) {
         setMostrarPopUp(false);
         setCookie("session", response.datos as DatosUsuario);
+        window.location.reload();
       } else {
         setMostrarPopUp(true);
       }

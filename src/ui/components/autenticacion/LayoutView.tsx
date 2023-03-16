@@ -1,5 +1,5 @@
 import { DatosUsuario } from "../../../dominio/entidades/DatosUsuario";
-import { getCookie } from "../utils/funcionesCookie";
+import { getCookie } from "../utils/FuncionCookie";
 
 const LayoutView = () => {
   const userCookie = getCookie("session");

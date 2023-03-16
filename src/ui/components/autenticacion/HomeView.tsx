@@ -1,4 +1,4 @@
-import { getCookie } from "../utils/funcionesCookie";
+import { getCookie } from "../utils/FuncionCookie";
 import LoginView from "./LoginView";
 import LayoutView from "./LayoutView";
 const HomeView = () => {
