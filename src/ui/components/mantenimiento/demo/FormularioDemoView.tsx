@@ -57,11 +57,13 @@ const FormularioDemoView = () => {
   };
 
   return (
-    <Container className="grid h-100 mt-2">
-      <Form onSubmit={handleSubmit(funcionSubmit)}>
+    <Container fluid className="grid min-vh-100 mt-2">
+      <div className="d-grid">
         <h1 className="titulo mt-4">
           {parametros.modoEditar ? "Editar Demo" : "Agregar Demo "}
         </h1>
+      </div>
+      <Form onSubmit={handleSubmit(funcionSubmit)}>
         <Row className="mt-3">
           <Col sm>
             <Form.Group className="mb-2">

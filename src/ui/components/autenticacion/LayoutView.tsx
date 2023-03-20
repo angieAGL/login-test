@@ -15,8 +15,8 @@ const LayoutView = () => {
       </section>
       <section>
         <Row>
-          <Col className="col-2 w-10">{SideBar()}</Col>
-          <Col className="col-10">
+          <Col sm={2}>{SideBar()}</Col>
+          <Col sm={10}>
             <Outlet></Outlet>
           </Col>
         </Row>

@@ -1,24 +1,31 @@
-import React from "react";
-import { Nav, Row } from "react-bootstrap";
+import { Nav } from "react-bootstrap";
+import "../../css/sideBar.css";
+import { FaUsers } from "react-icons/fa";
+import { BsTable } from "react-icons/bs";
 
 const SideBar = () => {
   return (
-    <Row>
-      <Nav className="bg-light  min-vh-100">
+    <Nav
+      defaultActiveKey={"/mantenimiento/demo"}
+      className="min-vh-100 flex-column sidebar"
+    >
+      <div>
         <Nav.Link
-          className="nav nav-pills flex-column"
+          className="nav flex-column sidebar-texto sidebar-contenido"
           href="/mantenimiento/demo"
         >
+          <BsTable className="icono-sidebar" />
           Demo
         </Nav.Link>
         <Nav.Link
-          className="nav nav-pills flex-column"
+          className="nav flex-column sidebar-texto sidebar-contenido"
           href="/mantenimiento/usuario"
         >
+          <FaUsers className="icono-sidebar" />
           Usuario
         </Nav.Link>
-      </Nav>
-    </Row>
+      </div>
+    </Nav>
   );
 };
 

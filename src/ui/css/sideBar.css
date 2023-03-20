@@ -1,0 +1,26 @@
+.sidebar{
+  text-align: center;
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: #F9F9F9;
+}
+
+.icono-sidebar{
+  color:var(--color-principal-oscuro);
+  margin-right: 10px;
+}
+
+.sidebar-contenido{
+  padding: 20px;
+  width: 100%;
+  display: inline-block;
+}
+
+.sidebar-contenido:hover{ 
+  background: #d6f5f3;
+
+}
+
+
+  

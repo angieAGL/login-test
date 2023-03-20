@@ -42,3 +42,13 @@
   line-height: 17px;
   color:var(--color-principal-oscuro);
 }
+
+.sidebar-texto{
+  font-family: var(--fuente-text);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: var(--color-text);
+
+}
