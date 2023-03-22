@@ -3,10 +3,16 @@ import "../../css/navBar.css";
 import { Navbar, Container } from "react-bootstrap";
 import { ImExit } from "react-icons/im";
 import { NavBarInterface } from "../Interfaces/NavBarInterface";
+import { FaAlignJustify } from "react-icons/fa";
 
 const logoEmpresa = require("../../assets/img/proInvesting.png");
 
-const NavBar = ({ datos, modoLogin }: NavBarInterface) => {
+const NavBar = ({
+  datos,
+  modoLogin,
+  mostrarSidebar,
+  setMostrarSidebar,
+}: NavBarInterface) => {
   return (
     <Navbar className="navbar">
       <Container fluid>
@@ -16,6 +22,11 @@ const NavBar = ({ datos, modoLogin }: NavBarInterface) => {
             src={logoEmpresa}
             alt="Muestra el logo de la empresa"
           />
+          {modoLogin ? null : (
+            <FaAlignJustify
+              onClick={() => setMostrarSidebar?.(!mostrarSidebar)}
+            ></FaAlignJustify>
+          )}
         </Navbar.Brand>
         {modoLogin ? null : (
           <Navbar.Brand className="justify-content-end">

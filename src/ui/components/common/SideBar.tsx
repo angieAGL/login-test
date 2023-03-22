@@ -3,29 +3,33 @@ import "../../css/sideBar.css";
 import { FaUsers } from "react-icons/fa";
 import { BsTable } from "react-icons/bs";
 
-const SideBar = () => {
+const SideBar = (mostrarSidebar: any) => {
   return (
-    <Nav
-      defaultActiveKey={"/mantenimiento/demo"}
-      className="min-vh-100 flex-column sidebar"
-    >
-      <div>
-        <Nav.Link
-          className="nav flex-column sidebar-texto sidebar-contenido"
-          href="/mantenimiento/demo"
+    <>
+      {mostrarSidebar ? (
+        <Nav
+          defaultActiveKey={"/mantenimiento/demo"}
+          className=" flex-column sidebar"
         >
-          <BsTable className="icono-sidebar" />
-          Demo
-        </Nav.Link>
-        <Nav.Link
-          className="nav flex-column sidebar-texto sidebar-contenido"
-          href="/mantenimiento/usuario"
-        >
-          <FaUsers className="icono-sidebar" />
-          Usuario
-        </Nav.Link>
-      </div>
-    </Nav>
+          <div>
+            <Nav.Link
+              className="nav sidebar-texto sidebar-contenido"
+              href="/mantenimiento/demo"
+            >
+              <BsTable className="icono-sidebar" />
+              Demo
+            </Nav.Link>
+            <Nav.Link
+              className="nav sidebar-texto sidebar-contenido"
+              href="/mantenimiento/usuario"
+            >
+              <FaUsers className="icono-sidebar" />
+              Usuario
+            </Nav.Link>
+          </div>
+        </Nav>
+      ) : null}
+    </>
   );
 };
 
