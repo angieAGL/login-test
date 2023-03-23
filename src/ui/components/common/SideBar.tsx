@@ -3,14 +3,11 @@ import "../../css/sideBar.css";
 import { FaUsers } from "react-icons/fa";
 import { BsTable } from "react-icons/bs";
 
-const SideBar = (mostrarSidebar: any) => {
+const SideBar = (mostrarSidebar: boolean) => {
   return (
     <>
       {mostrarSidebar ? (
-        <Nav
-          defaultActiveKey={"/mantenimiento/demo"}
-          className=" flex-column sidebar"
-        >
+        <Nav className=" flex-column sidebar">
           <div>
             <Nav.Link
               className="nav sidebar-texto sidebar-contenido"

@@ -31,7 +31,6 @@ function App() {
             }
           >
             <Route
-              index
               path="/mantenimiento/demo"
               element={
                 <InfraestructureProvider>
