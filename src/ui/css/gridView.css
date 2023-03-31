@@ -1,4 +1,14 @@
+@import url("variables.css");
+
 .grid {
-  background: #F9F9F9;
+  background:var(--color-contenido);
   border-radius: 25px 25px 0 0;
+  height: 91vh;
+  position: relative;
+}
+
+@media(min-height: 800px ) {
+  .grid{
+    height: 100vh;
+  };
 }

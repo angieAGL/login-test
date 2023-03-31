@@ -1,12 +1,5 @@
 @import url("variables.css");
 
-.logo{
-  width: 125px;
-  height: 32px;
-}
-
-.icon-ojo{
-  color: var(--color-principal);
-  position: relative;
-  left: 2vh;
+.row{
+  --bs-gutter-x:0;
 }

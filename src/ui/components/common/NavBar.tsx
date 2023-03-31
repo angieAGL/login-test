@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../css/navBar.css";
-import { Navbar, Container } from "react-bootstrap";
-import { ImExit } from "react-icons/im";
+import { Navbar, Container, Col } from "react-bootstrap";
 import { NavBarInterface } from "../Interfaces/NavBarInterface";
 import { FaAlignJustify } from "react-icons/fa";
+import BotonCerrarSesion from "./grids/botones/BotonCerrarSesion";
 
 const logoEmpresa = require("../../assets/img/proInvesting.png");
 
@@ -13,31 +13,48 @@ const NavBar = ({
   mostrarSidebar,
   setMostrarSidebar,
 }: NavBarInterface) => {
+  const [mostrarPopUp, setMostrarPopUp] = useState(false);
   return (
     <Navbar className="navbar">
       <Container fluid>
-        <Navbar.Brand>
-          <img
-            className="navbar-brand logo "
-            src={logoEmpresa}
-            alt="Muestra el logo de la empresa"
-          />
-          {modoLogin ? null : (
-            <FaAlignJustify
-              onClick={() => setMostrarSidebar?.(!mostrarSidebar)}
-            ></FaAlignJustify>
-          )}
-        </Navbar.Brand>
-        {modoLogin ? null : (
-          <Navbar.Brand className="justify-content-end">
-            <Navbar.Text className="nombre-texto me-3">
-              {datos?.nombre}
-            </Navbar.Text>
-            <ImExit
-              color="var(--color-principal-oscuro)"
-              size={"30px"}
-            ></ImExit>
+        <Col lg={2} style={{ textAlign: "center" }}>
+          <Navbar.Brand>
+            <img
+              className="navbar-brand logo"
+              src={logoEmpresa}
+              alt="Muestra el logo de la empresa"
+            />
           </Navbar.Brand>
+        </Col>
+        <Col lg={1} style={{ textAlign: "start" }}>
+          <Navbar.Brand>
+            {modoLogin ? null : (
+              <FaAlignJustify
+                className="icon-sidebar"
+                style={{ cursor: "pointer" }}
+                onClick={() => setMostrarSidebar?.(!mostrarSidebar)}
+              ></FaAlignJustify>
+            )}
+          </Navbar.Brand>
+        </Col>
+
+        {modoLogin ? null : (
+          <Col style={{ textAlign: "right" }} sm={9}>
+            <Navbar.Brand>
+              <Navbar.Text className="nombre-texto me-3">
+                {datos?.nombre}
+              </Navbar.Text>
+              <BotonCerrarSesion
+                href={"#"}
+                onClick={() => {
+                  setMostrarPopUp(true);
+                }}
+                mostrarPopUp={mostrarPopUp}
+                mensaje={"¿Esta seguro que desea cerrar sesion?"}
+                setMostrarPopUp={setMostrarPopUp}
+              />
+            </Navbar.Brand>
+          </Col>
         )}
       </Container>
     </Navbar>

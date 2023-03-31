@@ -15,3 +15,7 @@ export const setCookie = (nombre: string, data: DatosUsuario) => {
 export const getCookie = (nombre: string) => {
   return Cookies.get(nombre);
 };
+
+export const deleteCookie = (nombre: string) => {
+  return Cookies.remove(nombre, { sameSite: "lax" });
+};

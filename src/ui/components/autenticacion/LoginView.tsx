@@ -10,7 +10,6 @@ import { Form, Row, Col } from "react-bootstrap";
 import { DatosLogin } from "../Interfaces/DatosLoginInterface";
 import { setCookie } from "../utils/FuncionCookie";
 import { DatosUsuario } from "../../../dominio/entidades/DatosUsuario";
-import NavBar from "../common/NavBar";
 
 const imgLogin = require("../../assets/img/imagenLogin.png");
 
@@ -43,11 +42,10 @@ const LoginView = () => {
 
   return (
     <>
-      <NavBar modoLogin={true} />
       <Row>
-        <Col className="col d-none d-lg-block col-12 col-lg-6 col-md-6 px-0 img-login">
+        <Col className="col d-none d-lg-block col-lg-6  img-login">
           <img
-            className="w-100"
+            className=" w-100 vh-100"
             src={imgLogin}
             alt="Muestra el logo de la empresa"
           />

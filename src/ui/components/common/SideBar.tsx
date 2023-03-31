@@ -13,14 +13,14 @@ const SideBar = (mostrarSidebar: boolean) => {
               className="nav sidebar-texto sidebar-contenido"
               href="/mantenimiento/demo"
             >
-              <BsTable className="icono-sidebar" />
+              <BsTable className="iconos-sidebar" />
               Demo
             </Nav.Link>
             <Nav.Link
               className="nav sidebar-texto sidebar-contenido"
               href="/mantenimiento/usuario"
             >
-              <FaUsers className="icono-sidebar" />
+              <FaUsers className="iconos-sidebar" />
               Usuario
             </Nav.Link>
           </div>

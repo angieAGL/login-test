@@ -5,7 +5,6 @@ import SideBar from "../common/SideBar";
 import { Outlet } from "react-router-dom";
 import { Col, Row } from "react-bootstrap";
 import { useState } from "react";
-import DemoGridView from "../mantenimiento/demo/DemoGridView";
 
 const LayoutView = () => {
   const userCookie = getCookie("session");
@@ -14,26 +13,19 @@ const LayoutView = () => {
 
   return (
     <>
-      <section>
-        <NavBar
-          datos={datos}
-          modoLogin={false}
-          mostrarSidebar={mostrarSidebar}
-          setMostrarSidebar={setMostrarSidebar}
-        />
-      </section>
-      <section>
-        <Row>
-          <Col sm={mostrarSidebar ? 2 : 0}>{SideBar(mostrarSidebar)}</Col>
-          <Col sm={mostrarSidebar ? 10 : 12}>
-            {window.location.pathname === "/" ? (
-              <DemoGridView></DemoGridView>
-            ) : (
-              <Outlet></Outlet>
-            )}
-          </Col>
-        </Row>
-      </section>
+      <NavBar
+        datos={datos}
+        modoLogin={false}
+        mostrarSidebar={mostrarSidebar}
+        setMostrarSidebar={setMostrarSidebar}
+      />
+
+      <Row>
+        <Col sm={mostrarSidebar ? 2 : 0}>{SideBar(mostrarSidebar)}</Col>
+        <Col sm={mostrarSidebar ? 10 : 12}>
+          <Outlet></Outlet>
+        </Col>
+      </Row>
     </>
   );
 };

@@ -30,3 +30,11 @@ export type BotonAccion = {
   state?: any; // Es any porque el Link, su state es any
   onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
 };
+
+export type BotonLogOut = {
+  href: string;
+  onClick: (event: React.MouseEvent<HTMLAnchorElement>) => void;
+  mostrarPopUp: boolean;
+  mensaje: string;
+  setMostrarPopUp: React.Dispatch<React.SetStateAction<boolean>>;
+};

@@ -1,4 +1,20 @@
+@import url("variables.css");
+
 .navbar{
-  background: #F6F6F6;
+  background: var(--color-contenido);
+}
+
+.logo{
+  width: 125px;
+  height: 32px;
+  text-align: center;
+  align-items: center;
+}
+
+.icon-sidebar{
+  text-align: right;
+  align-items:end ;
+  cursor: pointer;
+
 }
   
