@@ -1,6 +1,7 @@
+import { TableInterface } from "../../../Interfaces/TablaInterface";
 import BotonBuscador from "./BotonBuscador";
 
-const BotonReset = (tabla: any) => {
+const BotonReset = (tabla: TableInterface<{}>) => {
   const { setAllFilters } = tabla;
 
   return (

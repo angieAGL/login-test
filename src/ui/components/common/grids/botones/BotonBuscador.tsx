@@ -1,5 +1,5 @@
 import Boton from "./Boton";
-import { BotonInterface } from "../Interfaces/BotonesInterface";
+import { BotonInterface } from "../../../Interfaces/BotonesInterface";
 
 const BotonBuscador = ({ text, onClick, class_name }: BotonInterface) => {
   return (

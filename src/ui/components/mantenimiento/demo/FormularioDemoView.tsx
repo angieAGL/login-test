@@ -6,7 +6,6 @@ import { DemoEvents } from "../../../../presentacion/DemoEvents";
 import { useInfraestructureRepository } from "../../common/base/Dependencies";
 import Boton from "../../common/grids/botones/Boton";
 import FormularioDemoValidacion from "./FormularioDemoHook";
-import "../../../css/formulario.css";
 
 const FormularioDemoView = () => {
   const { demoRepository, tipoRepository } = useInfraestructureRepository();
@@ -34,9 +33,9 @@ const FormularioDemoView = () => {
     mensajeErrorNumero,
   } = FormularioDemoValidacion(parametros.initialData);
 
-  const options: any = [];
+  const options: JSX.Element[] = [];
 
-  parametros.listaGenero.forEach((value: string, key: any) => {
+  parametros.listaGenero.forEach((value: string, key: number) => {
     options.push(
       <option key={key} value={key}>
         {value}
@@ -58,10 +57,12 @@ const FormularioDemoView = () => {
   };
 
   return (
-    <Container className="d-grid mt-3 formulario">
-      <h1 className="titulo mt-4">
-        {parametros.modoEditar ? "Editar Demo" : "Agregar Demo "}
-      </h1>
+    <Container fluid className="grid min-vh-100 mt-2">
+      <div className="d-grid">
+        <h1 className="titulo mt-4">
+          {parametros.modoEditar ? "Editar Demo" : "Agregar Demo "}
+        </h1>
+      </div>
       <Form onSubmit={handleSubmit(funcionSubmit)}>
         <Row className="mt-3">
           <Col sm>

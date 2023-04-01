@@ -1,0 +1,28 @@
+@import url("variables.css");
+
+.sidebar{
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: var(--color-contenido);
+  margin-right: 10px;
+  height: 100%;
+}
+
+.iconos-sidebar{
+  color:var(--color-principal-oscuro);
+  margin-right: 10px;
+}
+
+.sidebar-contenido{
+  padding: 20px;
+  width: 100%;
+  display: inline-block;
+}
+
+.sidebar-contenido:hover{ 
+  background: #d6f5f3;
+}
+
+
+  

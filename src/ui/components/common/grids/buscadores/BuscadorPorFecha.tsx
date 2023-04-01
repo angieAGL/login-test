@@ -1,7 +1,8 @@
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
+import { TableInterface } from "../../../Interfaces/TablaInterface";
 
-const BuscadorPorFecha = ({ column }: any) => {
+const BuscadorPorFecha = ({ column }: TableInterface<{}>) => {
   const { filterValue, setFilter } = column;
   return (
     <Col className="col-auto">

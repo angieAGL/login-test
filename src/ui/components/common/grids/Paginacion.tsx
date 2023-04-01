@@ -5,9 +5,10 @@ import {
   FaAngleRight,
 } from "react-icons/fa";
 import "../../../css/paginacion.css";
+import { TableInterface } from "../../Interfaces/TablaInterface";
 import Boton from "./botones/Boton";
 
-const Paginacion = (tabla: any) => {
+const Paginacion = (tabla: TableInterface<{}>) => {
   const {
     canPreviousPage,
     canNextPage,

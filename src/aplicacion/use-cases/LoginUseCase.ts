@@ -19,9 +19,12 @@ export class LoginUseCase {
     let valor = await this._usuarioRepository
       .autenticarUsuario(usuario, contrasenia)
       .then((valor) => {
-        return valor
-          ? { exito: true, mensaje: "Exito" }
-          : { exito: false, mensaje: "Usuario o contraseña incorrecta" };
+        if (!valor) {
+          return { exito: false, mensaje: "Usuario o contraseña incorrecta" };
+        }
+        const nombre = this._usuarioRepository.obtenerUsuario();
+
+        return { exito: true, mensaje: "Exito", datos: nombre };
       });
 
     return valor;

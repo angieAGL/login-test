@@ -20,6 +20,7 @@ import { Table, Container, Col } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { Demo } from "../../../../dominio/entidades/Demo";
 import { BotonAgregar } from "../../common/grids/botones/BotonAgregar";
+import { TableInterface } from "../../Interfaces/TablaInterface";
 
 const DemoGridView = () => {
   const { demoRepository, tipoRepository } = useInfraestructureRepository();
@@ -60,7 +61,7 @@ const DemoGridView = () => {
     demoEvento
   );
 
-  const tabla: any = useTable(
+  const tabla = useTable(
     {
       columns,
       data,
@@ -74,13 +75,14 @@ const DemoGridView = () => {
     useFilters,
     useGlobalFilter,
     usePagination
-  );
+  ) as TableInterface<{}>;
   const { getTableProps } = tabla;
 
   return (
-    <Container fluid className="grid">
-      <h1 className="titulo mt-4">Mantenimiento de Demo </h1>
+    <Container fluid className="grid mt-2">
       <div className="d-grid">
+        <h1 className="titulo mt-4">Mantenimiento de Demo </h1>
+
         <Col style={{ textAlign: "right" }}>
           <BotonAgregar
             to={"/mantenimiento/demo/agregar"}

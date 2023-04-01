@@ -6,10 +6,11 @@ import LoginValidation from "./LoginHook";
 import { useInfraestructureRepository } from "../common/base/Dependencies";
 import PopUpInformativo from "../common/modal/PopUpInformativo";
 import LoginEvents from "../../../presentacion/LoginEvents";
-import { useNavigate } from "react-router-dom";
-import { Form, Nav, Container, Row, Col } from "react-bootstrap";
+import { Form, Row, Col } from "react-bootstrap";
+import { DatosLogin } from "../Interfaces/DatosLoginInterface";
+import { setCookie } from "../utils/FuncionCookie";
+import { DatosUsuario } from "../../../dominio/entidades/DatosUsuario";
 
-const logoEmpresa = require("../../assets/img/proInvesting.png");
 const imgLogin = require("../../assets/img/imagenLogin.png");
 
 const LoginView = () => {
@@ -26,14 +27,13 @@ const LoginView = () => {
     mensajeErrorContraseña,
   } = LoginValidation();
 
-  const navigate = useNavigate();
-
-  const funcionSubmit = (data: any) => {
+  const funcionSubmit = (data: DatosLogin) => {
     onSubmit(data).then((response) => {
       setRespuesta(response);
       if (response.exito) {
         setMostrarPopUp(false);
-        navigate("/mantenimiento/demo");
+        setCookie("session", response.datos as DatosUsuario);
+        window.location.reload();
       } else {
         setMostrarPopUp(true);
       }
@@ -42,19 +42,10 @@ const LoginView = () => {
 
   return (
     <>
-      <Nav className="navbar">
-        <Container fluid>
-          <img
-            className="navbar-brand logo"
-            src={logoEmpresa}
-            alt="Muestra el logo de la empresa"
-          />
-        </Container>
-      </Nav>
       <Row>
-        <Col className="col d-none d-lg-block col-12 col-lg-6 col-md-6 px-0 img-login">
+        <Col className="col d-none d-lg-block col-lg-6  img-login">
           <img
-            className="w-100"
+            className=" w-100 vh-100"
             src={imgLogin}
             alt="Muestra el logo de la empresa"
           />
