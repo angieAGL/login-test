@@ -47,3 +47,9 @@
   font-size: 14px;
   line-height: 17px;
 }
+
+.btn-error{
+  width: 226px;
+  padding: 14px;
+  border-radius: 10px;
+}

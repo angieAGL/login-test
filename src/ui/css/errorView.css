@@ -1,0 +1,16 @@
+.pag-error{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 91vh;
+}
+
+.robot-error{
+  width: 413px;
+  height: 423px;
+}
+
+.robot-contenedor{
+  text-align: center;
+  display: block;
+}

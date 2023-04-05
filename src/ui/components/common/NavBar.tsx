@@ -9,7 +9,7 @@ const logoEmpresa = require("../../assets/img/proInvesting.png");
 
 const NavBar = ({
   datos,
-  modoLogin,
+  modoHome,
   mostrarSidebar,
   setMostrarSidebar,
 }: NavBarInterface) => {
@@ -28,17 +28,17 @@ const NavBar = ({
         </Col>
         <Col lg={1} style={{ textAlign: "start" }}>
           <Navbar.Brand>
-            {modoLogin ? null : (
+            {modoHome ? (
               <FaAlignJustify
                 className="icon-sidebar"
                 style={{ cursor: "pointer" }}
                 onClick={() => setMostrarSidebar?.(!mostrarSidebar)}
               ></FaAlignJustify>
-            )}
+            ) : null}
           </Navbar.Brand>
         </Col>
 
-        {modoLogin ? null : (
+        {modoHome ? (
           <Col style={{ textAlign: "right" }} sm={9}>
             <Navbar.Brand>
               <Navbar.Text className="nombre-texto me-3">
@@ -55,7 +55,7 @@ const NavBar = ({
               />
             </Navbar.Brand>
           </Col>
-        )}
+        ) : null}
       </Container>
     </Navbar>
   );
