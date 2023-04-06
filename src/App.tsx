@@ -4,7 +4,7 @@ import UsuarioGridView from "./ui/components/mantenimiento/usuario/UsuarioGridVi
 import HomeView from "./ui/components/autenticacion/HomeView";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import FormularioDemoView from "./ui/components/mantenimiento/demo/FormularioDemoView";
-import ErrorView from "./ui/components/errores/NotFoundView";
+import NotFoundView from "./ui/components/errores/NotFoundView";
 import { RutasPrivadas } from "./ui/components/common/base/RutasPrivadas";
 import LayoutView from "./ui/components/autenticacion/LayoutView";
 
@@ -65,7 +65,7 @@ function App() {
           </Route>
         </Route>
 
-        <Route path="*" element={<ErrorView />}></Route>
+        <Route path="*" element={<NotFoundView />}></Route>
       </Routes>
     </Router>
   );

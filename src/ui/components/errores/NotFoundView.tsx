@@ -4,7 +4,7 @@ import "../../css/notFound.css";
 
 const error = require("../../assets/img/error404.png");
 
-const ErrorView = () => {
+const NotFoundView = () => {
   return (
     <>
       <Container className="pag-error">
@@ -44,4 +44,4 @@ const ErrorView = () => {
   );
 };
 
-export default ErrorView;
+export default NotFoundView;
