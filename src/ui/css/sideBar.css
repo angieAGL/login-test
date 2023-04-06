@@ -24,9 +24,14 @@
   background: #d6f5f3;
 }
 
-
-@media(min-height: 800px ) {
+@media(max-width: 576px ) {
   .sidebar{
     height: 100%;
   };
 } 
+
+@media(min-height: 1000px ) {
+  .sidebar{
+    height: 100vh;
+  };
+}

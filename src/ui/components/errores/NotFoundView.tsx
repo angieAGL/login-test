@@ -1,9 +1,8 @@
-import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import Boton from "./common/grids/botones/Boton";
-import "../css/errorView.css";
+import Boton from "../common/grids/botones/Boton";
+import "../../css/notFound.css";
 
-const error = require("../assets/img/error404.png");
+const error = require("../../assets/img/error404.png");
 
 const ErrorView = () => {
   return (
