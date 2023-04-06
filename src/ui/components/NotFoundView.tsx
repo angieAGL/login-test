@@ -1,5 +1,4 @@
 import React from "react";
-import NavBar from "./common/NavBar";
 import { Col, Container, Row } from "react-bootstrap";
 import Boton from "./common/grids/botones/Boton";
 import "../css/errorView.css";
@@ -9,7 +8,6 @@ const error = require("../assets/img/error404.png");
 const ErrorView = () => {
   return (
     <>
-      <NavBar modoHome={false} />
       <Container className="pag-error">
         <Row>
           <Col className="col d-none d-lg-block col-lg-6 robot-contenedor">
