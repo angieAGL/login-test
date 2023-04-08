@@ -15,7 +15,6 @@ const LayoutView = () => {
     <>
       <NavBar
         datos={datos}
-        modoLogin={false}
         mostrarSidebar={mostrarSidebar}
         setMostrarSidebar={setMostrarSidebar}
       />

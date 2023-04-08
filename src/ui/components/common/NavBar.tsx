@@ -9,7 +9,7 @@ const logoEmpresa = require("../../assets/img/proInvesting.png");
 
 const NavBar = ({
   datos,
-  modoLogin,
+
   mostrarSidebar,
   setMostrarSidebar,
 }: NavBarInterface) => {
@@ -28,34 +28,30 @@ const NavBar = ({
         </Col>
         <Col lg={1} style={{ textAlign: "start" }}>
           <Navbar.Brand>
-            {modoLogin ? null : (
-              <FaAlignJustify
-                className="icon-sidebar"
-                style={{ cursor: "pointer" }}
-                onClick={() => setMostrarSidebar?.(!mostrarSidebar)}
-              ></FaAlignJustify>
-            )}
+            <FaAlignJustify
+              className="icon-sidebar"
+              style={{ cursor: "pointer" }}
+              onClick={() => setMostrarSidebar?.(!mostrarSidebar)}
+            ></FaAlignJustify>
           </Navbar.Brand>
         </Col>
 
-        {modoLogin ? null : (
-          <Col style={{ textAlign: "right" }} sm={9}>
-            <Navbar.Brand>
-              <Navbar.Text className="nombre-texto me-3">
-                {datos?.nombre}
-              </Navbar.Text>
-              <BotonCerrarSesion
-                href={"#"}
-                onClick={() => {
-                  setMostrarPopUp(true);
-                }}
-                mostrarPopUp={mostrarPopUp}
-                mensaje={"¿Esta seguro que desea cerrar sesion?"}
-                setMostrarPopUp={setMostrarPopUp}
-              />
-            </Navbar.Brand>
-          </Col>
-        )}
+        <Col style={{ textAlign: "right" }} sm={9}>
+          <Navbar.Brand>
+            <Navbar.Text className="nombre-texto me-3">
+              {datos?.nombre}
+            </Navbar.Text>
+            <BotonCerrarSesion
+              href={"#"}
+              onClick={() => {
+                setMostrarPopUp(true);
+              }}
+              mostrarPopUp={mostrarPopUp}
+              mensaje={"¿Esta seguro que desea cerrar sesion?"}
+              setMostrarPopUp={setMostrarPopUp}
+            />
+          </Navbar.Brand>
+        </Col>
       </Container>
     </Navbar>
   );
