@@ -6,10 +6,12 @@ export class DemoRepository implements IDemoRepository {
     let response = await fetch(
       "https://my-json-server.typicode.com/angieAGL/datosDemo/listaDemo"
     );
+ 
+    let data = await response.json();
+    console.log(data);   
     let respo1= await fetch("http://api-admin-load-balancer-dev-1144647766.us-east-1.elb.amazonaws.com/notificacion/leer_todo")
     let data1= await response.json();
     console.log(data1);
-    let data = await response.json();
     return data;
   }
 
