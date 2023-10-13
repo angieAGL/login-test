@@ -9,8 +9,8 @@ export class DemoRepository implements IDemoRepository {
  
     let data = await response.json();
     console.log(data);   
-    console.log(process.env.REACT_APP_URL_DEV);
-    let respo1= await fetch("https://my-json-server.typicode.com/angieAGL/datosDemo/listaDemo")
+    console.log(`${process.env.REACT_APP_URL_DEV}`);
+    let respo1= await fetch(`${process.env.REACT_APP_URL_DEV}`)
     let data1= await respo1.json();
     console.log(data1);
     return data;
