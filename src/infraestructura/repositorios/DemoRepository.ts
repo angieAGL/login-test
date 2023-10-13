@@ -9,7 +9,7 @@ export class DemoRepository implements IDemoRepository {
  
     let data = await response.json();
     console.log(data);   
-    let respo1= await fetch("http://api-admin-load-balancer-dev-1144647766.us-east-1.elb.amazonaws.com/notificacion/leer_todo")
+    let respo1= await fetch(process.env.REACT_APP_URL_DEV)
     let data1= await respo1.json();
     console.log(data1);
     return data;
