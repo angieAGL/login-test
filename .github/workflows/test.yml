@@ -3,7 +3,7 @@ name: Jest Tests
 on:
   push:
     branches:
-      - main # Cambia "main" por la rama principal de tu proyecto
+      - test # Cambia "main" por la rama principal de tu proyecto
   workflow_dispatch:
 
 jobs:
