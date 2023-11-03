@@ -22,3 +22,10 @@ jobs:
 
       - name: Run Jest Tests
         run: npm test
+      
+      - name: Run esLint
+        run: npm run lint
+ 
+      - name: Run prettier
+        run:  npm run prettier
+ 
