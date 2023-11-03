@@ -1,16 +1,24 @@
-name: Test
-on: 
-	push:
-		branches:
-			- main
+name: Jest Tests
+
+on:
+  push:
+    branches:
+      - main # Cambia "main" por la rama principal de tu proyecto
+ workflow_dispatch:
 
 jobs:
-	test:
-		- name: Checkout repository
-    - uses: actions/checkout@v3
-    
-		- name: Install dependencias
-		- run: npm install
+  build:
+    runs-on: ubuntu-latest
 
-		- name: Run test
-		- run: npm test 
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Jest Tests
+        run: npm test
